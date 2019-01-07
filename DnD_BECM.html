@@ -7,15 +7,15 @@
   <div class="sheet-core-header sheet-padb">
 		<div class="sheet-row">
 			<div class="sheet-col-1-4 sheet-margin-top"><img src="http://i.imgur.com/D36CQPG.png" alt="Dungeons and Dragons (BECM Clasic edition) german translation" width=150 ></div>
-			<div class="sheet-col-1-8 sheet-center sheet-margin-top"><p class="sheet-last-updated">Sheet version<br/>20th April 2018</p></div>
+			<div class="sheet-col-1-8 sheet-center sheet-margin-top"><p class="sheet-last-updated">Sheet version<br/>3. Oktober 2018</p></div>
 			<div class="sheet-col-1-4 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_character_name"><br/>Charakter Name</div>
 			<div class="sheet-col-1-8 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_class"><br/>Klasse</div>
 			<div class="sheet-col-1-8 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="number" name="attr_level"><br/>Stufe</div>
-			<div class="sheet-col-1-8 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_class2"><br/>Klasse</div>
+<!-- 			<div class="sheet-col-1-8 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_class2"><br/>Klasse</div>
 			<div class="sheet-col-1-8 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="number" name="attr_level2"><br/>Stufe</div>
 			<div class="sheet-col-1-8 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_class3"><br/>Klasse</div>
 			<div class="sheet-col-1-8 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="number" name="attr_level3"><br/>Stufe</div>
-		</div>
+ -->		</div>
 	</div>
 	<!-- Tabs-->
 	<input type="radio" name="attr_tab" class="sheet-tab sheet-tab1" value="1" title="Haupt" checked="checked" />
@@ -31,7 +31,7 @@
 		<input type="radio" name="attr_tab" class="sheet-tab sheet-tab6" value="6" />
 		<span class="sheet-tab sheet-tab6">Inventar</span>
 		<input type="radio" name="attr_tab" class="sheet-tab sheet-tab99" value="99" />
-		<span class="sheet-tab sheet-tab99">Alles anzeigen</span>
+		<span class="sheet-tab sheet-tab99">Gesamtansicht</span>
 		<span class="sheet-spacer"></span>
 	<!--Main Page-->
 	<div class="sheet-section-main">
@@ -56,10 +56,10 @@
 				<div class="sheet-col-1-7 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_weight"><br/>Gewicht</div>
 				<div class="sheet-col-1-7 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_eyes"><br/>Augen</div>
 				<div class="sheet-col-1-7 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_hair"><br/>Haare</div>
-				<div class="sheet-col-1-7 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_size"><br/>Size</div>
+				<div class="sheet-col-1-7 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_size"><br/>Größentyp</div>
 			</div>
 			<div class="sheet-row sheet-padb">
-				<div class="sheet-col-1-6 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_vision"><br/>Vision</div>
+				<div class="sheet-col-1-6 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_vision"><br/>Sicht</div>
 				<div class="sheet-col-2-3 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_prolanguages"><br/>Bekannte Sprachen</div>
 				<div class="sheet-col-1-6 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_alignment"><br/>Gesinnung</div>
 			</div>
@@ -70,8 +70,8 @@
 					<div class="sheet-row sheet-sub-header">
 						<div class="sheet-col-1-6 sheet-center sheet-small-label">Wert</div>
 						<div class="sheet-col-1-6 sheet-center sheet-small-label">&nbsp;</div>
-						<div class="sheet-col-1-6 sheet-center sheet-small-label">Gutschr..</div>
-						<div class="sheet-col-1-8 sheet-center sheet-small-label">Check</div>
+						<div class="sheet-col-1-6 sheet-center sheet-small-label">Anpass.</div>
+						<div class="sheet-col-1-8 sheet-center sheet-small-label">Würfel</div>
 						<div class="sheet-col-1-4 sheet-center sheet-small-label">Notizen</div>
 					</div>
 					<div class="sheet-row">
@@ -81,9 +81,9 @@
 							<input type="number" name="attr_strength_mod" value="(round(@{strength}*@{strength}*@{strength}*0.002831-@{strength}*@{strength}*0.08918+1.164*@{strength}-5.667))" disabled="disabled" />
 						</div>
 						<div class="sheet-col-1-8 sheet-center">
-							<button type="roll" name="roll_Str" value="&{template:5eDefault} {{ability=1}} {{title=Strength Check}} {{subheader=@{character_name}}} {{rollname=Success}} {{roll=[[@{strength}-{1d20}]]}}"></button>
+							<button type="roll" name="roll_Str" value="&{template:5eDefault} {{ability=1}} {{title=Stärkewurf}} {{subheader=@{character_name} Attributswurf}} {{freetext=Erforderlich **@{strength}** oder weniger.}} {{rollname=Ergebnis}} {{roll=[[1d20]]}}"></button>
 						</div>
-						<div class="sheet-col-1-4 sheet-tiny-note">Angriff&nbsp;Dam.&nbsp;Türen&nbsp;öffnen</div>
+						<div class="sheet-col-1-4 sheet-tiny-note">Angriff&nbsp;Schad.&nbsp;Türen&nbsp;öffnen</div>
 					</div>
 					<div class="sheet-row">
 						<div class="sheet-col-1-6"><input type="number" name="attr_intelligence" min="1" step="1" /></div>
@@ -92,7 +92,7 @@
 							<input type="number" name="attr_intelligence_mod" value="(round(@{intelligence}*@{intelligence}*@{intelligence}*0.002831-@{intelligence}*@{intelligence}*0.08918+1.164*@{intelligence}-5.667))" disabled="disabled" />
 						</div>
 						<div class="sheet-col-1-8 sheet-center">
-							<button type="roll" name="roll_Int" value="&{template:5eDefault} {{ability=1}} {{title=Intelligence Check}} {{subheader=@{character_name}}} {{rollname=Success}} {{roll=[[@{intelligence}-{1d20}]]}}"></button>
+							<button type="roll" name="roll_Int" value="&{template:5eDefault} {{ability=1}} {{title=Intelligenzwurf}} {{subheader=@{character_name} Attributswurf}} {{freetext=Erforderlich **@{intelligence}** oder weniger.}} {{rollname=Ergebnis}} {{roll=[[1d20}]}}"></button>
 						</div>
 						<div class="sheet-col-1-4 sheet-tiny-note">Anzahl Sprachen</div>
 					</div>
@@ -103,7 +103,7 @@
 							<input type="number" name="attr_wisdom_mod" value="(round(@{wisdom}*@{wisdom}*@{wisdom}*0.002831-@{wisdom}*@{wisdom}*0.08918+1.164*@{wisdom}-5.667))" disabled="disabled" />
 						</div>
 						<div class="sheet-col-1-8 sheet-center">
-							<button type="roll" name="roll_Wis" value="&{template:5eDefault} {{ability=1}} {{title=Wisdom Check}} {{subheader=@{character_name}}} {{rollname=Success}} {{roll=[[@{wisdom}-{1d20}]]}}"></button>
+							<button type="roll" name="roll_Wis" value="&{template:5eDefault} {{ability=1}} {{title=Weisheitswurf}} {{subheader=@{character_name} Attributswurf}} {{freetext=Erforderlich **@{wisdom}** oder weniger.}} {{rollname=Ergebnis}} {{roll=[[1d20]]}}"></button>
 						</div>
 						<div class="sheet-col-1-4 sheet-tiny-note">RW&nbsp;gg.&nbsp;Zauber</div>
 					</div>
@@ -114,7 +114,7 @@
 							<input type="number" name="attr_dexterity_mod" value="(round(@{dexterity}*@{dexterity}*@{dexterity}*0.002831-@{dexterity}*@{dexterity}*0.08918+1.164*@{dexterity}-5.667))" disabled="disabled" />
 						</div>
 						<div class="sheet-col-1-8 sheet-center">
-							<button type="roll" name="roll_Dex" value="&{template:5eDefault} {{ability=1}} {{title=Dexterity Check}} {{subheader=@{character_name}}} {{rollname=Success}} {{roll=[[@{dexterity}-{1d20}]]}}"></button>
+							<button type="roll" name="roll_Dex" value="&{template:5eDefault} {{ability=1}} {{title=Geschickwurf}} {{subheader=@{character_name} Attributswurf}} {{freetext=Erforderlich **@{dexterity}** oder weniger.}} {{rollname=Ergebnis}} {{roll=[[1d20]]}}"></button>
 						</div>
 						<div class="sheet-col-1-4 sheet-tiny-note">Geschoss&nbsp;Angriffe&nbsp;RK</div>
 					</div>
@@ -125,7 +125,7 @@
 							<input type="number" name="attr_constitution_mod" value="(round(@{constitution}*@{constitution}*@{constitution}*0.002831-@{constitution}*@{constitution}*0.08918+1.164*@{constitution}-5.667))" disabled="disabled" />
 						</div>
 						<div class="sheet-col-1-8 sheet-center">
-							<button type="roll" name="roll_Con" value="&{template:5eDefault} {{ability=1}} {{title=Constitution Check}} {{subheader=@{character_name}}} {{rollname=Success}} {{roll=[[@{constitution}-{1d20}]]}}"></button>
+							<button type="roll" name="roll_Con" value="&{template:5eDefault} {{ability=1}} {{title=Konstitutionswurf}} {{subheader=@{character_name} Attributswurf}} {{freetext=Erforderlich **@{constitution}** oder weniger.}} {{rollname=Ergebnis}} {{roll=[[1d20]]}}"></button>
 						</div>
 						<div class="sheet-col-1-4 sheet-tiny-note">TP&nbsp;/Stufe</div>
 					</div>
@@ -136,7 +136,7 @@
 							<input type="number" name="attr_charisma_mod" value="(round(@{charisma}*@{charisma}*@{charisma}*0.002831-@{charisma}*@{charisma}*0.08918+1.164*@{charisma}-5.667))" disabled="disabled" />
 						</div>
 						<div class="sheet-col-1-8 sheet-center">
-							<button type="roll" name="roll_Cha" value="&{template:5eDefault} {{ability=1}} {{title=Charisma Check}} {{subheader=@{character_name}}} {{rollname=Success}} {{roll=[[@{charisma}-{1d20}]]}}"></button>
+							<button type="roll" name="roll_Cha" value="&{template:5eDefault} {{ability=1}} {{title=Charismawurf}} {{subheader=@{character_name} Attributswurf}} {{freetext=Erforderlich **@{charisma}** oder weniger.}} {{rollname=Ergebnis}} {{roll=[[1d20]]}}"></button>
 						</div>
 						<div class="sheet-col-1-4 sheet-tiny-note">Reaktion</div>
 					</div>
@@ -147,41 +147,41 @@
 					<div class="sheet-row sheet-sub-header">
 						<div class="sheet-col-1-6 sheet-center sheet-small-label">Wert</div>
 						<div class="sheet-col-1-2 sheet-center sheet-small-label">&nbsp;</div>
-						<div class="sheet-col-1-8 sheet-center sheet-small-label">Wurf</div>
+						<div class="sheet-col-1-8 sheet-center sheet-small-label">Würfel</div>
 					</div>
 					<div class="sheet-row">
 						<div class="sheet-col-1-6 sheet-padr"><input type="number" name="attr_save_death_ray" min="1" step="1" /></div>
 						<div class="sheet-col-1-2 sheet-small-label">Gift oder Todesstrahlen</div>
 						<div class="sheet-col-1-8 sheet-center">
-							<button type="roll" name="roll_SDR" value="&{template:5eDefault} {{save=1}} {{title=Gift o. Todesstrahlen}} {{subheader=@{character_name} Saving Throw}} {{rollname=Success}} {{roll=[[{1d20}-@{save_death_ray}]]}}"></button>
+							<button type="roll" name="roll_SDR" value="&{template:5eDefault} {{save=1}} {{title=Gift o. Todesstrahlen}} {{subheader=@{character_name} Rettungswurf}} {{freetext=Erforderlich **@{save_death_ray}** oder besser.}} {{rollname=Ergebnis}}  {{roll=[[1d20]]}}"></button>
 						</div>
 					</div>
 					<div class="sheet-row">
 						<div class="sheet-col-1-6 sheet-padr"><input type="number" name="attr_save_magic_wand" min="1" step="1" /></div>
 						<div class="sheet-col-1-2 sheet-small-label">Zauberstab</div>
 						<div class="sheet-col-1-8 sheet-center">
-							<button type="roll" name="roll_SMW" value="&{template:5eDefault} {{save=1}} {{title=Zauberstab}} {{subheader=@{character_name} Saving Throw}} {{rollname=Success}} {{roll=[[{1d20}-@{save_magic_wand}]]}}"></button>
+							<button type="roll" name="roll_SMW" value="&{template:5eDefault} {{save=1}} {{title=Zauberstab}} {{subheader=@{character_name} Rettungswurf}} {{freetext=Erforderlich **@{save_magic_wand}** oder besser.}} {{rollname=Ergebnis}} {{roll=[[1d20]]}}"></button>
 						</div>
 					</div>
 					<div class="sheet-row">
 						<div class="sheet-col-1-6 sheet-padr"><input type="number" name="attr_save_paralysis" min="1" step="1" /></div>
 						<div class="sheet-col-1-2 sheet-small-label">Zu-Stein-Erstarren o. Lähmung</div>
 						<div class="sheet-col-1-8 sheet-center">
-							<button type="roll" name="roll_SPTTS" value="&{template:5eDefault} {{save=1}} {{title=Zu-Stein-Erstarren o. Lähmung}} {{subheader=@{character_name} Saving Throw}} {{rollname=Success}} {{roll=[[{1d20}-@{save_paralysis}]]}}"></button>
+							<button type="roll" name="roll_SPTTS" value="&{template:5eDefault} {{save=1}} {{title=Zu-Stein-Erstarren o. Lähmung}} {{subheader=@{character_name} Rettungswurf}} {{freetext=Erforderlich **@{save_paralysis}** oder besser.}} {{rollname=Ergebnis}} {{roll=[[1d20]]}}"></button>
 						</div>
 					</div>
 					<div class="sheet-row">
 						<div class="sheet-col-1-6 sheet-padr"><input type="number" name="attr_save_dragons_breath" min="1" step="1" /></div>
 						<div class="sheet-col-1-2 sheet-small-label">Drachenodem</div>
 						<div class="sheet-col-1-8 sheet-center">
-							<button type="roll" name="roll_SDB" value="&{template:5eDefault} {{save=1}} {{title=Drachenodem}} {{subheader=@{character_name} Saving Throw}} {{rollname=Success}} {{roll=[[{1d20}-@{save_dragons_breath}]]}}"></button>
+							<button type="roll" name="roll_SDB" value="&{template:5eDefault} {{save=1}} {{title=Drachenodem}} {{subheader=@{character_name} Rettungswurf}} {{freetext=Erforderlich **@{save_dragons_breath}** oder besser.}} {{rollname=Ergebnis}} {{roll=[[1d20]]}}"></button>
 						</div>
 					</div>
 					<div class="sheet-row">
 						<div class="sheet-col-1-6 sheet-padr"><input type="number" name="attr_save_rod_staff_spell" min="1" step="1" /></div>
 						<div class="sheet-col-1-2 sheet-small-label">Zauber Stecken Ruten</div>
 						<div class="sheet-col-1-8 sheet-center">
-							<button type="roll" name="roll_SRSS" value="&{template:5eDefault} {{save=1}} {{title=Zauber Stecken Ruten}} {{subheader=@{character_name} Saving Throw}} {{rollname=Success}} {{roll=[[{1d20}-@{save_rod_staff_spell}]]}}"></button>
+							<button type="roll" name="roll_SRSS" value="&{template:5eDefault} {{save=1}} {{title=Zauber Stecken Ruten}} {{subheader=@{character_name} Rettungswurf}} {{freetext=Erforderlich **@{save_rod_staff_spell}** oder besser.}} {{rollname=Ergebnis}} {{roll=[[1d20]]}}"></button>
 						</div>
 					</div>
 					<span class="sheet-spacer"></span>
@@ -198,7 +198,7 @@
 						<div class="sheet-col-1-4"><input type="number" name="attr_xp_total"></div>
 						<div class="sheet-col-1-4"><input type="number" name="attr_xp_next_level"></div>
 					</div>
-					<div class="sheet-row">
+<!-- 					<div class="sheet-row">
 						<div class="sheet-col-1-4 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_prime_requisite2"></div>
 						<div class="sheet-col-1-4"><input type="number" name="attr_xp_adjust2"></div>
 						<div class="sheet-col-1-4"><input type="number" name="attr_xp_total2"></div>
@@ -210,7 +210,7 @@
 						<div class="sheet-col-1-4"><input type="number" name="attr_xp_total3"></div>
 						<div class="sheet-col-1-4"><input type="number" name="attr_xp_next_level3"></div>
 					</div>
-				</div>
+ -->				</div>
 			</div>
 	</div>
 	<!--Skills and Mastery-->
@@ -224,9 +224,9 @@
 						</div>
 						<div class="sheet-row sheet-sub-header sheet-small-label sheet-center">
 							<div class="sheet-col-1-2 sheet-padl sheet-padr">Name</div>
-							<div class="sheet-col-1-6">Stat</div>
-							<div class="sheet-col-1-6">Slots</div>
-							<div class="sheet-col-1-8">Roll</div>
+							<div class="sheet-col-1-6">Attr.</div>
+							<div class="sheet-col-1-6">Ränge</div>
+							<div class="sheet-col-1-8">Wurf</div>
 						</div>
 						<fieldset class="repeating_generalskills">
 							<div class="sheet-row">
@@ -243,7 +243,8 @@
 								</div>
 								<div class="sheet-col-1-6 sheet-padl sheet-center"><input type="number" name="attr_skill_slots_used" value=1 min=1 step=1></div>
 								<div class="sheet-col-1-8 sheet-padl sheet-center">
-									<button type='roll' class="sheet-roll" name='roll_skill_roll' value="&{template:5eDefault} {{ability=1}} {{title=@{skillname}}} {{subheader=@{character_name} Skill Check}} {{rollname=Success}} {{roll=[[@{skill_stat}+@{skill_slots_used}-1-{1d20}]]}} "></button>
+								    <input type='hidden' name='attr_skilltarget' value='@{skill_stat}+@{skill_slots_used}-1' disabled='disabled'></input>
+									<button type='roll' class="sheet-roll" name='roll_skill_roll' value="&{template:5eDefault} {{ability=1}} {{title=@{skillname}}} {{subheader=@{character_name} Fertigkeitswurf}} {{freetext=Erforderlich **@{skilltarget}** oder weniger}} {{rollname=Ergebnis}} {{roll=[[1d20cs<1cf>20]]}}"></button>
 								</div>
 							</div>
 						</fieldset>
@@ -251,8 +252,8 @@
 				<div class="sheet-col-1-2 sheet-padr">
 					<h4 class="sheet-center">Waffenmeisterschaft <span class="sheet-pictos">^</span></h4>
 						<div class="sheet-row">
-							<div class="sheet-col-1-2 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="number" name="attr_weapon_choice"><br/>gewählte Waffe</div>
-							<div class="sheet-col-1-2 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="number" name="attr_weapon_choices_available"><br/>Verfügbare Optionen</div>
+							<div class="sheet-col-1-2 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="number" name="attr_weapon_choice"><br/>Weapon Choices</div>
+							<div class="sheet-col-1-2 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="number" name="attr_weapon_choices_available"><br/>Choices Available</div>
 						</div>
 						<div class="sheet-row sheet-sub-header sheet-small-label sheet-center">
 							<div class="sheet-col-1-2 sheet-padl sheet-padr">Waffe</div>
@@ -293,70 +294,75 @@
 						<div class="sheet-col-1-2 sheet-padr sheet-small-label sheet-right">Schlösser öffnen</div>
 						<div class="sheet-col-1-4 sheet-padl sheet-center"><input type="number" name="attr_openlocks"></div>
 						<div class="sheet-col-1-8 sheet-padl sheet-center">
-							<button type='roll' class="sheet-roll" name='roll_openlocks' value="/w gm @{character_name} möchte ein Schloss öffnen anwenden, der Fertigkeitswert ist bei @{openlocks} auf W%. "></button>
+							<button type='roll' class="sheet-roll" name='roll_openlocks' value="/w gm @{character_name} möchte Schlösser öffnen anwenden, der Fertigkeitswert gelingt bei @{openlocks} oder niedriger auf W%. "></button>
 						</div>
 					</div>
 					<div class="sheet-row">
 						<div class="sheet-col-1-2 sheet-padr sheet-small-label sheet-right">Fallen finden</div>
 						<div class="sheet-col-1-4 sheet-padl sheet-center"><input type="number" name="attr_findtraps"></div>
 						<div class="sheet-col-1-8 sheet-padl sheet-center">
-							<button type='roll' class="sheet-roll" name='roll_findtraps' value="/w gm @{character_name} möchte Fallen finden anwenden, der Fertigkeitswert ist bei @{findtraps} auf W%. "></button>
+							<button type='roll' class="sheet-roll" name='roll_findtraps' value="/w gm @{character_name} möchte Fallen finden anwenden, der Fertigkeitswurf gelingt bei @{findtraps} oder niedriger auf W%. "></button>
 						</div>
 					</div>
 					<div class="sheet-row">
 						<div class="sheet-col-1-2 sheet-padr sheet-small-label sheet-right">Fallen entfernen</div>
 						<div class="sheet-col-1-4 sheet-padl sheet-center"><input type="number" name="attr_removetraps"></div>
 						<div class="sheet-col-1-8 sheet-padl sheet-center">
-							<button type='roll' class="sheet-roll" name='roll_removetraps' value="/w gm @{character_name} möchte Fallen entfernen anwenden, der Fertigkeitswert ist bei @{removetraps} auf W%. "></button>
+							<button type='roll' class="sheet-roll" name='roll_removetraps' value="/w gm @{character_name} möchte Fallen entfernen anwenden, der Fertigkeitswurf gelingt bei @{removetraps} oder niedriger auf W%. "></button>
 						</div>
 					</div>
 					<div class="sheet-row">
 						<div class="sheet-col-1-2 sheet-padr sheet-small-label sheet-right">Wände erklimmen</div>
 						<div class="sheet-col-1-4 sheet-padl sheet-center"><input type="number" name="attr_climbwalls"></div>
 						<div class="sheet-col-1-8 sheet-padl sheet-center">
-							<button type='roll' class="sheet-roll" name='roll_climbwalls' value="/w gm @{character_name} möchte Wände erklimmen anwenden, der Fertigkeitswert ist bei @{climbwalls} auf W%. "></button>
+							<button type='roll' class="sheet-roll" name='roll_climbwalls' value="/w gm @{character_name} möchte Wände erklimmen anwenden, der Fertigkeitswurf gelingt bei @{climbwalls} oder niedriger auf W%. "></button>
 						</div>
 					</div>
 					<div class="sheet-row">
-						<div class="sheet-col-1-2 sheet-padr sheet-small-label sheet-right">Schleichen</div>
+						<div class="sheet-col-1-2 sheet-padr sheet-small-label sheet-right">Leise bewegen</div>
 						<div class="sheet-col-1-4 sheet-padl sheet-center"><input type="number" name="attr_movesilently"></div>
 						<div class="sheet-col-1-8 sheet-padl sheet-center">
-							<button type='roll' class="sheet-roll" name='roll_movesilently' value="/w gm @{character_name} möchte Schleichen anwenden, der Fertigkeitswert ist bei @{movesilently} auf W%. "></button>
+							<button type='roll' class="sheet-roll" name='roll_movesilently' value="/w gm @{character_name} möchte Leise bewegen anwenden, der Fertigkeitswurf gelingt bei @{movesilently} oder niedriger auf W%. "></button>
 						</div>
 					</div>
 					<div class="sheet-row">
 						<div class="sheet-col-1-2 sheet-padr sheet-small-label sheet-right">Im Schatten verstecken</div>
 						<div class="sheet-col-1-4 sheet-padl sheet-center"><input type="number" name="attr_hideinshadows"></div>
 						<div class="sheet-col-1-8 sheet-padl sheet-center">
-							<button type='roll' class="sheet-roll" name='roll_hideinshadows' value="/w gm @{character_name} möchte Im Schatten verstecken anwenden, der Fertigkeitswert ist bei @{hideinshadows} auf W%. "></button>
+							<button type='roll' class="sheet-roll" name='roll_hideinshadows' value="/w gm @{character_name} möchte Im Schatten verstecken anwenden, der Fertigkeitswurf gelingt bei @{hideinshadows} oder niedriger auf W%. "></button>
 						</div>
 					</div>
 					<div class="sheet-row">
 						<div class="sheet-col-1-2 sheet-padr sheet-small-label sheet-right">Taschendiebstahl</div>
 						<div class="sheet-col-1-4 sheet-padl sheet-center"><input type="number" name="attr_pickpockets"></div>
 						<div class="sheet-col-1-8 sheet-padl sheet-center">
-							<button type='roll' class="sheet-roll" name='roll_pickpockets' value="/w gm @{character_name} möchte Taschendiebstahl anwenden, der Fertigkeitswert ist bei @{pickpockets} auf W%. "></button>
+							<button type='roll' class="sheet-roll" name='roll_pickpockets' value="/w gm @{character_name} möchte Taschendiebstahl anwenden, der Fertigkeitswurf gelingt bei @{pickpockets} oder niedriger auf W%. "></button>
 						</div>
 					</div>
 					<div class="sheet-row">
 						<div class="sheet-col-1-2 sheet-padr sheet-small-label sheet-right">Geräusche hören</div>
 						<div class="sheet-col-1-4 sheet-padl sheet-center"><input type="number" name="attr_hearnoise"></div>
 						<div class="sheet-col-1-8 sheet-padl sheet-center">
-							<button type='roll' class="sheet-roll" name='roll_hearnoise' value="/w gm @{character_name} möchte Geräusche Hören anwenden, der Fertigkeitswert ist bei @{hearnoise} auf W%. "></button>
+							<button type='roll' class="sheet-roll" name='roll_hearnoise' value="/w gm @{character_name} möchte Geräusche Hören anwenden, der Fertigkeitswurf gelingt bei @{hearnoise} oder niedriger auf W%. "></button>
 						</div>
 					</div>
 					<div class="sheet-row">
 						<div class="sheet-col-1-2 sheet-padr sheet-small-label sheet-right">Sprachen Lesen</div>
-						<div class="sheet-col-1-4 sheet-padl sheet-center"><input type="number" name="attr_readlanguages"></div>
+						<div class="sheet-col-1-4 sheet-padl sheet-center">
+						    <input type="checkbox" name="attr_readlanguages" value="80">
+						</div>
 						<div class="sheet-col-1-8 sheet-padl sheet-center">
-							<button type='roll' class="sheet-roll" name='roll_hearnoise' value="/w gm @{character_name} möchte Sprachen lesen anwenden, der Fertigkeitswert ist bei @{readlanguages} auf W%. "></button>
+							<button type='roll' class="sheet-roll" name='roll_readlanguage' value="/w gm @{character_name} möchte Sprachen lesen anwenden, der Fertigkeitswurf gelingt bei @{readlanguages} oder niedriger auf W%. "></button>
 						</div>
 					</div>
 					<div class="sheet-row">
-					<div class="sheet-col-1-4 sheet-right sheet-padr">
-						<input type="checkbox" class="sheet-right" name="attr_castfromscroll" value="1" />
-					</div>
-					<div class="sheet-col-2-3 sheet-left sheet-small-label">Zauber wirken<br/> von Schriftrolle</div>
+					    <div class="sheet-col-1-2 sheet-padr sheet-small-label sheet-right">Zauber wirken<br/> von Schriftrolle</div>
+					    <div class="sheet-col-1-4 sheet-padl sheet-center">
+					        <input type="checkbox" class="sheet-right" name="attr_castfromscroll" value="90" />
+					    </div>
+						<div class="sheet-col-1-8 sheet-padl sheet-center">
+							<button type='roll' class="sheet-roll" name='roll_castfromscroll' value="/w gm @{character_name} wendet eine Sruchrolle an, der Fertigkeitswurf gelingt bei @{castfromscroll} oder niedriger auf W%. "></button>
+					    </div>
 				</div>
 			</div>
 			<!-- Turn Undead-->
@@ -382,7 +388,7 @@
 							</select>
 						</div>
 						<div class="sheet-col-1-8 sheet-padl sheet-center">
-							<button type='roll' class="sheet-roll" name='roll_turnskeleton' value="/w gm @{character_name} möchte Skelette vertreiben, @{turnskeleton}. "></button>
+							<button type='roll' class="sheet-roll" name='roll_turnskeleton' value="&{template:5eDefault} {{ability=1}} {{title=Vertreibe Skelett}} {{subheader=@{character_name}'s Untote vertreiben}} {{rollname=Ergebnis}} {{roll=[[2d6]]}}\n/w gm @{character_name} möchte Skelett vertreiben, Vertreibungschance @{turnskeleton}."></button>
 						</div>
 					</div>
 					<div class="sheet-row">
@@ -400,7 +406,7 @@
 							</select>
 						</div>
 						<div class="sheet-col-1-8 sheet-padl sheet-center">
-							<button type='roll' class="sheet-roll" name='roll_turnzombie' value="/w gm @{character_name} möchte Zombies vertreiben, @{turnzombie}. "></button>
+							<button type='roll' class="sheet-roll" name='roll_turnzombie' value="&{template:5eDefault} {{ability=1}} {{title=Vertreibe Zombie}} {{subheader=@{character_name}'s Untote vertreiben}} {{rollname=Ergebnis}} {{roll=[[2d6]]}}\n/w gm @{character_name} möchte Zombie vertreiben, Vertreibungschance @{turnzombie}. "></button>
 						</div>
 					</div>
 					<div class="sheet-row">
@@ -418,7 +424,7 @@
 							</select>
 						</div>
 						<div class="sheet-col-1-8 sheet-padl sheet-center">
-							<button type='roll' class="sheet-roll" name='roll_turnghoul' value="/w gm @{character_name} möchte Ghule vertreiben, @{turnghoul}. "></button>
+							<button type='roll' class="sheet-roll" name='roll_turnghoul' value="&{template:5eDefault} {{ability=1}} {{title=Vertreibe Ghul}} {{subheader=@{character_name}'s Untote vertreiben}} {{rollname=Ergebnis}} {{roll=[[2d6]]}}\n/w gm @{character_name} möchte Ghul vertreiben, Vertreibungschance @{turnghoul}. "></button>
 						</div>
 					</div>
 					<div class="sheet-row">
@@ -436,7 +442,7 @@
 							</select>
 						</div>
 						<div class="sheet-col-1-8 sheet-padl sheet-center">
-							<button type='roll' class="sheet-roll" name='roll_turnwight' value="/w gm @{character_name} möchte Gruftbewohner vertreiben, @{turnwight}. "></button>
+							<button type='roll' class="sheet-roll" name='roll_turnwight' value="&{template:5eDefault} {{ability=1}} {{title=Vertreibe Gruftbewohner}} {{subheader=@{character_name}'s Untote vertreiben}} {{rollname=Ergebnis}} {{roll=[[2d6]]}}\n/w gm @{character_name} möchte Gruftbewohner vertreiben, Vertreibungschance @{turnwight}. "></button>
 						</div>
 					</div>
 					<div class="sheet-row">
@@ -454,7 +460,7 @@
 							</select>
 						</div>
 						<div class="sheet-col-1-8 sheet-padl sheet-center">
-							<button type='roll' class="sheet-roll" name='roll_turnwraith' value="/w gm @{character_name} möchte Todesalb vertreiben, @{turnwraith}. "></button>
+							<button type='roll' class="sheet-roll" name='roll_turnwraith' value="&{template:5eDefault} {{ability=1}} {{title=Vertreibe Todesalb}} {{subheader=@{character_name}'s Untote vertreiben}} {{rollname=Ergebnis}} {{roll=[[2d6]]}}\n/w gm @{character_name} möchte Todesalb vertreiben, Vertreibungschance @{turnwraith}. "></button>
 						</div>
 					</div>
 					<div class="sheet-row">
@@ -472,7 +478,7 @@
 							</select>
 						</div>
 						<div class="sheet-col-1-8 sheet-padl sheet-center">
-							<button type='roll' class="sheet-roll" name='roll_turnmummy' value="/w gm @{character_name} möchte Mumien vertreiben, @{turnmummy}. "></button>
+							<button type='roll' class="sheet-roll" name='roll_turnmummy' value="&{template:5eDefault} {{ability=1}} {{title=Vertreibe Mumie}} {{subheader=@{character_name}'s Untote vertreiben}} {{rollname=Ergebnis}} {{roll=[[2d6]]}}\n/w gm @{character_name} möchte Mumie vertreiben, Vertreibungschance @{turnmummy}. "></button>
 						</div>
 					</div>
 					<div class="sheet-row">
@@ -490,11 +496,11 @@
 							</select>
 						</div>
 						<div class="sheet-col-1-8 sheet-padl sheet-center">
-							<button type='roll' class="sheet-roll" name='roll_turnspecter' value="/w gm @{character_name} möchte Schreckgespenst vertreiben, @{turnspecter}. "></button>
+							<button type='roll' class="sheet-roll" name='roll_turnspecter' value="&{template:5eDefault} {{ability=1}} {{title=Vertreibe Schreckgespenst}} {{subheader=@{character_name}'s Untote vertreiben}} {{rollname=Ergebnis}} {{roll=[[2d6]]}}\n/w gm @{character_name} möchte Schreckgespenst vertreiben, Vertreibungschance @{turnspecter}. "></button>
 						</div>
 					</div>
 					<div class="sheet-row">
-						<div class="sheet-col-1-2 sheet-padr sheet-small-label sheet-right">Vampire</div>
+						<div class="sheet-col-1-2 sheet-padr sheet-small-label sheet-right">Vampir</div>
 						<div class="sheet-col-1-4 sheet-padl sheet-center">
 							<select name="attr_turnvampire">
 								<option value="Du brauchst schon ein Wunder, um diesen Untoten zu vertreiben" selected="selected">-</option>
@@ -508,7 +514,7 @@
 							</select>
 						</div>
 						<div class="sheet-col-1-8 sheet-padl sheet-center">
-							<button type='roll' class="sheet-roll" name='roll_turnvampire' value="/w gm @{character_name} möchte Vampire vertreiben, @{turnvampire}. "></button>
+							<button type='roll' class="sheet-roll" name='roll_turnvampire' value="&{template:5eDefault} {{ability=1}} {{title=Vertreibe Vampir}} {{subheader=@{character_name}'s Untote vertreiben}} {{rollname=Ergebnis}} {{roll=[[2d6]]}}\n/w gm @{character_name} möchte Vampir vertreiben, Vertreibungschance @{turnvampire}. "></button>
 						</div>
 					</div>
 					<div class="sheet-row">
@@ -526,7 +532,7 @@
 							</select>
 						</div>
 						<div class="sheet-col-1-8 sheet-padl sheet-center">
-							<button type='roll' class="sheet-roll" name='roll_turnphantom' value="/w gm @{character_name} möchte Phantome vertreiben, @{turnphantom}. "></button>
+							<button type='roll' class="sheet-roll" name='roll_turnphantom' value="&{template:5eDefault} {{ability=1}} {{title=Vertreibe Phantom}} {{subheader=@{character_name}'s Untote vertreiben}} {{rollname=Ergebnis}} {{roll=[[2d6]]}}\n/w gm @{character_name} möchte Phantom vertreiben, Vertreibungschance @{turnphantom}. "></button>
 						</div>
 					</div>
 					<div class="sheet-row">
@@ -544,7 +550,7 @@
 							</select>
 						</div>
 						<div class="sheet-col-1-8 sheet-padl sheet-center">
-							<button type='roll' class="sheet-roll" name='roll_turnhaunt' value="/w gm @{character_name} möchte Spuk vertreiben, @{turnhaunt}. "></button>
+							<button type='roll' class="sheet-roll" name='roll_turnhaunt' value="&{template:5eDefault} {{ability=1}} {{title=Vertreibe Spuk}} {{subheader=@{character_name}'s Untote vertreiben}} {{rollname=Ergebnis}} {{roll=[[2d6]]}}\n/w gm @{character_name} möchte Spuk vertreiben, Vertreibungschance @{turnhaunt}. "></button>
 						</div>
 					</div>
 					<div class="sheet-row">
@@ -562,7 +568,7 @@
 							</select>
 						</div>
 						<div class="sheet-col-1-8 sheet-padl sheet-center">
-							<button type='roll' class="sheet-roll" name='roll_turnspirit' value="/w gm @{character_name} möchte Geist vertreiben, @{turnspirit}. "></button>
+							<button type='roll' class="sheet-roll" name='roll_turnspirit' value="&{template:5eDefault} {{ability=1}} {{title=Vertreibe Geist}} {{subheader=@{character_name}'s Untote vertreiben}} {{rollname=Ergebnis}} {{roll=[[2d6]]}}\n/w gm @{character_name} möchte Geist vertreiben, Vertreibungschance @{turnspirit}. "></button>
 						</div>
 					</div>
 					<div class="sheet-row">
@@ -580,7 +586,7 @@
 							</select>
 						</div>
 						<div class="sheet-col-1-8 sheet-padl sheet-center">
-							<button type='roll' class="sheet-roll" name='roll_turnnightshade' value="/w gm @{character_name} möchte Nachtschatten vertreiben, @{turnnightshade}. "></button>
+							<button type='roll' class="sheet-roll" name='roll_turnnightshade' value="&{template:5eDefault} {{ability=1}} {{title=Vertreibe Nachtschatten}} {{subheader=@{character_name}'s Untote vertreiben}} {{rollname=Ergebnis}} {{roll=[[2d6]]}}\n/w gm @{character_name} möchte Nachtschatten vertreiben, Vertreibungschance @{turnnightshade}. "></button>
 						</div>
 					</div>
 					<div class="sheet-row">
@@ -598,7 +604,7 @@
 							</select>
 						</div>
 						<div class="sheet-col-1-8 sheet-padl sheet-center">
-							<button type='roll' class="sheet-roll" name='roll_turnlich' value="/w gm @{character_name} möchte Leichnam vertreiben, @{turnlich}. "></button>
+							<button type='roll' class="sheet-roll" name='roll_turnlich' value="&{template:5eDefault} {{ability=1}} {{title=Vertreibe Leichnam}} {{subheader=@{character_name}'s Untote vertreiben}} {{rollname=Ergebnis}} {{roll=[[2d6]]}}\n/w gm @{character_name} möchte Leichnam vertreiben, Vertreibungschance @{turnlich}. "></button>
 						</div>
 					</div>
 					<div class="sheet-row">
@@ -616,13 +622,13 @@
 							</select>
 						</div>
 						<div class="sheet-col-1-8 sheet-padl sheet-center">
-							<button type='roll' class="sheet-roll" name='roll_turnspecial' value="/w gm @{character_name} möchte spez. Untote vertreiben, @{turnspecial}. "></button>
+							<button type='roll' class="sheet-roll" name='roll_turnspecial' value="&{template:5eDefault} {{ability=1}} {{title=Vertreibe Speziallen Untoten}} {{subheader=@{character_name}'s Untote vertreiben}} {{rollname=Ergebnis}} {{roll=[[2d6]]}}\n/w gm @{character_name} möchte spez. Untote vertreiben, Vertreibungschance @{turnspecial}. "></button>
 						</div>
 					</div>
 			</div>
 			<!-- Combat options and other abilities-->
 			<div class="sheet-col-1-3">
-				<h4 class="sheet-center">Kampfoptionen <span class="sheet-pictos">J</span></h4>
+				<h4 class="sheet-center">Kampf Optionen <span class="sheet-pictos">J</span></h4>
 				<div class="sheet-row sheet-sub-header sheet-small-label">
 					<div class="sheet-col-1-4">&nbsp;</div>
 					<div class="sheet-col-2-3 sheet-left">Option</div>
@@ -637,7 +643,7 @@
 					<div class="sheet-col-1-4 sheet-right sheet-padr">
 						<input type="checkbox" class="sheet-right" name="attr_comboptsetspear" value="1" />
 					</div>
-					<div class="sheet-col-2-3 sheet-left sheet-small-label">Speer setzen</div>
+					<div class="sheet-col-2-3 sheet-left sheet-small-label">Speer aufsetzen</div>
 				</div>
 				<div class="sheet-row">
 					<div class="sheet-col-1-4 sheet-right sheet-padr">
@@ -673,21 +679,21 @@
 					<div class="sheet-col-1-2 sheet-padr sheet-small-label sheet-right">Steinwerk entdecken</div>
 					<div class="sheet-col-1-4 sheet-padl sheet-center"><input type="number" name="attr_detectstonework"></div>
 					<div class="sheet-col-1-8 sheet-padl sheet-center">
-						<button type='roll' class="sheet-roll" name='roll_detectstonework' value="/w gm @{character_name} möchte sich speziell nach Steinarbeiten umschauen, es wird @{detectstonework} auf einem W6 benötigt. "></button>
+						<button type='roll' class="sheet-roll" name='roll_detectstonework' value="/w gm @{character_name} möchte sich speziell nach Steinarbeiten umschauen, der Fertigkeitswurf gelingt bei @{detectstonework} auf einem W6. "></button>
 					</div>
 				</div>
 				<div class="sheet-row">
 					<div class="sheet-col-1-2 sheet-padr sheet-small-label sheet-right">Geheimtüren entdecken</div>
 					<div class="sheet-col-1-4 sheet-padl sheet-center"><input type="number" name="attr_detecthidden" value="1"></div>
 					<div class="sheet-col-1-8 sheet-padl sheet-center">
-						<button type='roll' class="sheet-roll" name='roll_detecthidden' value="/w gm @{character_name} möchte Geheimtüren entdecken, es wird @{detecthidden} auf einem W6 benötigt. "></button>
+						<button type='roll' class="sheet-roll" name='roll_detecthidden' value="/w gm @{character_name} möchte Geheimtüren entdecken, der Fertigkeitswurf gelingt bei @{detecthidden} auf einem W6. "></button>
 					</div>
 				</div>
 				<div class="sheet-row">
 					<div class="sheet-col-1-2 sheet-padr sheet-small-label sheet-right">Verstecken (im Freien)</div>
 					<div class="sheet-col-1-4 sheet-padl sheet-center"><input type="number" name="attr_hideoutdoors"></div>
 					<div class="sheet-col-1-8 sheet-padl sheet-center">
-						<button type='roll' class="sheet-roll" name='roll_hideoutdoors' value="/w gm @{character_name} möchte sich Verstecken (Busch, Baum, etc.), es wird @{hideoutdoors} auf einem W% benötigt. "></button>
+						<button type='roll' class="sheet-roll" name='roll_hideoutdoors' value="/w gm @{character_name} möchte sich Verstecken (Busch, Baum, etc.), der Fertigkeitswurf gelingt bei @{hideoutdoors} auf einem W%. "></button>
 					</div>
 				</div>
 				<div class="sheet-row">
@@ -753,28 +759,28 @@
 				<div class="sheet-col-1-6">
 					<h4 class="sheet-center">Ringen <span class="sheet-pictos">g</span></h4>
 					<div class="sheet-row sheet-padr">
-						<div class="sheet-col-1-2 sheet-small-label sheet-center" title="Only enter additional bonuses to WR here from skills and weapon mastery. Your level, AC, and Ablity mods are already included in the macro button"><input class="sheet-underlined sheet-center" type="number" name="attr_WRbonus" value="0" step="1"><br/>Bonus</div>
+						<div class="sheet-col-1-2 sheet-small-label sheet-center" title="Hier bitte nur Bonus durch Fertigkeiten und Waffenmeisterschaften für Ringen eintragen; deine Stufe, RK und Attributswerte sind im Makro-Button berücksichtigt."><input class="sheet-underlined sheet-center" type="number" name="attr_WRbonus" value="0" step="1"><br/>Bonus</div>
 						<input class="sheet-underlined" type="hidden" name="attr_WR" value="[[(ceil(@{level} / 2))]] + [[@{ACunmod}]] + [[@{strength_mod}]] + [[@{dexterity_mod}]] + @{WRbonus}" disabled="disabled">
 						<div class="sheet-col-1-2 sheet-center">
-							<button type="roll" class="sheet-initiative sheet-large-button" name="roll_Wrestling" value="&{template:5eDefault} {{title=Wrestling}} {{subheader=@{character_name}}} {{rollname=Wrestling Roll}} {{roll=[[ 1d20 + @{WR} ]]}}">Wrestling</button>
+							<button type="roll" class="sheet-initiative sheet-large-button" name="roll_Wrestling" value="&{template:5eDefault} {{title=Ringen}} {{subheader=@{character_name}}} {{rollname=Wrestling Roll}} {{roll=[[ 1d20 + @{WR} ]]}}">Ringen</button>
 						</div>
 					</div>
 				</div>
 				<div class="sheet-col-1-3 sheet-padr">
-					<h4 class="sheet-center">Movement <span class="sheet-pictos">1</span></h4>
+					<h4 class="sheet-center">Bewegung <span class="sheet-pictos">1</span></h4>
 					<div class="sheet-row sheet-padb">
 						<div class="sheet-row">
 							<div class="sheet-col-1-4 sheet-small-label sheet-center"><input class="sheet-underlined" type="number" name="attr_move_normal" value="(@{normal_movement})" disabled=true><br/>Normal</div>
-							<div class="sheet-col-1-4 sheet-small-label sheet-center"><input class="sheet-underlined" type="number" name="attr_move_encounter" value="((@{normal_movement})/3)" disabled=true><br/>Encounter</div>
-							<div class="sheet-col-1-4 sheet-small-label sheet-center"><input class="sheet-underlined" type="number" name="attr_move_run" value="(@{normal_movement})" disabled=true step="1"><br/>Running</div>
-							<div class="sheet-col-1-4 sheet-small-label sheet-center"><input class="sheet-underlined" type="number" name="attr_move_other" min="0" step="1"><br/>Other</div>
+							<div class="sheet-col-1-4 sheet-small-label sheet-center"><input class="sheet-underlined" type="number" name="attr_move_encounter" value="((@{normal_movement})/3)" disabled=true><br/>Kampf</div>
+							<div class="sheet-col-1-4 sheet-small-label sheet-center"><input class="sheet-underlined" type="number" name="attr_move_run" value="(@{normal_movement})" disabled=true step="1"><br/>Rennend</div>
+							<div class="sheet-col-1-4 sheet-small-label sheet-center"><input class="sheet-underlined" type="number" name="attr_move_other" min="0" step="1"><br/>Andere</div>
 						</div>
 					</div>
 				</div>
 				<div class="sheet-col-1-6">
 					<h4 class="sheet-center">Initiative <span class="sheet-pictos">t</span></h4>
 					<div class="sheet-row sheet-padr">
-						<div class="sheet-col-1-2 sheet-small-label sheet-center" title="Only enter additional bonuses to initiative here. Your Dex mod is already included in the macro button"><input class="sheet-underlined sheet-center" type="number" name="attr_initiative" value="0" step="1"><br/>Bonus</div>
+						<div class="sheet-col-1-2 sheet-small-label sheet-center" title="Hier bitte weitere Bonus eintragen. Dein Geschicklichkeitswert ist im Makro-Button berücksichtigt"><input class="sheet-underlined sheet-center" type="number" name="attr_initiative" value="0" step="1"><br/>Bonus</div>
 						<input class="sheet-underlined" type="hidden" name="attr_initiative_overall" value="[[@{dexterity_mod}]] + @{initiative}" disabled="disabled">
 						<div class="sheet-col-1-2 sheet-center">
 							<button type="roll" class="sheet-initiative sheet-large-button" name="roll_Initiative" value="&{template:5eDefault} {{title=Initiative}} {{subheader=@{character_name}}} {{rollname=Initiative}} {{roll=[[ 1d6 + @{initiative_overall} &{tracker} ]]}}">Initiative</button>
@@ -782,24 +788,24 @@
 					</div>
 				</div>
 				<div class="sheet-col-1-6 sheet-padl">
-					<h4 class="sheet-center">THAC0 <span class="sheet-pictos">!</span></h4>
+					<h4 class="sheet-center">ETW0 <span class="sheet-pictos">!</span></h4>
 					<div class="sheet-row">
-						<div class="sheet-col-1-1 sheet-small-label sheet-center" title="Only enter additional level THAC0 here. Your Str and Dex mods are already included in the weapon buttons"><input class="sheet-underlined sheet-center" type="number" name="attr_thac0" step="1"><br/></div>
+						<div class="sheet-col-1-1 sheet-small-label sheet-center" title="Hier bitte nur zusätzliche ETW0 Stufen eintragen. Deine STE und GES Bonus sind in den Waffen-Buttons berücksichtigt."><input class="sheet-underlined sheet-center" type="number" name="attr_thac0" step="1"><br/></div>
 					</div>
 				</div>
 		</div>
 		<span class="sheet-spacer"></span>
-		<h4 class="sheet-center">Melee Weapons / Unarmed Attacks <span class="sheet-pictos">D</span></h4>
+		<h4 class="sheet-center">Nahkampfwaffen / Unbewaffnete Angriffe <span class="sheet-pictos">D</span></h4>
 			<div class="sheet-row sheet-sub-header">
 				<div class="sheet-col-1-16 sheet-center sheet-small-label sheet-vert-bottom">Vs</div>
-				<div class="sheet-col-1-6 sheet-center sheet-small-label sheet-vert-bottom">Weapon</div>
-				<div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom sheet-padr">Mastery Bonus</div>
-				<div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom sheet-padr">Magic Bonus</div>
-				<div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Damage Dice</div>
-				<div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">AC Bonus</div>
-				<div class="sheet-col-1-6 sheet-center sheet-small-label sheet-vert-bottom sheet-padr">Effects</div>
-				<div class="sheet-col-1-6 sheet-center sheet-small-label sheet-vert-bottom sheet-padr">Save vs</div>
-				<div class="sheet-col-1-24 sheet-center sheet-small-label sheet-vert-bottom sheet-padr">Attack</div>
+				<div class="sheet-col-1-6 sheet-center sheet-small-label sheet-vert-bottom">Waffe</div>
+				<div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom sheet-padr">Meisterschafts<br>Bonus</div>
+				<div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom sheet-padr">Magie Bonus</div>
+				<div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Schadenswürfel</div>
+				<div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">RK Bonus</div>
+				<div class="sheet-col-1-6 sheet-center sheet-small-label sheet-vert-bottom sheet-padr">Effekte</div>
+				<div class="sheet-col-1-6 sheet-center sheet-small-label sheet-vert-bottom sheet-padr">RW gegen</div>
+				<div class="sheet-col-1-24 sheet-center sheet-small-label sheet-vert-bottom sheet-padr">Angriff</div>
 			</div>
 			<fieldset class="repeating_meleeattacks">
 				<div class="sheet-row">
@@ -812,30 +818,30 @@
 					</div>
 					<div class="sheet-col-1-6 sheet-padr"><input type="text" name="attr_meleeweaponname"></div>
 					<div class="sheet-col-1-12 sheet-padr"><input type="number" name="attr_meleemastery" value="0" step="1"></div>
-					<div class="sheet-col-1-12 sheet-padr" title="The magic bonus will be added as a bonus to BOTH the attack and damage rolls"><input type="number" name="attr_meleemagic" value="0" step="1"></div>
-					<div class="sheet-col-1-12 sheet-padr" title="Only enter the base damage roll here without any bonuses from stats or magic"><input class="sheet-center" type="text" name="attr_meleedmg" value="0"></div>
+					<div class="sheet-col-1-12 sheet-padr" title="Der Magiebunis wird auf Angriffs- und Schadenswürfe angewandt"><input type="number" name="attr_meleemagic" value="0" step="1"></div>
+					<div class="sheet-col-1-12 sheet-padr" title="Hier bitte NUR den Schadenswürfel ohne weiterer Modifikation oder Magie eintragen"><input class="sheet-center" type="text" name="attr_meleedmg" value="0"></div>
 					<div class="sheet-col-1-12 sheet-padr"><input type="text" name="attr_meleeacbonus"></div>
 					<div class="sheet-col-1-6 sheet-padr"><input type="text" name="attr_meleeeffects"></div>
 					<div class="sheet-col-1-6"><input class="sheet-center" type="text" name="attr_meleesaves"></div>
 					<div class="sheet-col-1-24 sheet-center">
-						<button type="roll" class="sheet-roll" name="roll_MeleeAttack" value="&{template:5eDefault} {{weapon=1}} {{title=@{meleeweaponname}}} {{subheader=@{character_name}}} {{subheaderright=vs @{meleetarget}}} {{attack=[[@{thac0}-@{meleemagic}-@{meleemastery}-[[@{strength_mod}]]-{1d20}]]}} {{damage=[[@{meleedmg}+@{meleemagic}+[[@{strength_mod}]]]]}} {{attackshowinfoblock=1}} {{attackrange=Melee}} {{attackacmod=@{meleeacbonus}}} {{attackeffects=@{meleeeffects}}} {{attacksave=@{meleesaves}}} "></button>
+						<button type="roll" class="sheet-roll" name="roll_MeleeAttack" value="&{template:5eDefault} {{weapon=1}} {{title=@{meleeweaponname}}} {{subheader=@{character_name}}} {{subheaderright=vs @{meleetarget}}} {{attack=[[@{thac0}-({1d20+[[@{strength_mod}]]+@{meleemagic}+@{meleemastery},{1}}kh1)]]}} {{damage=[[{@{meleedmg}+[[@{strength_mod}]]+@{meleemagic},{1}}kh1]]}} {{attackshowinfoblock=1}} {{attackrange=Nahkampf}} {{attackacmod=@{meleeacbonus}}} {{attackeffects=@{meleeeffects}}} {{attacksave=@{meleesaves}}} "></button>
 					</div>
 				</div>
 			</fieldset>
 			<span class="sheet-spacer"></span>
-			<h4 class="sheet-center">Missile/Thrown Weapons <span class="sheet-pictos">e</span></h4>
+			<h4 class="sheet-center">Fernkampf/Geworfene Waffen <span class="sheet-pictos">e</span></h4>
 			<div class="sheet-row sheet-sub-header">
 				<div class="sheet-col-1-16 sheet-center sheet-small-label sheet-vert-bottom">Vs</div>
-				<div class="sheet-col-1-16 sheet-center sheet-small-label sheet-vert-bottom">Type</div>
-				<div class="sheet-col-1-6 sheet-center sheet-small-label sheet-vert-bottom">Weapon</div>
-				<div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom sheet-padr">Mastery Bonus</div>
-				<div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom sheet-padr">Magic Bonus</div>
-				<div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Damage Dice</div>
-				<div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">AC Bonus</div>
-				<div class="sheet-col-1-16 sheet-center sheet-small-label sheet-vert-bottom">Range</div>
-				<div class="sheet-col-1-8 sheet-center sheet-small-label sheet-vert-bottom sheet-padr">Effects</div>
-				<div class="sheet-col-1-8 sheet-center sheet-small-label sheet-vert-bottom sheet-padr">Save vs</div>
-				<div class="sheet-col-1-24 sheet-center sheet-small-label sheet-vert-bottom sheet-padr">Attack</div>
+				<div class="sheet-col-1-16 sheet-center sheet-small-label sheet-vert-bottom">Typ</div>
+				<div class="sheet-col-1-6 sheet-center sheet-small-label sheet-vert-bottom">Waffen</div>
+				<div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom sheet-padr">Meisterschafts<br>Bonus</div>
+				<div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom sheet-padr">Magie Bonus</div>
+				<div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Schadenswürfel</div>
+				<div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">RK Bonus</div>
+				<div class="sheet-col-1-16 sheet-center sheet-small-label sheet-vert-bottom">Reichw.</div>
+				<div class="sheet-col-1-8 sheet-center sheet-small-label sheet-vert-bottom sheet-padr">Effekte</div>
+				<div class="sheet-col-1-8 sheet-center sheet-small-label sheet-vert-bottom sheet-padr">RW gg</div>
+				<div class="sheet-col-1-24 sheet-center sheet-small-label sheet-vert-bottom sheet-padr">Angriff</div>
 			</div>
 			<fieldset class="repeating_rangedattacks">
 				<div class="sheet-row">
@@ -848,20 +854,20 @@
 					</div>
 					<div class="sheet-col-1-16 sheet-padr">
 						 <select name="attr_rangetype">
-							<option value="0" selected="selected">Missile</option>
-							<option value="@{strength_mod}">Thrown</option>
+							<option value="0" selected="selected">Fernkampf</option>
+							<option value="@{strength_mod}">Geworfen</option>
 						</select>
 					</div>
 					<div class="sheet-col-1-6 sheet-padr"><input type="text" name="attr_rangeweaponname"></div>
 					<div class="sheet-col-1-12 sheet-padr"><input type="number" name="attr_rangemastery" value="0" step="1"></div>
-					<div class="sheet-col-1-12 sheet-padr" title="The magic bonus will be added as a bonus to BOTH the attack and damage rolls"><input type="number" name="attr_rangemagic" value="0" step="1"></div>
-					<div class="sheet-col-1-12 sheet-padr" title="Only enter the base damage roll here without any bonuses from stats or magic"><input class="sheet-center" type="text" name="attr_rangedmg" value="0"></div>
+					<div class="sheet-col-1-12 sheet-padr" title="Der Magiebonus wird auf Angriffs- und Schadenswürfe angewandt"><input type="number" name="attr_rangemagic" value="0" step="1"></div>
+					<div class="sheet-col-1-12 sheet-padr" title="Hier bitte NUR den Schadenswürfel ohne weiterer Modifikation oder Magie eintragen"><input class="sheet-center" type="text" name="attr_rangedmg" value="0"></div>
 					<div class="sheet-col-1-12 sheet-padr"><input type="text" name="attr_rangeacbonus"></div>
 					<div class="sheet-col-1-16 sheet-padr"><input type="text" name="attr_rangerange"></div>
 					<div class="sheet-col-1-8 sheet-padr"><input type="text" name="attr_rangeeffects"></div>
 					<div class="sheet-col-1-8"><input class="sheet-center" type="text" name="attr_rangesaves"></div>
 					<div class="sheet-col-1-24 sheet-center">
-						<button type="roll" class="sheet-roll" name="roll_RangeAttack" value="&{template:5eDefault} {{weapon=1}} {{title=@{rangeweaponname}}} {{subheader=@{character_name}}} {{subheaderright=vs @{rangetarget}}} {{attack=[[@{thac0}-@{rangemagic}-@{rangemastery}-[[@{dexterity_mod}]]-{1d20}]]}} {{damage=[[@{rangedmg}+@{rangemagic}+[[@{rangetype}]]]]}} {{attackshowinfoblock=1}} {{attackrange=@{rangerange}}} {{attackacmod=@{rangeacbonus}}} {{attackeffects=@{rangeeffects}}} {{attacksave=@{rangesaves}}} "></button>
+						<button type="roll" class="sheet-roll" name="roll_RangeAttack" value="&{template:5eDefault} {{weapon=1}} {{title=@{rangeweaponname}}} {{subheader=@{character_name}}} {{subheaderright=vs @{rangetarget}}} {{attack=[[@{thac0}-{(1d20+@{rangemagic}+@{rangemastery}+[[@{dexterity_mod}]]),{1}}kh1]]}} {{damage=[[{@{rangedmg}+[[@{rangetype}]]+@{rangemagic},{1}}kh1]]}} {{attackshowinfoblock=1}} {{attackrange=@{rangerange}}} {{attackacmod=@{rangeacbonus}}} {{attackeffects=@{rangeeffects}}} {{attacksave=@{rangesaves}}} "></button>
 					</div>
 				</div>
 			</fieldset>
@@ -869,55 +875,55 @@
 		<div class="sheet-row ">
 			<!--Armour Class -->
 			<div class="sheet-col-1-2 sheet-padr">
-				<h4 class="sheet-center">Armour Class <span class="sheet-pictos-three">b</span></h4>
+				<h4 class="sheet-center">Rüstungsklasse <span class="sheet-pictos-three">b</span></h4>
 					<div class="sheet-row"> 
 						<!--Mathy Bit to check to see if armour is greater than Natural AC-->
 						<input type="hidden" name="attr_ACunmod" value="@{eqACPA} * @{PAenabled} + @{eqarmourbaseac} * @{eqarmourfullsettoggle}" />
 						<input type="hidden" name="attr_acadjusted" value="@{eqACPA} * @{PAenabled} + @{eqarmourbaseac} * @{eqarmourfullsettoggle} - @{eqarmourmagic}" />
 						<input type="hidden" name="attr_acmin" value="(((@{acadjusted} + @{natAC}) - abs(@{acadjusted} - @{natAC})) / 2)" />
-						<div class="sheet-col-1-4 sheet-small-label sheet-center"><input class="sheet-underlined" type="number" name="attr_AC_armour" step="1" value="@{acmin}" disabled="true"><br/>Armour</div>
-						<div class="sheet-col-1-4 sheet-small-label sheet-center"><input class="sheet-underlined" type="number" name="attr_AC_shield" max="0" value="0" title="The total deduction from AC for shields including weapon mastery and magical sources " step="1"><br/>Shield</div>
-						<div class="sheet-col-1-4 sheet-small-label sheet-center"><input class="sheet-underlined" type="number" name="attr_AC_magic" min="0" value="0" title="All bonuses from rings of protection and other non shiled and armour sources" step="1"><br/>Magic</div>
-						<div class="sheet-col-1-4 sheet-small-label sheet-center"><input class="sheet-underlined" type="number" name="attr_AC" min="1" step="1" value="(@{AC_armour} + @{AC_shield} - @{AC_magic} - @{dexterity_mod})" disabled="true"><br/>Total</div>
+						<div class="sheet-col-1-4 sheet-small-label sheet-center"><input class="sheet-underlined" type="number" name="attr_AC_armour" step="1" value="@{acmin}" disabled="true"><br/>Rüstung</div>
+						<div class="sheet-col-1-4 sheet-small-label sheet-center"><input class="sheet-underlined" type="number" name="attr_AC_shield" max="0" value="0" title="The total deduction from AC for shields including weapon mastery and magical sources " step="1"><br/>Schild</div>
+						<div class="sheet-col-1-4 sheet-small-label sheet-center"><input class="sheet-underlined" type="number" name="attr_AC_magic" min="0" value="0" title="All bonuses from rings of protection and other non shiled and armour sources" step="1"><br/>Magie</div>
+						<div class="sheet-col-1-4 sheet-small-label sheet-center"><input class="sheet-underlined" type="number" name="attr_AC" min="1" step="1" value="(@{AC_armour} + @{AC_shield} - @{AC_magic} - @{dexterity_mod})" disabled="true"><br/>Gesamt</div>
 					</div>
 			</div>
 			<!--Piecemeal Armour -->
 			<div class="sheet-col-1-2">
-				<h4 class="sheet-center">Equipped Armour <span class="sheet-pictos-three">b</span></h4>
+				<h4 class="sheet-center">Ausgerüstete Rüstung <span class="sheet-pictos-three">b</span></h4>
 					<div class="sheet-row sheet-sub-header sheet-small-label sheet-center">
-						<div class="sheet-col-1-2 sheet-center">Full Sets</div>
+						<div class="sheet-col-1-2 sheet-center">Ganze Sets</div>
 					</div>
 					<div class="sheet-row">
 						<div class="sheet-col-2-3 sheet-small-label sheet-center">
 							<select name="attr_eqarmour">
-								<option value="0" selected="selected">None</option>
-								<option value="200">Leather</option>
+								<option value="0" selected="selected">Keine</option>
+								<option value="200">Leder</option>
 								<option value="300">Scale</option>
-								<option value="400">Chain</option>
+								<option value="400">Ketten</option>
 								<option value="450">Banded</option>
-								<option value="500">Plate</option>
-								<option value="750">Suit</option>
-								<option value="50">Protective Skins</option>
-								<option value="150">Fur</option>
-								<option value="80">Paper</option>									
-								<option value="100">Padded</option>
-								<option value="120">Corded</option>
-								<option value="180">Slat</option>
-								<option value="140">Leather</option>
-								<option value="170">Plated Leather</option>
-								<option value="160">Studded Leather</option>
+								<option value="500">Platte</option>
+								<option value="750">Voll</option>
+								<option value="50">Schützende Haut:</option>
+								<option value="150">Fell</option>
+								<option value="80">Papier</option>									
+								<option value="100">Wattiert</option>
+								<option value="120">Geschnürt</option>
+								<option value="180">Lamellen</option>
+								<option value="140">Leder</option>
+								<option value="170">Gehärt. Leder</option>
+								<option value="160">Beschl. Leder</option>
 								<option value="150">Cuir Boulli</option>
 								<option value="200">Hide</option>
-								<option value="200">Breastplate</option>
-								<option value="300">Scale</option>
+								<option value="200">Brustplatte</option>
+								<option value="300">Schuppen</option>
 								<option value="250">Brigandine</option>
 								<option value="300">Banded Leather</option>
 								<option value="350">Lamellare</option>									
-								<option value="400">Chainmail</option>
+								<option value="400">Kettenpanzer</option>
 								<option value="450">Splint</option>
 								<option value="500">Banded Mail</option>
-								<option value="600">Plate-mail</option>
-								<option value="900">Full Plate</option>
+								<option value="600">Plattenpanzer</option>
+								<option value="900">Voll Platte</option>
 							</select>
 						</div>
 						<!-- mathy bits-->
@@ -928,31 +934,31 @@
 						<input type="hidden" name="attr_eqnosuittoggle" value="abs(@{eqsuittoggle} - 1)" />
 						<!--Fit the encumbrance to an AC value -->
 						<input type="hidden" name="attr_eqarmourbaseac" value="(round(0.0168237512 * @{eqredux} * @{eqredux} * @{eqredux} * @{eqredux} - 0.2351937912 * @{eqredux} * @{eqredux} * @{eqredux} + 0.9378087321 * @{eqredux} * @{eqredux} - 2.1022659782 * @{eqredux} + 9.004497 ))" />
-						<div class="sheet-col-1-3 sheet-small-label sheet-center"><input class="sheet-underlined" type="number" name="attr_eqarmourmagic" value="0"min="0" step="1"><br/>Magic Bonus</div>
+						<div class="sheet-col-1-3 sheet-small-label sheet-center"><input class="sheet-underlined" type="number" name="attr_eqarmourmagic" value="0"min="0" step="1"><br/>Magischer Bonus</div>
 					</div>
 					<div class="sheet-row">
 						<div class="sheet-row sheet-sub-header sheet-small-label sheet-center">
-							<div class="sheet-col-1-3 sheet-center">Piecemeal Armour</div>
+							<div class="sheet-col-1-3 sheet-center">Stückwerk Rüstung</div>
 						</div>
 						<div class="sheet-col-1-3 sheet-small-label sheet-center">
 							<select name="attr_PAenabled">
-								<option value="0" selected="selected">Not Equiped</option>
-								<option value="1">Equiped</option>
+								<option value="0" selected="selected">Nicht Ausgerüstet</option>
+								<option value="1">Ausgerüstet</option>
 							</select>
 						</div>
 						<!--Toggle off full set when partial is worn-->
 						<input type="hidden" name="attr_eqarmourfullsettoggle" value="abs((@{PAenabled})-1)" />
 						<!--Calc AC value of partial armour worn-->
 						<input type="hidden" name="attr_eqACPA" value="(9 - (floor(@{PA_PR} /10)))" />
-						<div class="sheet-col-1-3 sheet-small-label sheet-center"><input class="sheet-underlined" type="number" name="attr_PA_PR" min="1" value="0" step="1"><br/>Protection Rating</div>
-						<div class="sheet-col-1-3 sheet-small-label sheet-center"><input class="sheet-underlined" type="number" name="attr_PA_ENC" min="1" value="0" step="1"><br/>Encumbrance</div>
+						<div class="sheet-col-1-3 sheet-small-label sheet-center"><input class="sheet-underlined" type="number" name="attr_PA_PR" min="1" value="0" step="1"><br/>Schutzrate</div>
+						<div class="sheet-col-1-3 sheet-small-label sheet-center"><input class="sheet-underlined" type="number" name="attr_PA_ENC" min="1" value="0" step="1"><br/>Belastung</div>
 						
 					</div>
 					<div class="sheet-row sheet-sub-header sheet-small-label sheet-center">
-						<div class="sheet-col-1-3 sheet-padl sheet-padr sheet-center">Area</div>
+						<div class="sheet-col-1-3 sheet-padl sheet-padr sheet-center">Bereich</div>
 						<div class="sheet-col-1-3">Material</div>
-						<div class="sheet-col-1-6">PR</div>
-						<div class="sheet-col-1-6">Enc</div>
+						<div class="sheet-col-1-6">SR</div>
+						<div class="sheet-col-1-6">Bela.</div>
 					</div>
 					<!--Armour Pieces repeating section -->
 					<fieldset class="repeating_armourpieces">
@@ -960,23 +966,23 @@
 							<div class="sheet-col-1-3 sheet-small-label sheet-center">
 								<select name="attr_aparea">
 									<option value="" selected="selected"></option>
-									<option value="Head">Head</option>
+									<option value="Kopf">Kopf</option>
 									<option value="Torso">Torso</option>
-									<option value="Shoulder Left">Shoulder Left</option>
-									<option value="Shoulder Right">Shoulder Right</option>
-									<option value="Arm Left Upper">Arm Left Upper</option>
-									<option value="Arm Right Upper">Arm Right Upper</option>
-									<option value="Elbows Both">Elbows Both</option>
-									<option value="Arm Left Forearm">Arm Left Forearm</option>
-									<option value="Arm Right Forearm">Arm Right Forearm</option>
-									<option value="Hands Both">Hands Both</option>
-									<option value="Waist and Back end">Waist and Back end</option>
-									<option value="Leg Left Thigh">Leg Left Thigh</option>
-									<option value="Leg Right Thigh">Leg Right Upper</option>
-									<option value="Knees both">Knees both</option>
-									<option value="Leg Left Shin">Leg Left Shin</option>
-									<option value="Leg Right Shin">Leg Right Shin</option>
-									<option value="Feet Both">Feet Both</option>
+									<option value="Schulter Left">Schulter Links</option>
+									<option value="Schulter Rechts">Schulter Rechts</option>
+									<option value="Oberarm Links">Oberarm Links</option>
+									<option value="Oberarm Rechts">Oberarm Rechts</option>
+									<option value="Ellbogen beide">Ellbogen beide</option>
+									<option value="Unterarm Links">Unterarm Links</option>
+									<option value="Unterarm Rechts">Unterarm Rechts</option>
+									<option value="Hand beide">Hand beide</option>
+									<option value="Taille und hinteres Ende">Taille und hinteres Ende</option>
+									<option value="Oberschenkel Links">Oberschenkel Links</option>
+									<option value="Oberschenkel Rechts">Oberschenkel Rechts</option>
+									<option value="Knie beide">Knie beide</option>
+									<option value="Unterschenkel Links">Unterschenkel Links</option>
+									<option value="Unterschenkel Rechts">Unterschenkel Rechts</option>
+									<option value="Fuß beide">Fuß beide</option>
 								</select>
 							</div>
 							<div class="sheet-col-1-3 sheet-padl sheet-center">
@@ -1044,18 +1050,18 @@
 	<!--Spellbook-->
 	<div class="sheet-section-spellbook">
 			<div class="sheet-row sheet">
-				<div class="sheet-col-1"><h4 class="sheet-center">Spell Slots<span class="sheet-pictos-custom">t</span></h4></div>
+				<div class="sheet-col-1"><h4 class="sheet-center">Zauber Slots<span class="sheet-pictos-custom">t</span></h4></div>
 					<div class="sheet-row sheet-sub-header">
-						<div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Spell Slots</div>
-						<div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Level 1</div>
-						<div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Level 2</div>
-						<div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Level 3</div>
-						<div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Level 4</div>
-						<div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Level 5</div>
-						<div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Level 6</div>
-						<div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Level 7</div>
-						<div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Level 8</div>
-						<div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Level 9</div>
+						<div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Zauber Slots</div>
+						<div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Stufe 1</div>
+						<div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Stufe 2</div>
+						<div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Stufe 3</div>
+						<div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Stufe 4</div>
+						<div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Stufe 5</div>
+						<div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Stufe 6</div>
+						<div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Stufe 7</div>
+						<div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Stufe 8</div>
+						<div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Stufe 9</div>
 						<div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label" title="For spell like effects such as dragons breath and some mystic abilities">Other 1</div>
 						<div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label" title="For spell like effects such as dragons breath and some mystic abilities">Other 2</div>
 					</div>
@@ -1074,7 +1080,7 @@
 						<div class="sheet-col-1-12"><input type="number" name="attr_spell_slots_o2_max" value="0"></div>
 					</div>
 					<div class="sheet-row">
-						<div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Used</div>
+						<div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Verwendet</div>
 						<div class="sheet-col-1-12"><input type="number" name="attr_spell_slots_l1" value="0"></div>
 						<div class="sheet-col-1-12"><input type="number" name="attr_spell_slots_l2" value="0"></div>
 						<div class="sheet-col-1-12"><input type="number" name="attr_spell_slots_l3" value="0"></div>
@@ -1089,61 +1095,61 @@
 					</div>
 			</div>
 			<span class="sheet-spacer"></span>
-				<h4 class="sheet-center">Spell Book <span class="sheet-pictos-three">g</span></h4>
+				<h4 class="sheet-center">Zauberbuch <span class="sheet-pictos-three">g</span></h4>
 				<!--Tabs for spell types-->
 					<input type="radio" name="attr_spellpagetab" class="sheet-spellpagetab sheet-spelltab0" value="0" title="Other" checked="checked" />
 					<span class="sheet-spellpagetab sheet-spelltab0">Other</span>
-					<input type="radio" name="attr_spellpagetab" class="sheet-spellpagetab sheet-spelltab1" value="1" title="Level 1" />
-					<span class="sheet-spellpagetab sheet-spelltab1">Level 1</span>
-					<input type="radio" name="attr_spellpagetab" class="sheet-spellpagetab sheet-spelltab2" value="2" title="Level 2" />
-					<span class="sheet-spellpagetab sheet-spelltab2">Level 2</span>
-					<input type="radio" name="attr_spellpagetab" class="sheet-spellpagetab sheet-spelltab3" value="3" title="Level 3" />
-					<span class="sheet-spellpagetab sheet-spelltab3">Level 3</span>
-					<input type="radio" name="attr_spellpagetab" class="sheet-spellpagetab sheet-spelltab4" value="4" title="Level 4" />
-					<span class="sheet-spellpagetab sheet-spelltab4">Level 4</span>
-					<input type="radio" name="attr_spellpagetab" class="sheet-spellpagetab sheet-spelltab5" value="5" title="Level 5" />
-					<span class="sheet-spellpagetab sheet-spelltab5">Level 5</span>
-					<input type="radio" name="attr_spellpagetab" class="sheet-spellpagetab sheet-spelltab6" value="6" title="Level 6" />
-					<span class="sheet-spellpagetab sheet-spelltab6">Level 6</span>
-					<input type="radio" name="attr_spellpagetab" class="sheet-spellpagetab sheet-spelltab7" value="7" title="Level 7" />
-					<span class="sheet-spellpagetab sheet-spelltab7">Level 7</span>
-					<input type="radio" name="attr_spellpagetab" class="sheet-spellpagetab sheet-spelltab8" value="8" title="Level 8" />
-					<span class="sheet-spellpagetab sheet-spelltab8">Level 8</span>
-					<input type="radio" name="attr_spellpagetab" class="sheet-spellpagetab sheet-spelltab9" value="9" title="Level 9" />
-					<span class="sheet-spellpagetab sheet-spelltab9">Level 9</span>
-					<input type="radio" name="attr_spellpagetab" class="sheet-spellpagetab sheet-spelltab99" value="99" title="Show All" />
-					<span class="sheet-spellpagetab sheet-spelltab99">Show All</span>
+					<input type="radio" name="attr_spellpagetab" class="sheet-spellpagetab sheet-spelltab1" value="1" title="Stufe 1" />
+					<span class="sheet-spellpagetab sheet-spelltab1">Stufe 1</span>
+					<input type="radio" name="attr_spellpagetab" class="sheet-spellpagetab sheet-spelltab2" value="2" title="Stufe 2" />
+					<span class="sheet-spellpagetab sheet-spelltab2">Stufe 2</span>
+					<input type="radio" name="attr_spellpagetab" class="sheet-spellpagetab sheet-spelltab3" value="3" title="Stufe 3" />
+					<span class="sheet-spellpagetab sheet-spelltab3">Stufe 3</span>
+					<input type="radio" name="attr_spellpagetab" class="sheet-spellpagetab sheet-spelltab4" value="4" title="Stufe 4" />
+					<span class="sheet-spellpagetab sheet-spelltab4">Stufe 4</span>
+					<input type="radio" name="attr_spellpagetab" class="sheet-spellpagetab sheet-spelltab5" value="5" title="Stufe 5" />
+					<span class="sheet-spellpagetab sheet-spelltab5">Stufe 5</span>
+					<input type="radio" name="attr_spellpagetab" class="sheet-spellpagetab sheet-spelltab6" value="6" title="Stufe 6" />
+					<span class="sheet-spellpagetab sheet-spelltab6">Stufe 6</span>
+					<input type="radio" name="attr_spellpagetab" class="sheet-spellpagetab sheet-spelltab7" value="7" title="Stufe 7" />
+					<span class="sheet-spellpagetab sheet-spelltab7">Stufe 7</span>
+					<input type="radio" name="attr_spellpagetab" class="sheet-spellpagetab sheet-spelltab8" value="8" title="Stufe 8" />
+					<span class="sheet-spellpagetab sheet-spelltab8">Stufe 8</span>
+					<input type="radio" name="attr_spellpagetab" class="sheet-spellpagetab sheet-spelltab9" value="9" title="Stufe 9" />
+					<span class="sheet-spellpagetab sheet-spelltab9">Stufe 9</span>
+					<input type="radio" name="attr_spellpagetab" class="sheet-spellpagetab sheet-spelltab99" value="99" title="Alle anzeigen" />
+					<span class="sheet-spellpagetab sheet-spelltab99">Alle anzeigen</span>
 				<span class="sheet-spacer"></span>
 				<!--Other Tab-->
 				<div class="sheet-spell-page0">
 					<div class="sheet-row sheet-spell-header">
-						<div class="sheet-col-1 sheet-vert-bottom sheet-center sheet-small-label">Other</div>
+						<div class="sheet-col-1 sheet-vert-bottom sheet-center sheet-small-label">Andere</div>
 					</div>
 					<fieldset class="repeating_spellbookcantrip">
 					<!-- BEGIN spell row -->
 					<div class="sheet-margin-bottom sheet-padr sheet-padl">
 						<div class="sheet-row">
-							<div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Spell Level</div>
-							<div class="sheet-col-1-3 sheet-vert-bottom sheet-center sheet-small-label">Spell name</div>
-							<div class="sheet-col-1-6 sheet-vert-bottom sheet-center sheet-small-label">Cast time</div>
-							<div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label" title="Concentration">Conc?</div>
-							<div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Prepared?</div>
+							<div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Zauberstufe</div>
+							<div class="sheet-col-1-3 sheet-vert-bottom sheet-center sheet-small-label">Zauber Name</div>
+							<div class="sheet-col-1-6 sheet-vert-bottom sheet-center sheet-small-label">Zauberzeit</div>
+							<div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label" title="Concentration">Konz?</div>
+							<div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Vorbereitet?</div>
 						</div>
 						<div class="sheet-row">
-							<div class="sheet-col-1-12 sheet-vert-middle sheet-center sheet-padr">Other<input type="hidden" name="attr_spellbaselevel" value="0"><input type="hidden" name="attr_spellfriendlylevel" value="Other"></div>
+							<div class="sheet-col-1-12 sheet-vert-middle sheet-center sheet-padr">Anderer<input type="hidden" name="attr_spellbaselevel" value="0"><input type="hidden" name="attr_spellfriendlylevel" value="Other"></div>
 							<div class="sheet-col-1-3 sheet-vert-middle sheet-padr"><input type="text" class=" sheet-center" name="attr_spellname"></div>
 							<div class="sheet-col-1-6 sheet-vert-middle sheet-padr"><input type="text" class="sheet-center" name="attr_spellcasttime"></div>
 							<div class="sheet-col-1-12 sheet-checkbox-row sheet-padr">
 								<select name="attr_spellconcentration">
-									<option value="" selected="selected">No</option>
-									<option value="(Concentration)">Yes</option>
+									<option value="" selected="selected">Nein</option>
+									<option value="(Konzentration)">Ja</option>
 								</select>
 							</div>
 							<div class="sheet-col-1-8 sheet-vert-middle" title="Always prepared means the spell/spell like effect is one that was provided to you via a method which indicated it would never count against your prepared/known limits.">
 								<select name="attr_spellisprepared">
-									<option value="1">Yes</option>
-									<option value="0">NO</option>
-									<option value="0.0001" selected="selected">Always</option>
+									<option value="1">Ja</option>
+									<option value="0">NEIN</option>
+									<option value="0.0001" selected="selected">Immer</option>
 								</select>
 							</div>
 						</div>
@@ -2064,7 +2070,7 @@
 								<div class="sheet-col-1-6 sheet-small-label sheet-center">
 									<select name="attr_attackstat">
 										<option value="0">None</option>
-										<option value="@{strength_mod}">STR</option>
+										<option value="@{strength_mod}">STE</option>
 										<option value="@{dexterity_mod}">DEX</option>
 										<option value="@{constitution_mod}">CON</option>
 										<option value="@{intelligence_mod}">INT</option>
@@ -2237,7 +2243,7 @@
 								<div class="sheet-col-1-6 sheet-small-label sheet-center">
 									<select name="attr_attackstat">
 										<option value="0">None</option>
-										<option value="@{strength_mod}">STR</option>
+										<option value="@{strength_mod}">STE</option>
 										<option value="@{dexterity_mod}">DEX</option>
 										<option value="@{constitution_mod}">CON</option>
 										<option value="@{intelligence_mod}">INT</option>
@@ -2583,7 +2589,7 @@
 								<div class="sheet-col-1-6 sheet-small-label sheet-center">
 									<select name="attr_attackstat">
 										<option value="0">None</option>
-										<option value="@{strength_mod}">STR</option>
+										<option value="@{strength_mod}">STE</option>
 										<option value="@{dexterity_mod}">DEX</option>
 										<option value="@{constitution_mod}">CON</option>
 										<option value="@{intelligence_mod}">INT</option>
@@ -3050,15 +3056,17 @@
 					<div class="sheet-col-1-12 sheet-center sheet-small-label">Qty</div>
 					<div class="sheet-col-1-12 sheet-center sheet-small-label">Uses</div>
 					<div class="sheet-col-1-12 sheet-center sheet-small-label">Enc.</div>
-					<div class="sheet-col-1-2 sheet-center sheet-small-label sheet-padl">Notes</div>
+					<div class="sheet-col-1-12 sheet-center sheet-small-label">Total enc.</div>
+					<div class="sheet-col-1-4 sheet-center sheet-small-label sheet-padl">Notes</div>
 				</div>
 				<fieldset class="repeating_inventtab1">
 					<div class="sheet-row">
 						<div class="sheet-col-1-4 sheet-small-label sheet-left"><input type="text" name="attr_itemname"></div>
-						<div class="sheet-col-1-12 sheet-padl sheet-center"><input type="number" name="attr_itemquantity"></div>
-						<div class="sheet-col-1-12 sheet-padl sheet-center"><input type="number" name="attr_itemuses"></div>
-						<div class="sheet-col-1-12 sheet-padl sheet-center"><input type="number" name="attr_itemenc"></div>
-						<div class="sheet-col-1-2 sheet-padl sheet-small-label sheet-left"><input type="text" name="attr_itemdesc"></div>
+						<div class="sheet-col-1-12 sheet-padl sheet-center"><input type="number" name="attr_itemquantity1" value="0"></div>
+						<div class="sheet-col-1-12 sheet-padl sheet-center"><input type="number" name="attr_itemuses" value="0"></div>
+						<div class="sheet-col-1-12 sheet-padl sheet-center"><input type="number" name="attr_itemenc1" value="0"></div>
+						<div class="sheet-col-1-12 sheet-padl sheet-center"><input type="text" name="attr_itemtot1" value="0" readonly='readonly'></div>
+						<div class="sheet-col-1-3 sheet-padl sheet-small-label sheet-left"><input type="text" name="attr_itemdesc"></div>
 					</div>
 				</fieldset>
 			</div>
@@ -3070,15 +3078,17 @@
 					<div class="sheet-col-1-12 sheet-center sheet-small-label">Qty</div>
 					<div class="sheet-col-1-12 sheet-center sheet-small-label">Uses</div>
 					<div class="sheet-col-1-12 sheet-center sheet-small-label">Enc.</div>
-					<div class="sheet-col-1-2 sheet-center sheet-small-label sheet-padl">Notes</div>
+					<div class="sheet-col-1-12 sheet-center sheet-small-label">Total enc.</div>
+					<div class="sheet-col-1-4 sheet-center sheet-small-label sheet-padl">Notes</div>
 				</div>
 				<fieldset class="repeating_inventtab2">
 					<div class="sheet-row">
 						<div class="sheet-col-1-4 sheet-small-label sheet-left"><input type="text" name="attr_itemname"></div>
-						<div class="sheet-col-1-12 sheet-padl sheet-center"><input type="number" name="attr_itemquantity"></div>
-						<div class="sheet-col-1-12 sheet-padl sheet-center"><input type="number" name="attr_itemuses"></div>
-						<div class="sheet-col-1-12 sheet-padl sheet-center"><input type="number" name="attr_itemenc"></div>
-						<div class="sheet-col-1-2 sheet-padl sheet-small-label sheet-left"><input type="text" name="attr_itemdesc"></div>
+						<div class="sheet-col-1-12 sheet-padl sheet-center"><input type="number" name="attr_itemquantity2" value="0"></div>
+						<div class="sheet-col-1-12 sheet-padl sheet-center"><input type="number" name="attr_itemuses" value="0"></div>
+						<div class="sheet-col-1-12 sheet-padl sheet-center"><input type="number" name="attr_itemenc2" value="0"></div>
+						<div class="sheet-col-1-12 sheet-padl sheet-center"><input type="text" name="attr_itemtot2" value="0" readonly='readonly'></div>
+						<div class="sheet-col-1-3 sheet-padl sheet-small-label sheet-left"><input type="text" name="attr_itemdesc"></div>
 					</div>
 				</fieldset>
 			</div>
@@ -3090,15 +3100,17 @@
 					<div class="sheet-col-1-12 sheet-center sheet-small-label">Qty</div>
 					<div class="sheet-col-1-12 sheet-center sheet-small-label">Uses</div>
 					<div class="sheet-col-1-12 sheet-center sheet-small-label">Enc.</div>
-					<div class="sheet-col-1-2 sheet-center sheet-small-label sheet-padl">Notes</div>
+					<div class="sheet-col-1-12 sheet-center sheet-small-label">Total enc.</div>
+					<div class="sheet-col-1-4 sheet-center sheet-small-label sheet-padl">Notes</div>
 				</div>
 				<fieldset class="repeating_inventtab3">
 					<div class="sheet-row">
 						<div class="sheet-col-1-4 sheet-small-label sheet-left"><input type="text" name="attr_itemname"></div>
-						<div class="sheet-col-1-12 sheet-padl sheet-center"><input type="number" name="attr_itemquantity"></div>
-						<div class="sheet-col-1-12 sheet-padl sheet-center"><input type="number" name="attr_itemuses"></div>
-						<div class="sheet-col-1-12 sheet-padl sheet-center"><input type="number" name="attr_itemenc"></div>
-						<div class="sheet-col-1-2 sheet-padl sheet-small-label sheet-left"><input type="text" name="attr_itemdesc"></div>
+						<div class="sheet-col-1-12 sheet-padl sheet-center"><input type="number" name="attr_itemquantity3" value="0"></div>
+						<div class="sheet-col-1-12 sheet-padl sheet-center"><input type="number" name="attr_itemuses" value="0"></div>
+						<div class="sheet-col-1-12 sheet-padl sheet-center"><input type="number" name="attr_itemenc3" value="0"></div>
+						<div class="sheet-col-1-12 sheet-padl sheet-center"><input type="text" name="attr_itemtot3" value="0" readonly='readonly'></div>
+						<div class="sheet-col-1-3 sheet-padl sheet-small-label sheet-left"><input type="text" name="attr_itemdesc"></div>
 					</div>
 				</fieldset>
 			</div>
@@ -3110,15 +3122,17 @@
 					<div class="sheet-col-1-12 sheet-center sheet-small-label">Qty</div>
 					<div class="sheet-col-1-12 sheet-center sheet-small-label">Uses</div>
 					<div class="sheet-col-1-12 sheet-center sheet-small-label">Enc.</div>
-					<div class="sheet-col-1-2 sheet-center sheet-small-label sheet-padl">Notes</div>
+					<div class="sheet-col-1-12 sheet-center sheet-small-label">Total enc.</div>
+					<div class="sheet-col-1-4 sheet-center sheet-small-label sheet-padl">Notes</div>
 				</div>
 				<fieldset class="repeating_inventtab4">
 					<div class="sheet-row">
 						<div class="sheet-col-1-4 sheet-small-label sheet-left"><input type="text" name="attr_itemname"></div>
-						<div class="sheet-col-1-12 sheet-padl sheet-center"><input type="number" name="attr_itemquantity"></div>
-						<div class="sheet-col-1-12 sheet-padl sheet-center"><input type="number" name="attr_itemuses"></div>
-						<div class="sheet-col-1-12 sheet-padl sheet-center"><input type="number" name="attr_itemenc"></div>
-						<div class="sheet-col-1-2 sheet-padl sheet-small-label sheet-left"><input type="text" name="attr_itemdesc"></div>
+						<div class="sheet-col-1-12 sheet-padl sheet-center"><input type="number" name="attr_itemquantity4" value="0"></div>
+						<div class="sheet-col-1-12 sheet-padl sheet-center"><input type="number" name="attr_itemuses" value="0"></div>
+						<div class="sheet-col-1-12 sheet-padl sheet-center"><input type="number" name="attr_itemenc4" value="0"></div>
+						<div class="sheet-col-1-12 sheet-padl sheet-center"><input type="text" name="attr_itemtot4" value="0" readonly='readonly'></div>
+						<div class="sheet-col-1-3 sheet-padl sheet-small-label sheet-left"><input type="text" name="attr_itemdesc"></div>
 					</div>
 				</fieldset>
 			</div>
@@ -3130,15 +3144,17 @@
 					<div class="sheet-col-1-12 sheet-center sheet-small-label">Qty</div>
 					<div class="sheet-col-1-12 sheet-center sheet-small-label">Uses</div>
 					<div class="sheet-col-1-12 sheet-center sheet-small-label">Enc.</div>
-					<div class="sheet-col-1-2 sheet-center sheet-small-label sheet-padl">Notes</div>
+					<div class="sheet-col-1-12 sheet-center sheet-small-label">Total enc.</div>
+					<div class="sheet-col-1-4 sheet-center sheet-small-label sheet-padl">Notes</div>
 				</div>
 				<fieldset class="repeating_inventtab5">
 					<div class="sheet-row">
 						<div class="sheet-col-1-4 sheet-small-label sheet-left"><input type="text" name="attr_itemname"></div>
-						<div class="sheet-col-1-12 sheet-padl sheet-center"><input type="number" name="attr_itemquantity"></div>
-						<div class="sheet-col-1-12 sheet-padl sheet-center"><input type="number" name="attr_itemuses"></div>
-						<div class="sheet-col-1-12 sheet-padl sheet-center"><input type="number" name="attr_itemenc"></div>
-						<div class="sheet-col-1-2 sheet-padl sheet-small-label sheet-left"><input type="text" name="attr_itemdesc"></div>
+						<div class="sheet-col-1-12 sheet-padl sheet-center"><input type="number" name="attr_itemquantity5" value="0"></div>
+						<div class="sheet-col-1-12 sheet-padl sheet-center"><input type="number" name="attr_itemuses" value="0"></div>
+						<div class="sheet-col-1-12 sheet-padl sheet-center"><input type="number" name="attr_itemenc5" value="0"></div>
+						<div class="sheet-col-1-12 sheet-padl sheet-center"><input type="text" name="attr_itemtot5" value="0" readonly='readonly'></div>
+						<div class="sheet-col-1-3 sheet-padl sheet-small-label sheet-left"><input type="text" name="attr_itemdesc"></div>
 					</div>
 				</fieldset>
 			</div>
@@ -3150,15 +3166,17 @@
 					<div class="sheet-col-1-12 sheet-center sheet-small-label">Qty</div>
 					<div class="sheet-col-1-12 sheet-center sheet-small-label">Uses</div>
 					<div class="sheet-col-1-12 sheet-center sheet-small-label">Enc.</div>
-					<div class="sheet-col-1-2 sheet-center sheet-small-label sheet-padl">Notes</div>
+					<div class="sheet-col-1-12 sheet-center sheet-small-label">Total enc.</div>
+					<div class="sheet-col-1-4 sheet-center sheet-small-label sheet-padl">Notes</div>
 				</div>
 				<fieldset class="repeating_inventtab6">
 					<div class="sheet-row">
 						<div class="sheet-col-1-4 sheet-small-label sheet-left"><input type="text" name="attr_itemname"></div>
-						<div class="sheet-col-1-12 sheet-padl sheet-center"><input type="number" name="attr_itemquantity"></div>
-						<div class="sheet-col-1-12 sheet-padl sheet-center"><input type="number" name="attr_itemuses"></div>
-						<div class="sheet-col-1-12 sheet-padl sheet-center"><input type="number" name="attr_itemenc"></div>
-						<div class="sheet-col-1-2 sheet-padl sheet-small-label sheet-left"><input type="text" name="attr_itemdesc"></div>
+						<div class="sheet-col-1-12 sheet-padl sheet-center"><input type="number" name="attr_itemquantity6" value="0"></div>
+						<div class="sheet-col-1-12 sheet-padl sheet-center"><input type="number" name="attr_itemuses" value="0"></div>
+						<div class="sheet-col-1-12 sheet-padl sheet-center"><input type="number" name="attr_itemenc6" value="0"></div>
+						<div class="sheet-col-1-12 sheet-padl sheet-center"><input type="text" name="attr_itemtot6" value="0" readonly='readonly'></div>
+						<div class="sheet-col-1-3 sheet-padl sheet-small-label sheet-left"><input type="text" name="attr_itemdesc"></div>
 					</div>
 				</fieldset>
 			</div>
@@ -3170,15 +3188,17 @@
 					<div class="sheet-col-1-12 sheet-center sheet-small-label">Qty</div>
 					<div class="sheet-col-1-12 sheet-center sheet-small-label">Uses</div>
 					<div class="sheet-col-1-12 sheet-center sheet-small-label">Enc.</div>
-					<div class="sheet-col-1-2 sheet-center sheet-small-label sheet-padl">Notes</div>
+					<div class="sheet-col-1-12 sheet-center sheet-small-label">Total enc.</div>
+					<div class="sheet-col-1-4 sheet-center sheet-small-label sheet-padl">Notes</div>
 				</div>
 				<fieldset class="repeating_inventtab7">
 					<div class="sheet-row">
 						<div class="sheet-col-1-4 sheet-small-label sheet-left"><input type="text" name="attr_itemname"></div>
-						<div class="sheet-col-1-12 sheet-padl sheet-center"><input type="number" name="attr_itemquantity"></div>
-						<div class="sheet-col-1-12 sheet-padl sheet-center"><input type="number" name="attr_itemuses"></div>
-						<div class="sheet-col-1-12 sheet-padl sheet-center"><input type="number" name="attr_itemenc"></div>
-						<div class="sheet-col-1-2 sheet-padl sheet-small-label sheet-left"><input type="text" name="attr_itemdesc"></div>
+						<div class="sheet-col-1-12 sheet-padl sheet-center"><input type="number" name="attr_itemquantity7" value="0"></div>
+						<div class="sheet-col-1-12 sheet-padl sheet-center"><input type="number" name="attr_itemuses" value="0"></div>
+						<div class="sheet-col-1-12 sheet-padl sheet-center"><input type="number" name="attr_itemenc7" value="0"></div>
+						<div class="sheet-col-1-12 sheet-padl sheet-center"><input type="text" name="attr_itemtot7" value="0" readonly='readonly'></div>
+						<div class="sheet-col-1-3 sheet-padl sheet-small-label sheet-left"><input type="text" name="attr_itemdesc"></div>
 					</div>
 				</fieldset>
 			</div>
@@ -3301,7 +3321,7 @@
 					<div class="sheet-col-1-4 sheet-center"><input type="checkbox" name="attr_secondweapon" value="5" /></div>
 				</div>
 				<div class="sheet-row">
-					<div class="sheet-col-3-4 sheet-padr sheet-small-label sheet-right">AC 5 or Better</div>
+					<div class="sheet-col-3-4 sheet-padr sheet-small-label sheet-right">AC 5 or higher</div>
 					<div class="sheet-col-1-4 sheet-center"><input type="checkbox" name="attr_aclessthan6" value="5" /></div>
 				</div>
 				<div class="sheet-row sheet-border-top sheet-small-label sheet-center">
@@ -3327,51 +3347,51 @@
 				<input type="hidden" name="attr_brcalc" value="@{bfr} + (ceil((@{bfr})/ 10) * (@{brchecks}))" />
 			</div>
 			<div class="sheet-row">
-				<div class="sheet-col-3-4 sheet-padr sheet-small-label sheet-right">20% + are Mounted</div>
+				<div class="sheet-col-3-4 sheet-padr sheet-small-label sheet-right">20% + sind beritten</div>
 				<div class="sheet-col-1-4 sheet-center"><input type="checkbox" name="attr_20mounted" value="1" /></div>
 			</div>
 			<div class="sheet-row">
-				<div class="sheet-col-3-4 sheet-padr sheet-small-label sheet-right">50% + are Mounted</div>
+				<div class="sheet-col-3-4 sheet-padr sheet-small-label sheet-right">50% + sind beritten</div>
 				<div class="sheet-col-1-4 sheet-center"><input type="checkbox" name="attr_50mounted" value="1" /></div>
 			</div>
 			<div class="sheet-row sheet-padt sheet-border-top">
-				<div class="sheet-col-3-4 sheet-padr sheet-small-label sheet-right">20% + have Missiles</div>
+				<div class="sheet-col-3-4 sheet-padr sheet-small-label sheet-right">20% + haben Geschosswaffen</div>
 				<div class="sheet-col-1-4 sheet-center"><input type="checkbox" name="attr_20missile" value="1" /></div>
 			</div>
 			<div class="sheet-row">
-				<div class="sheet-col-3-4 sheet-padr sheet-small-label sheet-right">20% + have 100'+ range Missiles</div>
+				<div class="sheet-col-3-4 sheet-padr sheet-small-label sheet-right">20% + haben 100'+ Geschosswaffen</div>
 				<div class="sheet-col-1-4 sheet-center"><input type="checkbox" name="attr_20missilelong" value="1" /></div>
 			</div>
 			<div class="sheet-row sheet-padt sheet-border-top">
-				<div class="sheet-col-3-4 sheet-padr sheet-small-label sheet-right">1% + has Magical Abilities</div>
+				<div class="sheet-col-3-4 sheet-padr sheet-small-label sheet-right">1% + haben magische Fertigkeiten</div>
 				<div class="sheet-col-1-4 sheet-center"><input type="checkbox" name="attr_1magical" value="1" /></div>
 			</div>
 			<div class="sheet-row">
-				<div class="sheet-col-3-4 sheet-padr sheet-small-label sheet-right">20% + has Magical Abilities</div>
+				<div class="sheet-col-3-4 sheet-padr sheet-small-label sheet-right">20% + haben magische Fertigkeiten</div>
 				<div class="sheet-col-1-4 sheet-center"><input type="checkbox" name="attr_20magical" value="1" /></div>
 			</div>
 			<div class="sheet-row">
-				<div class="sheet-col-3-4 sheet-padr sheet-small-label sheet-right">100% + has Magical Abilities</div>
+				<div class="sheet-col-3-4 sheet-padr sheet-small-label sheet-right">100% + haben magische Fertigkeiten</div>
 				<div class="sheet-col-1-4 sheet-center"><input type="checkbox" name="attr_100magical" value="1" /></div>
 			</div>
 			<div class="sheet-row sheet-padt sheet-border-top">
-				<div class="sheet-col-3-4 sheet-padr sheet-small-label sheet-right">5% + can cast Spells</div>
+				<div class="sheet-col-3-4 sheet-padr sheet-small-label sheet-right">5% + können Zauber anwenden</div>
 				<div class="sheet-col-1-4 sheet-center"><input type="checkbox" name="attr_5spells" value="1" /></div>
 			</div>
 			<div class="sheet-row">
-				<div class="sheet-col-3-4 sheet-padr sheet-small-label sheet-right">30% + can cast Spells</div>
+				<div class="sheet-col-3-4 sheet-padr sheet-small-label sheet-right">30% + können Zauber anwenden</div>
 				<div class="sheet-col-1-4 sheet-center"><input type="checkbox" name="attr_30spells" value="1" /></div>
 			</div>
 			<div class="sheet-row sheet-padt sheet-border-top">
-				<div class="sheet-col-3-4 sheet-padr sheet-small-label sheet-right">1% + can Fly</div>
+				<div class="sheet-col-3-4 sheet-padr sheet-small-label sheet-right">1% + können fliegen</div>
 				<div class="sheet-col-1-4 sheet-center"><input type="checkbox" name="attr_1fly" value="1" /></div>
 			</div>
 			<div class="sheet-row">
-				<div class="sheet-col-3-4 sheet-padr sheet-small-label sheet-right">20% + can Fly</div>
+				<div class="sheet-col-3-4 sheet-padr sheet-small-label sheet-right">20% + können fliegen</div>
 				<div class="sheet-col-1-4 sheet-center"><input type="checkbox" name="attr_20fly" value="1" /></div>
 			</div>
 			<div class="sheet-row sheet-padt sheet-border-top">
-				<div class="sheet-col-3-4 sheet-padr sheet-small-label sheet-right">100' + average movement</div>
+				<div class="sheet-col-3-4 sheet-padr sheet-small-label sheet-right">100' + verbesserte Bewegung</div>
 				<div class="sheet-col-1-4 sheet-center"><input type="checkbox" name="attr_100move" value="1" /></div>
 			</div>
 		</div>
@@ -3403,83 +3423,83 @@
 				<!--Weapon based attacks-->
 				{{#attack}}
 				<div class="sheet-row">
-					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Attack</div>
-					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">hits AC {{attack}}</div>
+					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Angriff</div>
+					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">trifft RK {{attack}}</div>
 				</div>
 				{{/attack}}
 				{{#damage}}
 				<div class="sheet-row">
-					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Damage</div>
+					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Schaden</div>
 					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{damage}}</div>
 				</div>
 				{{/damage}}
 				{{#attackshowinfoblock}}
 				<div class="sheet-row">
-					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-center">Range</div>
+					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-center">Reichweite</div>
 					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{attackrange}}</div>
 				</div>
 				<div class="sheet-row">
-					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-center">AC Mod</div>
+					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-center">RK Mod</div>
 					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{attackacmod}}</div>
 				</div>
 				<div class="sheet-row">
-					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-center">Effects</div>
+					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-center">Effekt</div>
 					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{attackeffects}}</div>
 				</div>
 				<div class="sheet-row">
-					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-center">Save</div>
+					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-center">RW</div>
 					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{attacksave}}</div>
 				</div>
 				{{/attackshowinfoblock}}
 				<!--Spellcasting-->
 				{{#spellshowinfoblock}}
 				<div class="sheet-row sheet-padb">
-					<div class="sheet-col-1-2 sheet-padl sheet-padr sheet-center sheet-border-right-dotted"><span class="sheet-rt-key">Cast Time</span><br/><span class="sheet-rt-value">{{spellcasttime}}</span></div>
-					<div class="sheet-col-1-2 sheet-padl sheet-padr sheet-center sheet-border-left-dotted"><span class="sheet-rt-key">Duration</span><br/><span class="sheet-rt-value">{{spellduration}}</span></div>
+					<div class="sheet-col-1-2 sheet-padl sheet-padr sheet-center sheet-border-right-dotted"><span class="sheet-rt-key">Zauberzeit</span><br/><span class="sheet-rt-value">{{spellcasttime}}</span></div>
+					<div class="sheet-col-1-2 sheet-padl sheet-padr sheet-center sheet-border-left-dotted"><span class="sheet-rt-key">Dauer</span><br/><span class="sheet-rt-value">{{spellduration}}</span></div>
 					<div class="sheet-col-1 sheet-border-top-dotted"></div>
-					<div class="sheet-col-1-2 sheet-padl sheet-padr sheet-center sheet-border-right-dotted"><span class="sheet-rt-key">Target/AoE</span><br/><span class="sheet-rt-value">{{spelltarget}}</span></div>
-					<div class="sheet-col-1-2 sheet-padl sheet-padr sheet-center sheet-border-left-dotted"><span class="sheet-rt-key">Range</span><br/><span class="sheet-rt-value">{{spellrange}}</span></div>
+					<div class="sheet-col-1-2 sheet-padl sheet-padr sheet-center sheet-border-right-dotted"><span class="sheet-rt-key">Ziel/Bereich</span><br/><span class="sheet-rt-value">{{spelltarget}}</span></div>
+					<div class="sheet-col-1-2 sheet-padl sheet-padr sheet-center sheet-border-left-dotted"><span class="sheet-rt-key">Rw</span><br/><span class="sheet-rt-value">{{spellrange}}</span></div>
 				</div>
 				{{/spellshowinfoblock}}
 				{{#spellshowattack}}
 				<div class="sheet-row">
-					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Attack</div>
-					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{spellattack}} AC Hit</div>
+					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Angriff</div>
+					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{spellattack}} RK treffer</div>
 				</div>
 				{{/spellshowattack}}
 				{{#spellshowsavethrow}}
 				<div class="sheet-row">
-					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Save</div>
+					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">RW</div>
 					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{spellsavestat}}</div>
 				</div>
 				{{/spellshowsavethrow}}
 				{{#spellshowhealing}}
 				<div class="sheet-row">
-					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Healing</div>
-					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{spellhealing}} HP healed</div>
+					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Heilung</div>
+					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{spellhealing}} TP geheilt</div>
 				</div>
 				{{/spellshowhealing}}
 				{{#spellshowdamage}}
 				<div class="sheet-row">
-					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Damage</div>
+					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Schaden</div>
 					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{spelldamage}}</div>
 				</div>
 				{{/spellshowdamage}}
 				{{#spellshoweffects}}
 				<div class="sheet-row">
-					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Effect</div>
+					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Effekt</div>
 					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{spelleffect}}</div>
 				</div>
 				{{/spellshoweffects}}
 				{{#spellshowsavethrow}}
 				<div class="sheet-row">
-					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Save success</div>
+					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">RW erfolgreich</div>
 					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{spellsavesuccess}}</div>
 				</div>
 				{{/spellshowsavethrow}}
 				{{#spellshowdesc}}
 				<div class="sheet-row">
-					<div class="sheet-col-1 sheet-padl sheet-padr sheet-rt-key">Spell Description</div>
+					<div class="sheet-col-1 sheet-padl sheet-padr sheet-rt-key">Zauber Beschreibung</div>
 					<div class="sheet-col-1 sheet-padl sheet-padr sheet-rt-value">{{spelldescription}}</div>
 				</div>
 				{{/spellshowdesc}}
@@ -3487,21 +3507,21 @@
 				{{#npccorestats}}
 				<div class="sheet-row">
 					<div class="sheet-col-1-3 sheet-padl sheet-padr sheet-rt-key">Stat</div>
-					<div class="sheet-col-1-3 sheet-padl sheet-padr sheet-rt-key">Score</div>
+					<div class="sheet-col-1-3 sheet-padl sheet-padr sheet-rt-key">Wert</div>
 					<div class="sheet-col-1-3 sheet-padl sheet-padr sheet-rt-key">Mod</div>
 				</div>
 				<div class="sheet-row">
-					<div class="sheet-col-1-3 sheet-padl sheet-padr sheet-rt-value">STR</div>
+					<div class="sheet-col-1-3 sheet-padl sheet-padr sheet-rt-value">STE</div>
 					<div class="sheet-col-1-3 sheet-padl sheet-padr sheet-rt-value">{{npc_strength}}</div>
 					<div class="sheet-col-1-3 sheet-padl sheet-padr sheet-rt-value">{{npc_strength_mod}}</div>
 				</div>
 				<div class="sheet-row">
-					<div class="sheet-col-1-3 sheet-padl sheet-padr sheet-rt-value">DEX</div>
+					<div class="sheet-col-1-3 sheet-padl sheet-padr sheet-rt-value">GES</div>
 					<div class="sheet-col-1-3 sheet-padl sheet-padr sheet-rt-value">{{npc_dexterity}}</div>
 					<div class="sheet-col-1-3 sheet-padl sheet-padr sheet-rt-value">{{npc_dexterity_mod}}</div>
 				</div>
 				<div class="sheet-row">
-					<div class="sheet-col-1-3 sheet-padl sheet-padr sheet-rt-value">CON</div>
+					<div class="sheet-col-1-3 sheet-padl sheet-padr sheet-rt-value">KON</div>
 					<div class="sheet-col-1-3 sheet-padl sheet-padr sheet-rt-value">{{npc_constitution}}</div>
 					<div class="sheet-col-1-3 sheet-padl sheet-padr sheet-rt-value">{{npc_constitution_mod}}</div>
 				</div>
@@ -3511,7 +3531,7 @@
 					<div class="sheet-col-1-3 sheet-padl sheet-padr sheet-rt-value">{{npc_intelligence_mod}}</div>
 				</div>
 				<div class="sheet-row">
-					<div class="sheet-col-1-3 sheet-padl sheet-padr sheet-rt-value">WIS</div>
+					<div class="sheet-col-1-3 sheet-padl sheet-padr sheet-rt-value">WEI</div>
 					<div class="sheet-col-1-3 sheet-padl sheet-padr sheet-rt-value">{{npc_wisdom}}</div>
 					<div class="sheet-col-1-3 sheet-padl sheet-padr sheet-rt-value">{{npc_wisdom_mod}}</div>
 				</div>
@@ -3523,39 +3543,39 @@
 				{{/npccorestats}}
 				{{#npctraits}}
 				<div class="sheet-row">
-					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Dmg Resistance</div>
+					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Schadensresistenz</div>
 					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{npc_damage_resistance}}</div>
 				</div>
 				<div class="sheet-row">
-					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Dmg Vuln.</div>
+					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Scha. verl.</div>
 					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{npc_damage_vulnerability}}</div>
 				</div>
 				<div class="sheet-row">
-					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Dmg Immunity</div>
+					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Schad. Immun.</div>
 					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{npc_damage_immunity}}</div>
 				</div>
 				<div class="sheet-row">
-					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Condition Immunity</div>
+					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Condition Immun.</div>
 					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{npc_condition_immunity}}</div>
 				</div>
 				<div class="sheet-row">
-					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Other Traits</div>
+					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Andere Vorteile</div>
 					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{npc_traits}}</div>
 				</div>
 				{{/npctraits}}
 				{{#npcaction}}
 					{{#npc_showmultiattack}}
 					<div class="sheet-row">
-						<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Multi Attack</div>
+						<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Mehrfachangriff</div>
 						<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{npc_multiattack}}</div>
 					</div>
 					{{/npc_showmultiattack}}
 				<div class="sheet-row">
-					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Desc.</div>
+					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Beschr.</div>
 					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{npc_action_description}}</div>
 				</div>
 				<div class="sheet-row">
-					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Effect</div>
+					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Effekt</div>
 					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{npc_action_effect}}</div>
 				</div>
 				{{/npcaction}}
@@ -3593,3 +3613,711 @@
 			</div>
 		</div>
 </rolltemplate>
+
+<!-- SHEET WORKERS -->
+
+<script type="text/worker">
+/* ---- BEGIN: TheAaronSheet.js ---- */
+// Github:   https://github.com/shdwjk/TheAaronSheet/blob/master/TheAaronSheet.js
+// By:       The Aaron, Arcane Scriptomancer
+// Contact:  https://app.roll20.net/users/104025/the-aaron
+var TAS = TAS || (function(){
+    'use strict';
+    var version = '0.2.5',
+        lastUpdate = 1504710542,
+        loggingSettings = {
+            debug: {
+                key:     'debug',
+                title:   'DEBUG',
+                color: {
+                    bgLabel: '#7732A2',
+                    label:   '#F2EF40',
+                    bgText:  '#FFFEB7',
+                    text:    '#7732A2'
+                }
+            },
+            error: {
+                key:     'error',
+                title:   'Error',
+                color: {
+                    bgLabel: '#C11713',
+                    label:   'white',
+                    bgText:  '#C11713',
+                    text:    'white'
+                }
+            },
+            warn: {
+                key:     'warn',
+                title:   'Warning',
+                color: {
+                    bgLabel: '#F29140',
+                    label:   'white',
+                    bgText:  '#FFD8B7',
+                    text:    'black'
+                }
+            },
+            info: {
+                key:     'info',
+                title:   'Info',
+                color: {
+                    bgLabel: '#413FA9',
+                    label:   'white',
+                    bgText:  '#B3B2EB',
+                    text:    'black'
+                }
+            },
+            notice: {
+                key:     'notice',
+                title:   'Notice',
+                color: {
+                    bgLabel: '#33C133',
+                    label:   'white',
+                    bgText:  '#ADF1AD',
+                    text:    'black'
+                }
+            },
+            log: {
+                key:     'log',
+                title:   'Log',
+                color: {
+                    bgLabel: '#f2f240',
+                    label:   'black',
+                    bgText:  '#ffff90',
+                    text:    'black'
+                }
+            },
+            callstack: {
+                key:     'TAS',
+                title:   'function',
+                color: {
+                    bgLabel: '#413FA9',
+                    label:   'white',
+                    bgText:  '#B3B2EB',
+                    text:    'black'
+                }
+            },
+            callstack_async: {
+                key:     'TAS',
+                title:   'ASYNC CALL',
+                color: {
+                    bgLabel: '#413FA9',
+                    label:   'white',
+                    bgText:  '#413FA9',
+                    text:    'white'
+                }
+            },
+            TAS: {
+                key:     'TAS',
+                title:   'TAS',
+                color: {
+                    bgLabel: 'grey',
+                    label:   'black;background:linear-gradient(#304352,#d7d2cc,#d7d2cc,#d7d2cc,#304352)',
+                    bgText:  'grey',
+                    text:    'black;background:linear-gradient(#304352,#d7d2cc,#d7d2cc,#d7d2cc,#304352)'
+                }
+            }
+        },
+        config = {
+            debugMode: false,
+            logging: {
+                log: true,
+                notice: true,
+                info: true,
+                warn: true,
+                error: true,
+                debug: false
+            }
+        },
+        callstackRegistry = [],
+		queuedUpdates = {}, //< Used for delaying saves till the last moment.
+    complexType = function(o){
+        switch(typeof o){
+            case 'string':
+                return 'string';
+            case 'boolean':
+                return 'boolean';
+            case 'number':
+                return (_.isNaN(o) ? 'NaN' : (o.toString().match(/\./) ? 'decimal' : 'integer'));
+            case 'function':
+                return 'function: '+(o.name ? o.name+'()' : '(anonymous)');
+            case 'object':
+                return (_.isArray(o) ? 'array' : (_.isArguments(o) ? 'arguments' : ( _.isNull(o) ? 'null' : 'object')));
+            default:
+                return typeof o;
+        }
+    },
+	dataLogger = function(primaryLogger,secondaryLogger,data){
+        _.each(data,function(m){
+            var type = complexType(m);
+            switch(type){
+                case 'string':
+                    primaryLogger(m);
+                    break;
+                case 'undefined':
+                case 'null':
+                case 'NaN':
+                    primaryLogger('['+type+']');
+                    break;
+                case 'number':
+                case 'not a number':
+                case 'integer':
+                case 'decimal':
+                case 'boolean':
+                    primaryLogger('['+type+']: '+m);
+                    break;
+                default:
+                    primaryLogger('['+type+']:=========================================');
+                    secondaryLogger(m);
+                    primaryLogger('=========================================================');
+                    break;
+            }
+        });
+	},
+    colorLog = function(options){
+        var coloredLoggerFunction,
+            key = options.key,
+            label = options.title || 'TAS',
+            lBGColor = (options.color && options.color.bgLabel) || 'blue',
+            lTxtColor = (options.color && options.color.label) || 'white',
+            mBGColor = (options.color && options.color.bgText) || 'blue',
+            mTxtColor = (options.color && options.color.text) || 'white';
+        coloredLoggerFunction = function(message){
+            /* eslint-disable no-console */
+            console.log(
+                '%c '+label+': %c '+message + ' ',
+                'background-color: '+lBGColor+';color: '+lTxtColor+'; font-weight:bold;',
+                'background-color: '+mBGColor+';color: '+mTxtColor+';'
+            ); 
+            /* eslint-enable no-console */
+        };
+        return function(){
+            if('TAS'===key || config.logging[key]){
+                /* eslint-disable no-console */
+               dataLogger(coloredLoggerFunction,function(m){console.log(m);},_.toArray(arguments)); 
+                /* eslint-enable no-console */
+            }
+        };
+    },
+    logDebug  = colorLog(loggingSettings.debug),
+    logError  = colorLog(loggingSettings.error),
+    logWarn   = colorLog(loggingSettings.warn),
+    logInfo   = colorLog(loggingSettings.info),
+    logNotice = colorLog(loggingSettings.notice),
+    logLog    = colorLog(loggingSettings.log),
+    log       = colorLog(loggingSettings.TAS),
+    logCS     = colorLog(loggingSettings.callstack),
+    logCSA    = colorLog(loggingSettings.callstack_async),
+    registerCallstack = function(callstack,label){
+        var idx=_.findIndex(callstackRegistry,function(o){
+            return (_.difference(o.stack,callstack).length === _.difference(callstack,o.stack).length) &&
+                _.difference(o.stack,callstack).length === 0 &&
+                o.label === label;
+        });
+        if(-1 === idx){
+            idx=callstackRegistry.length;
+            callstackRegistry.push({
+                stack: callstack,
+                label: label
+            });
+        }
+        return idx;
+    },
+    setConfigOption = function(options){
+        var newconf =_.defaults(options,config);
+        newconf.logging=_.defaults(
+            (options && options.logging)||{},
+            config.logging
+        );
+        config=newconf;
+    },
+    
+    isDebugMode = function(){
+        return config.debugMode;
+    },
+    debugMode = function(){
+        config.logging.debug=true;
+        config.debugMode = true;
+    },
+    getCallstack = function(){
+        var e = new Error('dummy'),
+            stack = _.map(_.rest(e.stack.replace(/^[^(]+?[\n$]/gm, '')
+            .replace(/^\s+at\s+/gm, '')
+            .replace(/^Object.<anonymous>\s*\(/gm, '{anonymous}()@')
+            .split('\n')),function(l){
+                return l.replace(/\s+.*$/,'');
+            });
+        return stack;
+    },
+    logCallstackSub = function(cs){
+        var matches, csa;
+        _.find(cs,function(line){
+            matches = line.match(/TAS_CALLSTACK_(\d+)/);
+            if(matches){
+               csa=callstackRegistry[matches[1]];
+               logCSA( '===================='+(csa.label ? '> '+csa.label+' <' : '')+'====================');
+               logCallstackSub(csa.stack);
+               return true;
+            } 
+            logCS(line);
+            return false;
+        });
+    },
+    logCallstack = function(){
+        var cs;
+        if(config.debugMode){
+            cs = getCallstack();
+            cs.shift();
+            log('==============================> CALLSTACK <==============================');
+            logCallstackSub(cs);
+            log('=========================================================================');
+        }
+    },
+    wrapCallback = function (label, callback, context){
+        var callstack;
+        if('function' === typeof label){
+            context=callback;
+            callback=label;
+            label=undefined;
+        }
+        if(!config.debugMode){
+            return (function(cb,ctx){
+                return function(){
+                    cb.apply(ctx||{},arguments);
+                };
+            }(callback,context));
+        }
+        
+        callstack = getCallstack();
+        callstack.shift();
+        
+        return (function(cb,ctx,cs,lbl){
+            var ctxref=registerCallstack(cs,lbl);
+            /*jshint -W054 */
+            return new Function('cb','ctx','TASlog',
+                "return function TAS_CALLSTACK_"+ctxref+"(){"+
+                    "var start,end;"+
+                    "TASlog('Entering: '+(cb.name||'(anonymous function)'));"+
+                    "start=_.now();"+
+                    "cb.apply(ctx||{},arguments);"+
+                    "end=_.now();"+
+                    "TASlog('Exiting: '+(cb.name||'(anonymous function)')+' :: '+(end-start)+'ms elapsed');"+
+                "};")(cb,ctx,log);
+            /*jshint +W054 */
+        }(callback,context,callstack,label));
+    },
+    prepareUpdate = function( attribute, value ){
+        queuedUpdates[attribute]=value;
+    },
+    applyQueuedUpdates = function() {
+      setAttrs(queuedUpdates);
+      queuedUpdates = {};
+    },
+	namesFromArgs = function(args,base){
+        return _.chain(args)
+            .reduce(function(memo,attr){
+                if('string' === typeof attr) {
+                    memo.push(attr);
+                } else if(_.isArray(args) || _.isArguments(args)){
+                    memo = namesFromArgs(attr,memo);
+                }
+                return memo;
+            },(_.isArray(base) && base) || [])
+            .uniq()
+            .value();
+	},
+	addId = function(obj,value){
+		Object.defineProperty(obj,'id',{
+			value: value,
+			writable: false,
+			enumerable: false
+		});
+	},
+	addProp = function(obj,prop,value,fullname){
+		(function(){
+            var pname=(_.contains(['S','F','I','D'],prop) ? '_'+prop : prop),
+                full_pname = fullname || prop,
+                pvalue=value;
+            _.each(['S','I','F'],function(p){
+                if( !_.has(obj,p)){
+                    Object.defineProperty(obj, p, {
+                        value: {},
+                        enumerable: false,
+                        readonly: true
+                    });
+                }
+            });
+            if( !_.has(obj,'D')){
+                Object.defineProperty(obj, 'D', {
+                    value: _.reduce(_.range(10),function(m,d){
+                            Object.defineProperty(m, d, {
+                                value: {},
+                                enumerable: true,
+                                readonly: true
+                            });
+                            return m;
+                        },{}),
+                    enumerable: false,
+                    readonly: true
+                });
+            }
+            // Raw value
+			Object.defineProperty(obj, pname, {
+                enumerable: true,
+				set: function(v){
+                    if(v!==pvalue) {
+                        pvalue=v;
+                        prepareUpdate(full_pname,v);
+                    }
+				},
+				get: function(){
+					return pvalue;
+				}
+			});
+            
+            // string value
+			Object.defineProperty(obj.S, pname, {
+                enumerable: true,
+				set: function(v){
+                    var val=v.toString();
+                    if(val !== pvalue) {
+                        pvalue=val;
+                        prepareUpdate(full_pname,val);
+                    }
+				},
+				get: function(){
+					return pvalue.toString();
+				}
+			});
+            // int value
+			Object.defineProperty(obj.I, pname, {
+                enumerable: true,
+				set: function(v){
+                    var val=parseInt(v,10) || 0;
+                    if(val !== pvalue){
+                        pvalue=val;
+                        prepareUpdate(full_pname,val);
+                    }
+				},
+				get: function(){
+					return parseInt(pvalue,10) || 0;
+				}
+			});
+            // float value
+			Object.defineProperty(obj.F, pname, {
+                enumerable: true,
+				set: function(v){
+                    var val=parseFloat(v) || 0;
+                    if(val !== pvalue) {
+                        pvalue=val;
+                        prepareUpdate(full_pname,val);
+                    }
+				},
+				get: function(){
+					return parseFloat(pvalue) || 0;
+				}
+			});
+            _.each(_.range(10),function(d){
+                Object.defineProperty(obj.D[d], pname, {
+                    enumerable: true,
+                    set: function(v){
+                        var val=(parseFloat(v) || 0).toFixed(d);
+                        if(val !== pvalue){
+                            pvalue=val;
+                            prepareUpdate(full_pname,val);
+                        }
+                    },
+                    get: function(){
+                        return (parseFloat(pvalue) || 0).toFixed(d);
+                    }
+                });
+            });
+		}());
+	},
+	
+	repeating = function( section ) {
+		return (function(s){
+			var sectionName = s,
+				attrNames = [],
+				fieldNames = [],
+				operations = [],
+                after = [],
+			
+			repAttrs = function TAS_Repeating_Attrs(){
+				attrNames = namesFromArgs(arguments,attrNames);
+				return this;
+			},
+			repFields = function TAS_Repeating_Fields(){
+				fieldNames = namesFromArgs(arguments,fieldNames);
+				return this;
+			},
+			repReduce = function TAS_Repeating_Reduce(func, initial, final, context) { 
+				operations.push({
+                    type: 'reduce',
+                    func: (func && _.isFunction(func) && func) || _.noop,
+                    memo: (_.isUndefined(initial) && 0) || initial,
+                    final: (final && _.isFunction(final) && final) || _.noop,
+                    context: context || {}
+                });
+				return this;
+			},
+			repMap = function TAS_Repeating_Map(func, final, context) {
+				operations.push({
+                    type: 'map',
+                    func: (func && _.isFunction(func) && func) || _.noop,
+                    final: (final && _.isFunction(final) && final) || _.noop,
+                    context: context || {}
+                });
+				return this;
+			},
+            repEach = function TAS_Repeating_Each(func, final, context) {
+				operations.push({
+                    type: 'each',
+                    func: (func && _.isFunction(func) && func) || _.noop,
+                    final: (final && _.isFunction(final) && final) || _.noop,
+                    context: context || {}
+                });
+				return this;
+            },
+            repTap = function TAS_Repeating_Tap(final, context) {
+				operations.push({
+                    type: 'tap',
+                    final: (final && _.isFunction(final) && final) || _.noop,
+                    context: context || {}
+                });
+				return this;
+            },
+            repAfter = function TAS_Repeating_After(callback,context) {
+				after.push({
+                    callback: (callback && _.isFunction(callback) && callback) || _.noop,
+                    context: context || {}
+                });
+				return this;
+            },
+			repExecute = function TAS_Repeating_Execute(callback,context){
+				var rowSet = {},
+					attrSet = {},
+					fieldIds = [],
+					fullFieldNames = [];
+                repAfter(callback,context);
+				// call each operation per row.
+				// call each operation's final
+				getSectionIDs("repeating_"+sectionName,function(ids){
+					fieldIds = ids;
+					fullFieldNames = _.reduce(fieldIds,function(memo,id){
+						return memo.concat(_.map(fieldNames,function(name){
+							return 'repeating_'+sectionName+'_'+id+'_'+name;  
+						}));
+					},[]);
+					getAttrs( _.uniq(attrNames.concat(fullFieldNames)), function(values){
+						_.each(attrNames,function(aname){
+							if(values.hasOwnProperty(aname)){
+								addProp(attrSet,aname,values[aname]);
+							}
+						});
+						rowSet = _.reduce(fieldIds,function(memo,id){
+							var r={};
+							addId(r,id);
+							_.each(fieldNames,function(name){
+								var fn = 'repeating_'+sectionName+'_'+id+'_'+name;  
+								addProp(r,name,values[fn],fn);
+							});
+							memo[id]=r;
+							return memo;
+						},{});
+                        _.each(operations,function(op){
+                            var res;
+                            switch(op.type){
+                                case 'tap':
+                                    _.bind(op.final,op.context,rowSet,attrSet)();
+                                    break;
+                                case 'each':
+                                    _.each(rowSet,function(r){
+                                        _.bind(op.func,op.context,r,attrSet,r.id,rowSet)();
+                                    });
+                                    _.bind(op.final,op.context,rowSet,attrSet)();
+                                    break;
+                                case 'map':
+                                    res = _.map(rowSet,function(r){
+                                        return _.bind(op.func,op.context,r,attrSet,r.id,rowSet)();
+                                    });
+                                    _.bind(op.final,op.context,res,rowSet,attrSet)();
+                                    break;
+                                case 'reduce':
+                                    res = op.memo;
+                                    _.each(rowSet,function(r){
+                                        res = _.bind(op.func,op.context,res,r,attrSet,r.id,rowSet)();
+                                    });
+                                    _.bind(op.final,op.context,res,rowSet,attrSet)();
+                                    break;
+                            }
+                        });
+                        // finalize attrs
+                        applyQueuedUpdates();
+                        _.each(after,function(op){
+                            _.bind(op.callback,op.context)();
+                        });
+					});
+				});
+			};
+				
+			return {
+				attrs: repAttrs,
+				attr: repAttrs,
+				column: repFields,
+				columns: repFields,
+				field: repFields,
+				fields: repFields,
+				reduce: repReduce,
+				inject: repReduce,
+				foldl: repReduce,
+				map: repMap,
+				collect: repMap,
+				each: repEach,
+                forEach: repEach,
+                tap: repTap,
+                'do': repTap,
+				after: repAfter,
+				last: repAfter,
+				done: repAfter,
+				execute: repExecute,
+				go: repExecute,
+				run: repExecute
+			};
+		}(section));
+	},
+    repeatingSimpleSum = function(section, field, destination){
+        repeating(section)
+            .attr(destination)
+            .field(field)
+            .reduce(function(m,r){
+                return m + (r.F[field]);
+            },0,function(t,r,a){
+                a.S[destination]=t;
+            })
+            .execute();
+    };
+    /* eslint-disable no-console */
+	console.log('%c•.¸¸.•*´¨`*•.¸¸.•*´¨`*•.¸  The Aaron Sheet  v'+version+'  ¸.•*´¨`*•.¸¸.•*´¨`*•.¸¸.•','background: linear-gradient(to right,green,white,white,green); color:black;text-shadow: 0 0 8px white;');
+	console.log('%c•.¸¸.•*´¨`*•.¸¸.•*´¨`*•.¸  Last update: '+(new Date(lastUpdate*1000))+'  ¸.•*´¨`*•.¸¸.•*´¨`*•.¸¸.•','background: linear-gradient(to right,green,white,white,green); color:black;text-shadow: 0 0 8px white;');
+    /* eslint-enable no-console */
+    return {
+        /* Repeating Sections */
+        repeatingSimpleSum: repeatingSimpleSum,
+		repeating: repeating,
+        /* Configuration */
+        config: setConfigOption,
+        /* Debugging */
+        callback: wrapCallback,
+        callstack: logCallstack,
+        debugMode: debugMode,
+        isDebugMode: isDebugMode,
+        _fn: wrapCallback,
+        /* Logging */
+        debug: logDebug,
+        error: logError,
+        warn: logWarn,
+        info: logInfo,
+        notice: logNotice,
+        log: logLog
+    };
+}());
+/* ---- END: TheAaronSheet.js ---- */
+on('change:repeating_inventtab1 remove:repeating_inventtab1', function(){
+    TAS.repeating('inventtab1')
+        .attrs('inventorycur1')  
+        .fields('itemquantity1','itemenc1','itemtot1') 
+        .reduce(function(m,r){
+            m.tot+=(r.F.itemenc1*r.I.itemquantity1);
+            r.D[0].itemtot1=(r.F.itemenc1*r.I.itemquantity1);
+            return m;
+            
+        },{tot:0},function(m,r,a){
+            a.D[0].inventorycur1=m.tot;
+        })
+        .execute(); 
+});
+on('change:repeating_inventtab2 remove:repeating_inventtab2', function(){
+    TAS.repeating('inventtab2')
+        .attrs('inventorycur2')  
+        .fields('itemquantity2','itemenc2','itemtot2') 
+        .reduce(function(m,r){
+            m.tot+=(r.F.itemenc2*r.I.itemquantity2);
+            r.D[0].itemtot2=(r.F.itemenc2*r.I.itemquantity2);
+            return m;
+            
+        },{tot:0},function(m,r,a){
+            a.D[0].inventorycur2=m.tot;
+        })
+        .execute(); 
+});
+on('change:repeating_inventtab3 remove:repeating_inventtab3', function(){
+    TAS.repeating('inventtab3')
+        .attrs('inventorycur3')  
+        .fields('itemquantity3','itemenc3','itemtot3') 
+        .reduce(function(m,r){
+            m.tot+=(r.F.itemenc3*r.I.itemquantity3);
+            r.D[0].itemtot3=(r.F.itemenc3*r.I.itemquantity3);
+            return m;
+            
+        },{tot:0},function(m,r,a){
+            a.D[0].inventorycur3=m.tot;
+        })
+        .execute(); 
+});
+on('change:repeating_inventtab4 remove:repeating_inventtab4', function(){
+    TAS.repeating('inventtab4')
+        .attrs('inventorycur4')  
+        .fields('itemquantity4','itemenc4','itemtot4') 
+        .reduce(function(m,r){
+            m.tot+=(r.F.itemenc4*r.I.itemquantity4);
+            r.D[0].itemtot4=(r.F.itemenc4*r.I.itemquantity4);
+            return m;
+            
+        },{tot:0},function(m,r,a){
+            a.D[0].inventorycur4=m.tot;
+        })
+        .execute(); 
+});
+on('change:repeating_inventtab5 remove:repeating_inventtab5', function(){
+    TAS.repeating('inventtab5')
+        .attrs('inventorycur5')  
+        .fields('itemquantity5','itemenc5','itemtot5') 
+        .reduce(function(m,r){
+            m.tot+=(r.F.itemenc5*r.I.itemquantity5);
+            r.D[0].itemtot5=(r.F.itemenc5*r.I.itemquantity5);
+            return m;
+            
+        },{tot:0},function(m,r,a){
+            a.D[0].inventorycur5=m.tot;
+        })
+        .execute(); 
+});
+on('change:repeating_inventtab6 remove:repeating_inventtab6', function(){
+    TAS.repeating('inventtab6')
+        .attrs('inventorycur6')  
+        .fields('itemquantity6','itemenc6','itemtot6') 
+        .reduce(function(m,r){
+            m.tot+=(r.F.itemenc6*r.I.itemquantity6);
+            r.D[0].itemtot6=(r.F.itemenc6*r.I.itemquantity6);
+            return m;
+            
+        },{tot:0},function(m,r,a){
+            a.D[0].inventorycur6=m.tot;
+        })
+        .execute(); 
+});
+on('change:repeating_inventtab7 remove:repeating_inventtab7', function(){
+    TAS.repeating('inventtab7')
+        .attrs('inventorycur7')  
+        .fields('itemquantity7','itemenc7','itemtot7') 
+        .reduce(function(m,r){
+            m.tot+=(r.F.itemenc7*r.I.itemquantity7);
+            r.D[0].itemtot7=(r.F.itemenc7*r.I.itemquantity7);
+            return m;
+            
+        },{tot:0},function(m,r,a){
+            a.D[0].inventorycur7=m.tot;
+        })
+        .execute(); 
+});
+</script>
