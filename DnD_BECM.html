@@ -7,7 +7,7 @@
   <div class="sheet-core-header sheet-padb">
 		<div class="sheet-row">
 			<div class="sheet-col-1-4 sheet-margin-top"><img src="http://i.imgur.com/D36CQPG.png" alt="Dungeons and Dragons (BECM Clasic edition) german translation" width=150 ></div>
-			<div class="sheet-col-1-8 sheet-center sheet-margin-top"><p class="sheet-last-updated">Sheet version<br/>3. Oktober 2018</p></div>
+			<div class="sheet-col-1-8 sheet-center sheet-margin-top"><p class="sheet-last-updated">Sheet version<br/>1. April 2019</p></div>
 			<div class="sheet-col-1-4 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_character_name"><br/>Charakter Name</div>
 			<div class="sheet-col-1-8 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_class"><br/>Klasse</div>
 			<div class="sheet-col-1-8 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="number" name="attr_level"><br/>Stufe</div>
@@ -876,7 +876,7 @@
 			<!--Armour Class -->
 			<div class="sheet-col-1-2 sheet-padr">
 				<h4 class="sheet-center">Rüstungsklasse <span class="sheet-pictos-three">b</span></h4>
-					<div class="sheet-row"> 
+					<div class="sheet-row">
 						<!--Mathy Bit to check to see if armour is greater than Natural AC-->
 						<input type="hidden" name="attr_ACunmod" value="@{eqACPA} * @{PAenabled} + @{eqarmourbaseac} * @{eqarmourfullsettoggle}" />
 						<input type="hidden" name="attr_acadjusted" value="@{eqACPA} * @{PAenabled} + @{eqarmourbaseac} * @{eqarmourfullsettoggle} - @{eqarmourmagic}" />
@@ -905,7 +905,7 @@
 								<option value="750">Voll</option>
 								<option value="50">Schützende Haut:</option>
 								<option value="150">Fell</option>
-								<option value="80">Papier</option>									
+								<option value="80">Papier</option>
 								<option value="100">Wattiert</option>
 								<option value="120">Geschnürt</option>
 								<option value="180">Lamellen</option>
@@ -918,7 +918,7 @@
 								<option value="300">Schuppen</option>
 								<option value="250">Brigandine</option>
 								<option value="300">Banded Leather</option>
-								<option value="350">Lamellare</option>									
+								<option value="350">Lamellare</option>
 								<option value="400">Kettenpanzer</option>
 								<option value="450">Splint</option>
 								<option value="500">Banded Mail</option>
@@ -952,7 +952,7 @@
 						<input type="hidden" name="attr_eqACPA" value="(9 - (floor(@{PA_PR} /10)))" />
 						<div class="sheet-col-1-3 sheet-small-label sheet-center"><input class="sheet-underlined" type="number" name="attr_PA_PR" min="1" value="0" step="1"><br/>Schutzrate</div>
 						<div class="sheet-col-1-3 sheet-small-label sheet-center"><input class="sheet-underlined" type="number" name="attr_PA_ENC" min="1" value="0" step="1"><br/>Belastung</div>
-						
+
 					</div>
 					<div class="sheet-row sheet-sub-header sheet-small-label sheet-center">
 						<div class="sheet-col-1-3 sheet-padl sheet-padr sheet-center">Bereich</div>
@@ -989,26 +989,26 @@
 								<select name="attr_apmaterial">
 									<option value="" selected="selected"></option>
 									<option value="Protective Skins">Protective Skins</option>
-									<option value="Fur">Fur</option>
-									<option value="Paper">Paper</option>									
-									<option value="Padded">Padded</option>
-									<option value="Corded">Corded</option>
-									<option value="Slat">Slat</option>
-									<option value="Leather">Leather</option>
-									<option value="Plated Leather">Plated Leather</option>
-									<option value="Studded Leather">Studded Leather</option>
-									<option value="Cuir Boulli">Cuir Boulli</option>
-									<option value="Hide">Hide</option>
-									<option value="Beastplate">Breastplate</option>
-									<option value="Scale">Scale</option>
+									<option value="Fur">Fell</option>
+									<option value="Paper">Papier</option>
+									<option value="Padded">Wattiert</option>
+									<option value="Corded">Geschnürt</option>
+									<option value="Slat">Lamellen</option>
+									<option value="Leather">Leder</option>
+									<option value="Plated Leather">Verstärktes Leder</option>
+									<option value="Studded Leather">Beschlagenes Leder</option>
+									<option value="Cuir Boulli">Gewachstes Leder</option>
+									<option value="Hide">Tierhaut</option>
+									<option value="Beastplate">Monsterplatte</option>
+									<option value="Scale">Schuppen</option>
 									<option value="Brigandine">Brigandine</option>
-									<option value="Banded Leather">Banded Leather</option>
-									<option value="Lamellare">Lamellare</option>									
-									<option value="Chainmail">Chainmail</option>
-									<option value="Splint">Splint</option>
-									<option value="Banded Mail">Banded Mail</option>
-									<option value="Plate-mail">Plate-mail</option>
-									<option value="Full Plate">Full Plate</option>
+									<option value="Banded Leather">gebändertes Leder</option>
+									<option value="Lamellare">Lamellen</option>
+									<option value="Chainmail">Kettenpanzer</option>
+									<option value="Splint">Schienen</option>
+									<option value="Banded Mail">gepbänderter Panzer</option>
+									<option value="Plate-mail">Plattenpanzer</option>
+									<option value="Full Plate">Vollpanzer</option>
 								</select>
 							</div>
 							<div class="sheet-col-1-6 sheet-padl sheet-center">
@@ -1037,8 +1037,8 @@
 									<option value="2.5">2 1/2</option>
 									<option value="2">2</option>
 									<option value="1.5">1 1/2</option>
-									<option value="1">1</option>									
-									<option value="0.5">1/2</option>									
+									<option value="1">1</option>
+									<option value="0.5">1/2</option>
 								</select>
 							</div>
 							<div class="sheet-col-1-6 sheet-padl sheet-center"><input type="number" name="attr_apenc" value="0" min="0" /></div>
@@ -1154,10 +1154,10 @@
 							</div>
 						</div>
 						<div class="sheet-row">
-							<div class="sheet-col-1-6 sheet-vert-bottom sheet-center sheet-small-label">Target/Area of Effect</div>
-							<div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Range</div>
-							<div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Duration</div>
-							<div class="sheet-col-1-6 sheet-vert-bottom sheet-center sheet-small-label">Spell Info</div>
+							<div class="sheet-col-1-6 sheet-vert-bottom sheet-center sheet-small-label">Ziel/Bereich</div>
+							<div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Rw.</div>
+							<div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Dauer</div>
+							<div class="sheet-col-1-6 sheet-vert-bottom sheet-center sheet-small-label">Zauberinfo</div>
 							<div class="sheet-col-1-6 sheet-vert-bottom sheet-center sheet-small-label">Cast Spell</div>
 						</div>
 						<div class="sheet-row">
@@ -1179,13 +1179,13 @@
 							<input type="hidden" name="attr_spellcastmacrooptions" value="@{spellshowinfoblock} @{spellshowdesc} @{spellshowattack} @{spellshowsavethrow} @{spellshowhealing} @{spellshowdamage} @{spellshoweffects}" />
 						</div>
 						<span class="sheet-spacer"></span>
-						<span class="sheet-small-label">Show :</span>
-							<input type="checkbox" name="attr_spelltypeadvanced" class="sheet-spelltypetab sheet-spelltypeadvanced" value="1" /><span class="sheet-spelltypetab sheet-spelltypeadvanced">Description</span>
-							| <input type="checkbox" name="attr_spelltypeattack" class="sheet-spelltypetab sheet-spelltypeattack" value="1" /><span class="sheet-spelltypetab sheet-spelltypeattack">Attack</span>
-							<input type="checkbox" name="attr_spelltypesave" class="sheet-spelltypetab sheet-spelltypesave" value="1" /><span class="sheet-spelltypetab sheet-spelltypesave">Save</span>
-							<input type="checkbox" name="attr_spelltypeheal" class="sheet-spelltypetab sheet-spelltypeheal" value="1" /><span class="sheet-spelltypetab sheet-spelltypeheal">Healing</span> |
-							<input type="checkbox" name="attr_spelltypdamage" class="sheet-spelltypetab sheet-spelltypedamage" value="1" /><span class="sheet-spelltypetab sheet-spelltypedamage">Damage</span>
-							<input type="checkbox" name="attr_spelltypeeffects" class="sheet-spelltypetab sheet-spelltypeeffects" value="1" /><span class="sheet-spelltypetab sheet-spelltypeeffects">Effects</span>
+						<span class="sheet-small-label">Anzeigen :</span>
+							<input type="checkbox" name="attr_spelltypeadvanced" class="sheet-spelltypetab sheet-spelltypeadvanced" value="1" /><span class="sheet-spelltypetab sheet-spelltypeadvanced">Beschreibung</span>
+							| <input type="checkbox" name="attr_spelltypeattack" class="sheet-spelltypetab sheet-spelltypeattack" value="1" /><span class="sheet-spelltypetab sheet-spelltypeattack">Angriff</span>
+							<input type="checkbox" name="attr_spelltypesave" class="sheet-spelltypetab sheet-spelltypesave" value="1" /><span class="sheet-spelltypetab sheet-spelltypesave">Rettung</span>
+							<input type="checkbox" name="attr_spelltypeheal" class="sheet-spelltypetab sheet-spelltypeheal" value="1" /><span class="sheet-spelltypetab sheet-spelltypeheal">Heilung</span> |
+							<input type="checkbox" name="attr_spelltypdamage" class="sheet-spelltypetab sheet-spelltypedamage" value="1" /><span class="sheet-spelltypetab sheet-spelltypedamage">Schaden</span>
+							<input type="checkbox" name="attr_spelltypeeffects" class="sheet-spelltypetab sheet-spelltypeeffects" value="1" /><span class="sheet-spelltypetab sheet-spelltypeeffects">Effekte</span>
 						<span class="sheet-spacer"></span>
 						<div class="sheet-spell-type-advanced">
 							<div class="sheet-row">
@@ -3025,7 +3025,7 @@
 					<input type="hidden" name="attr_tab5min" value="(((@{inventorycur5} + @{inventorymax5}) - abs(@{inventorycur5} - @{inventorymax5})) / 2)" />
 					<input type="hidden" name="attr_tab6min" value="(((@{inventorycur6} + @{inventorymax6}) - abs(@{inventorycur6} - @{inventorymax6})) / 2)" />
 					<input type="hidden" name="attr_tab7min" value="(((@{inventorycur7} + @{inventorymax7}) - abs(@{inventorycur7} - @{inventorymax7})) / 2)" />
-					
+
 					<!--Tally up the carried bits using the Encumbrance flag -->
 					<input type="hidden" name="attr_inventory_weight_calc" value="( (@{tab1min} * @{inventoryyes1}) +(@{tab2min} * @{inventoryyes2}) + (@{tab3min} * @{inventoryyes3}) + (@{tab4min} * @{inventoryyes4}) + (@{tab5min} * @{inventoryyes5}) + (@{tab6min} * @{inventoryyes6}) + (@{tab7min} * @{inventoryyes7}) ) " />
 			</div>
@@ -3227,7 +3227,7 @@
 			<div class="sheet-col-1-6 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="number" name="attr_divisions" /><br/>Divisions</div>
 			<div class="sheet-col-1-6 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="number" name="attr_payrollpeace" title="Per week" /><br/>Payroll at Peace</div>
 			<div class="sheet-col-1-6 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="number" name="attr_payrollwar" title="Per week" /><br/>Payroll at War</div>
-			
+
 		</div>
 		<div class="sheet-row sheet-padb">
 			<div class="sheet-col-1-6 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="number" name="attr_movement" /><br/>Movement</div>
@@ -3787,13 +3787,13 @@ var TAS = TAS || (function(){
                 '%c '+label+': %c '+message + ' ',
                 'background-color: '+lBGColor+';color: '+lTxtColor+'; font-weight:bold;',
                 'background-color: '+mBGColor+';color: '+mTxtColor+';'
-            ); 
+            );
             /* eslint-enable no-console */
         };
         return function(){
             if('TAS'===key || config.logging[key]){
                 /* eslint-disable no-console */
-               dataLogger(coloredLoggerFunction,function(m){console.log(m);},_.toArray(arguments)); 
+               dataLogger(coloredLoggerFunction,function(m){console.log(m);},_.toArray(arguments));
                 /* eslint-enable no-console */
             }
         };
@@ -3830,7 +3830,7 @@ var TAS = TAS || (function(){
         );
         config=newconf;
     },
-    
+
     isDebugMode = function(){
         return config.debugMode;
     },
@@ -3857,7 +3857,7 @@ var TAS = TAS || (function(){
                logCSA( '===================='+(csa.label ? '> '+csa.label+' <' : '')+'====================');
                logCallstackSub(csa.stack);
                return true;
-            } 
+            }
             logCS(line);
             return false;
         });
@@ -3886,10 +3886,10 @@ var TAS = TAS || (function(){
                 };
             }(callback,context));
         }
-        
+
         callstack = getCallstack();
         callstack.shift();
-        
+
         return (function(cb,ctx,cs,lbl){
             var ctxref=registerCallstack(cs,lbl);
             /*jshint -W054 */
@@ -3973,7 +3973,7 @@ var TAS = TAS || (function(){
 					return pvalue;
 				}
 			});
-            
+
             // string value
 			Object.defineProperty(obj.S, pname, {
                 enumerable: true,
@@ -4033,7 +4033,7 @@ var TAS = TAS || (function(){
             });
 		}());
 	},
-	
+
 	repeating = function( section ) {
 		return (function(s){
 			var sectionName = s,
@@ -4041,7 +4041,7 @@ var TAS = TAS || (function(){
 				fieldNames = [],
 				operations = [],
                 after = [],
-			
+
 			repAttrs = function TAS_Repeating_Attrs(){
 				attrNames = namesFromArgs(arguments,attrNames);
 				return this;
@@ -4050,7 +4050,7 @@ var TAS = TAS || (function(){
 				fieldNames = namesFromArgs(arguments,fieldNames);
 				return this;
 			},
-			repReduce = function TAS_Repeating_Reduce(func, initial, final, context) { 
+			repReduce = function TAS_Repeating_Reduce(func, initial, final, context) {
 				operations.push({
                     type: 'reduce',
                     func: (func && _.isFunction(func) && func) || _.noop,
@@ -4105,7 +4105,7 @@ var TAS = TAS || (function(){
 					fieldIds = ids;
 					fullFieldNames = _.reduce(fieldIds,function(memo,id){
 						return memo.concat(_.map(fieldNames,function(name){
-							return 'repeating_'+sectionName+'_'+id+'_'+name;  
+							return 'repeating_'+sectionName+'_'+id+'_'+name;
 						}));
 					},[]);
 					getAttrs( _.uniq(attrNames.concat(fullFieldNames)), function(values){
@@ -4118,7 +4118,7 @@ var TAS = TAS || (function(){
 							var r={};
 							addId(r,id);
 							_.each(fieldNames,function(name){
-								var fn = 'repeating_'+sectionName+'_'+id+'_'+name;  
+								var fn = 'repeating_'+sectionName+'_'+id+'_'+name;
 								addProp(r,name,values[fn],fn);
 							});
 							memo[id]=r;
@@ -4159,7 +4159,7 @@ var TAS = TAS || (function(){
 					});
 				});
 			};
-				
+
 			return {
 				attrs: repAttrs,
 				attr: repAttrs,
@@ -4224,100 +4224,100 @@ var TAS = TAS || (function(){
 /* ---- END: TheAaronSheet.js ---- */
 on('change:repeating_inventtab1 remove:repeating_inventtab1', function(){
     TAS.repeating('inventtab1')
-        .attrs('inventorycur1')  
-        .fields('itemquantity1','itemenc1','itemtot1') 
+        .attrs('inventorycur1')
+        .fields('itemquantity1','itemenc1','itemtot1')
         .reduce(function(m,r){
             m.tot+=(r.F.itemenc1*r.I.itemquantity1);
             r.D[0].itemtot1=(r.F.itemenc1*r.I.itemquantity1);
             return m;
-            
+
         },{tot:0},function(m,r,a){
             a.D[0].inventorycur1=m.tot;
         })
-        .execute(); 
+        .execute();
 });
 on('change:repeating_inventtab2 remove:repeating_inventtab2', function(){
     TAS.repeating('inventtab2')
-        .attrs('inventorycur2')  
-        .fields('itemquantity2','itemenc2','itemtot2') 
+        .attrs('inventorycur2')
+        .fields('itemquantity2','itemenc2','itemtot2')
         .reduce(function(m,r){
             m.tot+=(r.F.itemenc2*r.I.itemquantity2);
             r.D[0].itemtot2=(r.F.itemenc2*r.I.itemquantity2);
             return m;
-            
+
         },{tot:0},function(m,r,a){
             a.D[0].inventorycur2=m.tot;
         })
-        .execute(); 
+        .execute();
 });
 on('change:repeating_inventtab3 remove:repeating_inventtab3', function(){
     TAS.repeating('inventtab3')
-        .attrs('inventorycur3')  
-        .fields('itemquantity3','itemenc3','itemtot3') 
+        .attrs('inventorycur3')
+        .fields('itemquantity3','itemenc3','itemtot3')
         .reduce(function(m,r){
             m.tot+=(r.F.itemenc3*r.I.itemquantity3);
             r.D[0].itemtot3=(r.F.itemenc3*r.I.itemquantity3);
             return m;
-            
+
         },{tot:0},function(m,r,a){
             a.D[0].inventorycur3=m.tot;
         })
-        .execute(); 
+        .execute();
 });
 on('change:repeating_inventtab4 remove:repeating_inventtab4', function(){
     TAS.repeating('inventtab4')
-        .attrs('inventorycur4')  
-        .fields('itemquantity4','itemenc4','itemtot4') 
+        .attrs('inventorycur4')
+        .fields('itemquantity4','itemenc4','itemtot4')
         .reduce(function(m,r){
             m.tot+=(r.F.itemenc4*r.I.itemquantity4);
             r.D[0].itemtot4=(r.F.itemenc4*r.I.itemquantity4);
             return m;
-            
+
         },{tot:0},function(m,r,a){
             a.D[0].inventorycur4=m.tot;
         })
-        .execute(); 
+        .execute();
 });
 on('change:repeating_inventtab5 remove:repeating_inventtab5', function(){
     TAS.repeating('inventtab5')
-        .attrs('inventorycur5')  
-        .fields('itemquantity5','itemenc5','itemtot5') 
+        .attrs('inventorycur5')
+        .fields('itemquantity5','itemenc5','itemtot5')
         .reduce(function(m,r){
             m.tot+=(r.F.itemenc5*r.I.itemquantity5);
             r.D[0].itemtot5=(r.F.itemenc5*r.I.itemquantity5);
             return m;
-            
+
         },{tot:0},function(m,r,a){
             a.D[0].inventorycur5=m.tot;
         })
-        .execute(); 
+        .execute();
 });
 on('change:repeating_inventtab6 remove:repeating_inventtab6', function(){
     TAS.repeating('inventtab6')
-        .attrs('inventorycur6')  
-        .fields('itemquantity6','itemenc6','itemtot6') 
+        .attrs('inventorycur6')
+        .fields('itemquantity6','itemenc6','itemtot6')
         .reduce(function(m,r){
             m.tot+=(r.F.itemenc6*r.I.itemquantity6);
             r.D[0].itemtot6=(r.F.itemenc6*r.I.itemquantity6);
             return m;
-            
+
         },{tot:0},function(m,r,a){
             a.D[0].inventorycur6=m.tot;
         })
-        .execute(); 
+        .execute();
 });
 on('change:repeating_inventtab7 remove:repeating_inventtab7', function(){
     TAS.repeating('inventtab7')
-        .attrs('inventorycur7')  
-        .fields('itemquantity7','itemenc7','itemtot7') 
+        .attrs('inventorycur7')
+        .fields('itemquantity7','itemenc7','itemtot7')
         .reduce(function(m,r){
             m.tot+=(r.F.itemenc7*r.I.itemquantity7);
             r.D[0].itemtot7=(r.F.itemenc7*r.I.itemquantity7);
             return m;
-            
+
         },{tot:0},function(m,r,a){
             a.D[0].inventorycur7=m.tot;
         })
-        .execute(); 
+        .execute();
 });
 </script>
