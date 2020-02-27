@@ -1,9 +1,12 @@
-sheet-rolltemplate-5eDefault .sheet-rt-card {
+/* This Basic Fantasy sheet is all based on allenmaher's work of coding his BECM sheet since I'm mining his for the code*/
+
+/*rolltemplates*/
+.sheet-rolltemplate-5eDefault .sheet-rt-card {
     width:95%;
     background-color:#FFFFFF;
-	font-size: 11px;
+    font-size: 11px;
 
-	-webkit-border-radius: 5px;
+    -webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
 
@@ -122,12 +125,10 @@ sheet-rolltemplate-5eDefault .sheet-rt-card {
 	border-left-color: #1F1414;
 }
 
-
 .sheet-rolltemplate-5eDefault .sheet-row:nth-child(even) {
 
 	background-color: #E9EDEE;
 }
-
 
 .sheet-rolltemplate-5eDefault .sheet-rt-key {
 	font-weight: bold;
@@ -162,14 +163,12 @@ sheet-rolltemplate-5eDefault .sheet-rt-card {
 
 }
 
-
 .sheet-rolltemplate-5eDefault .sheet-rt-value {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 
 	margin-top: 2px ;
-
 }
 
 .sheet-rolltemplate-5eDefault .sheet-main-content {
@@ -186,7 +185,6 @@ sheet-rolltemplate-5eDefault .sheet-rt-card {
 	height: 1px;
 }
 
-
 .sheet-rolltemplate-5eDefault .sheet-rt-emote {
 	font-style: italic;
 	font-size: 11px;
@@ -198,7 +196,6 @@ sheet-rolltemplate-5eDefault .sheet-rt-card {
 
 	padding: 0px 5px;
 	margin: 0px 5px 5px 5px;
-
 }
 
 /*** ROLL TEMPLATE STYLING ENDS HERE **/
@@ -219,56 +216,6 @@ sheet-rolltemplate-5eDefault .sheet-rt-card {
 	visibility: hidden;
 }
 
-/* character/force button Settings */
-
- div.sheet-character,  div.sheet-force {
-	display: none;
-}
-
- input.sheet-is-force:checked ~ div.sheet-force,
- input.sheet-is-force:not(:checked )~ div.sheet-character
-{
-	display: block;
-}
-
- input.sheet-is-force {
-	width: 20%;
-	height: 16px;
-	cursor: pointer;
-	position: relative;
-	opacity: 0;
-	z-index: 9999;
-}
-
- span.sheet-is-force-tab::before {
-	content: "Character Sheet";
-}
-
- span.sheet-is-force-tab {
-	text-align: center;
-	display: inline-block;
-	width: 20%;
-	height: 16px;
-	font-size: 9px;
-
-	background: #65763c;
-	color: white;
-	font-weight: bold;
-	border-radius: 4px;
-	margin-left: -20%
-}
-
- input.sheet-is-force:checked + span.sheet-is-force-tab {
-	background: #93537c;
-	color: white;
-	border-radius: 4px;
-}
-
- input.sheet-is-force:checked + span.sheet-is-force-tab::before {
-	content: "Force Sheet"
-}
-
-/* END character/force button Settings */
 /* NPC button Settings */
 
  div.sheet-npcinfo {
@@ -323,11 +270,11 @@ sheet-rolltemplate-5eDefault .sheet-rt-card {
 }
 
  input.sheet-tab1:checked ~ div.sheet-section-main,
- input.sheet-tab2:checked ~ div.sheet-section-skills,
- input.sheet-tab3:checked ~ div.sheet-section-class,
- input.sheet-tab4:checked ~ div.sheet-section-combat,
- input.sheet-tab5:checked ~ div.sheet-section-spellbook,
- input.sheet-tab6:checked ~ div.sheet-section-inventory {
+ input.sheet-tab2:checked ~ div.sheet-section-class,
+ input.sheet-tab3:checked ~ div.sheet-section-combat,
+ input.sheet-tab4:checked ~ div.sheet-section-spellbook,
+ input.sheet-tab5:checked ~ div.sheet-section-inventory, 
+ input.sheet-tab6:checked ~ div.sheet-section-skills {
 	display: block;
 }
 
@@ -366,8 +313,6 @@ sheet-rolltemplate-5eDefault .sheet-rt-card {
  input.sheet-tab4:checked + span.sheet-tab4,
  input.sheet-tab5:checked + span.sheet-tab5,
  input.sheet-tab6:checked + span.sheet-tab6,
- input.sheet-tab7:checked + span.sheet-tab7,
- input.sheet-tab8:checked + span.sheet-tab8,
  input.sheet-tab99:checked + span.sheet-tab99 {
 	background: #ab8b57;
 	color: white;
@@ -388,9 +333,7 @@ sheet-rolltemplate-5eDefault .sheet-rt-card {
  input.sheet-spelltab4:checked ~ div.sheet-spell-page4,
  input.sheet-spelltab5:checked ~ div.sheet-spell-page5,
  input.sheet-spelltab6:checked ~ div.sheet-spell-page6,
- input.sheet-spelltab7:checked ~ div.sheet-spell-page7,
- input.sheet-spelltab8:checked ~ div.sheet-spell-page8,
- input.sheet-spelltab9:checked ~ div.sheet-spell-page9 {
+ input.sheet-spelltab7:checked ~ div.sheet-spell-page7 {
 	display: block;
 }
 
@@ -406,8 +349,6 @@ sheet-rolltemplate-5eDefault .sheet-rt-card {
  input.sheet-spelltab5:checked ~ span.sheet-spelltab5,
  input.sheet-spelltab6:checked ~ span.sheet-spelltab6,
  input.sheet-spelltab7:checked ~ span.sheet-spelltab7,
- input.sheet-spelltab8:checked ~ span.sheet-spelltab8,
- input.sheet-spelltab9:checked ~ span.sheet-spelltab9,
  input.sheet-spelltab99:checked ~ span.sheet-spelltab99
  {
 	background: rgb(0,158,115);
@@ -440,7 +381,6 @@ sheet-rolltemplate-5eDefault .sheet-rt-card {
 	margin-left: -73px;
 }
 
-
 .sheet-spell-macro-output-options,
 .sheet-classaction-output-options,
 .sheet-npc-output-options
@@ -463,7 +403,6 @@ div[class^="sheet-classaction-row"] {
 	margin-bottom: 5px;
 	background: #eee;
 }
-
 
 /* spell type tab Settings */
 
@@ -950,85 +889,7 @@ div[class^="sheet-classaction-row"] {
 	vertical-align: middle;
 }
 
-/* Death save checkboxes - FAIL */
 
- input.sheet-death-save-fail {
-	width: 28%;
-	height: 20px;
-	cursor: pointer;
-	position: relative;
-	opacity: 0;
-	z-index: 9999;
-	margin-top: 5px;
-	margin-bottom: 5px;
-}
-
- span.sheet-death-save-fail-tab::before {
-	content: "???";
-}
-
- span.sheet-death-save-fail-tab {
-	text-align: center;
-	display: inline-block;
-	width: 28%;
-	height: 20px;
-	font-size: 13px;
-
-	font-weight: bold;
-	border-radius: 4px;
-	margin-left: -28%;
-	border: 1px solid;
-}
-
- input.sheet-death-save-fail:checked + span.sheet-death-save-fail-tab {
-	background:  #8c6075;
-	color: white;
-	border-radius: 4px;
-}
-
- input.sheet-death-save-fail:checked + span.sheet-death-save-fail-tab::before {
-	content: "Failure";
-}
-
-/* Death save checkboxes - success */
-
- input.sheet-death-save-success {
-	width: 28%;
-	height: 20px;
-	cursor: pointer;
-	position: relative;
-	opacity: 0;
-	z-index: 9999;
-	margin-top: 5px;
-	margin-bottom: 5px;
-}
-
- span.sheet-death-save-success-tab::before {
-	content: "???";
-}
-
- span.sheet-death-save-success-tab {
-	text-align: center;
-	display: inline-block;
-	width: 28%;
-	height: 20px;
-	font-size: 13px;
-
-	font-weight: bold;
-	border-radius: 4px;
-	margin-left: -28%;
-	border: 1px solid;
-}
-
- input.sheet-death-save-success:checked + span.sheet-death-save-success-tab {
-	background: #879a6a;
-	color: white;
-	border-radius: 4px;
-}
-
- input.sheet-death-save-success:checked + span.sheet-death-save-success-tab::before {
-	content: "Success"
-}
 
 /* Skills section */
 
@@ -3082,3 +2943,5 @@ div[class^="sheet-classaction-row"] {
  .sheet-rolltemplate-5eDefault .sheet-row-r img {
 	max-width: 100%;
 }
+
+/* End custom Pure grid css (24 cols) */
