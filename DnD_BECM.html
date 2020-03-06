@@ -611,23 +611,26 @@
     <div class="sheet-section-skills">
             <div class="sheet-row">
     			<div class="sheet-col-1-2 sheet-padr">
-					<h4 class="sheet-center" title="This is from an optional supplement. It uses a d20 for rolls.">Weitere Fähigkeiten</h4>
+					<h4 class="sheet-center" title="Dieser Bereich steht für optionale Fertigkeiten zur Verfügung">Weitere Fähigkeiten</h4>
 						<div class="sheet-row sheet-sub-header sheet-small-label">
 							<div class="sheet-col-1-4 sheet-padl">Name</div>
-							<div class="sheet-col-1-6 sheet-center">Modifikator</div>
-							<div class="sheet-col-1-6 sheet-center">Vergleichbar mit</div>
-							<div class="sheet-col-1-4 sheet-center">Stat</div>
+							<div class="sheet-col-1-6 sheet-center">Mod.</div>
+							<div class="sheet-col-1-6 sheet-center">Ausbildungsstufe</div>
+							<div class="sheet-col-1-4 sheet-center">Attrib.</div>
 							<div class="sheet-col-1-8 sheet-right">Würfel</div>
 						</div>
 						<fieldset class="repeating_generalskills">
 							<div class="sheet-row" sheet-center>
 								<div class="sheet-col-1-4 sheet-padr sheet-left"><input type="text" title="Fertigkeitsname" name="attr_skillname" ></div>
-								<div class="sheet-col-1-6 sheet-padr sheet-center"><input type="number" title="Place skill level and/or other modifiers" name="attr_skillmod" value="0"></div>
+								<div class="sheet-col-1-6 sheet-padr sheet-center"><input type="number" title="Wie hoch ist der Grundmodifikator bzw. andere Boni" name="attr_skillmod" value="0"></div>
                                 <div class="sheet-col-1-4 sheet-padr sheet-left">
-									<select title="All skills on another class list are considered non-skilled; All non-trained skills from the general list or your character's class are considered General; Selected Skills are considered Class" name="attr_skilled">
-									    <option value="20">Non-Skilled</option>
-									    <option value="17">General</option>
-                                        <option value="@{osr}">Class</option>
+									<select title="Wie ist der Trainingsstatus dieser Fertigkeit anzusehen" name="attr_skilled">
+									    <option value="19">Untrainiert</option>
+									    <option value="17">Allgemein</option>
+                                        <option value="13">Trainiert</option>
+										<option value="10">Experte</option>
+									    <option value="5">Meisterlich</option>
+									    <option value="2">Göttlich</option>
 									</select>
 								</div>
 								<div class="sheet-col-1-6 sheet-left">
@@ -663,6 +666,8 @@
 				</div>
 			</div>
 	</div>
+	
+	
 	<!--Combat-->
 	<div class="sheet-section-combat">
 		<div class="sheet-row sheet-left">
@@ -687,23 +692,38 @@
     				<h4 class="sheet-center">Angriffsbonus </h4>
 					<div class="sheet-row sheet-padb">
 						<div class="sheet-row sheet-center">
-							<div class="sheet-col-1-2 sheet-small-label sheet-center"><input class="sheet-underlined" type="number" name="attr_ab" value="1" step="1"><br/>Angriffsbonus</div>
+							<div class="sheet-col-1-2 sheet-small-label sheet-center"><input class="sheet-underlined" type="number" name="attr_ab" value="0" step="1"><br/>Angriffsbonus</div>
 						</div>
 					</div>
 					<h4 class="sheet-center">Initiative</h4>
                     <div class="sheet-row sheet-center">
-                            <div class="sheet-col-1-3 sheet-right sheet-padl"><input type="text"name="attr_Initiativedice" title="Initiative wird mit 1W6 erwürfelt." value="1d6">
-                            <div class-"sheet-col-1-8 sheet-left sheet-padr sheet-small-label sheet-vert-bottom">Typ</div>
-                            </div>
+                            <div class="sheet-col-1-3 sheet-right sheet-padl"><input type="text"name="attr_Initiativedice" title="Initiative wird mit 1W6 erwürfelt." value="1d6"></div>
             				<div class="sheet-col-1-4 sheet-small-label sheet-center sheet-padl" title="Bitte Bonus für Initiative eingeben, falls vorhanden wie bei Halblingen."><input class="sheet-underlined sheet-center" type="number" name="attr_initiative" value="0" step="1"><br/>Bonus</div>
     						<input class="sheet-underlined" type="hidden" name="attr_initiative_overall" value="[[ [[@{dexterity_mod}]] ]] + @{initiative}" disabled="disabled">
     						<div class="sheet-col-1-3 sheet-left">
     							<button type="roll" class="sheet-roll" name="roll_Initiative" value="&{template:5eDefault} {{title=@{character_name}'s Initiative}} {{roll=[[ @{Initiativedice} + @{initiative_overall} &{tracker} ]]}}">Initiative</button>
     						</div>
     			    </div>
+					<div class="sheet-col-1-8 sheet-center sheet-small-label">&nbsp;</div>
+					<h4 class="sheet-center">Trefferpunkterhöhung</h4>
+					<div class="sheet-col-1-2 sheet-small-label sheet-left"  title="Wähle hier deinen Trefferwürfel">
+						<SELECT name="attr_HPDie">
+							<option value="1d4">Dieb</option>
+							<option value="1d4">Zauberkundiger</option>
+							<option value="1d6">Halbling</option>
+							<option value="1d6">Elf</option>
+							<option value="1d6">Kleriker</option>
+							<option value="1d8">Zwerg</option>
+							<option value="1d8">Kämpfer</option>
+						</SELECT><br/>Trefferwürfel</div>
+						<div class="sheet-col-1-3 sheet-right">
+							<button type='roll' value="&{template:5eDefault} {{name=@{Name}}} {{title=@{character_name}'s Trefferpunkterhöhung - @{HPDie}}} {{HD=[[@{HPDie}+@{constitution_mod}]]}}" name='TP' title="Würfel für weitere Trefferpunkte"></button>
+						</div>
+				<!-- END AC, HP -->
+	
 				</div>
-		<div class="sheet-col-1-2 sheet-padr">
-		<h4 class="sheet-center">Rettungswürfe</h4>
+				<div class="sheet-col-1-2 sheet-padr">
+				<h4 class="sheet-center">Rettungswürfe</h4>
 					<div class="sheet-row sheet-sub-header">
 						<div class="sheet-col-1-6 sheet-center sheet-small-label">Wert</div>
 						<div class="sheet-col-1-2 sheet-center sheet-small-label">Typ</div>
@@ -746,7 +766,7 @@
 							<button type="roll" name="roll_SDB" value="&{template:5eDefault} {{save=1}} {{title=Dragon's Breath}} {{subheader=@{character_name} Saving Throw}} {{rollname=Success: N(0)/Y(1))}} {{roll=[[{1d20+@{save_dragons_breath_mod}}>@{save_dragons_breath}]]}}"></button>
 						</div>
 					</div>
-						<div class="sheet-row">
+					<div class="sheet-row">
 						<div class="sheet-col-1-8 sheet-padr" title="Basiswert"><input type="number" name="attr_save_spell" value="20" min="1" step="1" /></div>
 						<div class="sheet-col-1-2 sheet-small-label">Zaubersprüche, -stecken u. -ruten</div>
 						<div class="sheet-col-1-10 sheet-center sheet-small-label">&nbsp;</div>
@@ -755,74 +775,46 @@
 							<button type="roll" name="roll_SSP" value="&{template:5eDefault} {{save=1}} {{title=Spell}} {{subheader=@{character_name} Saving Throw}} {{rollname=Success: N(0)/Y(1))}} {{roll=[[{1d20+@{save_spell_mod}}>@{save_spell}]]}}"></button>
 						</div>
 					</div>
-		</div>
+				</div>
 		</div>
         <!-- TABLE Target AC -->
-		<span>
-            <div style="width: 100%;text-align:center;">
+		<span>	
+		  <div style="width: 100%;text-align:center;">
 			<h4 class="sheet-center">Erforderlicher Trefferwurf für RK 0</h4>
                 <div style="display: table; width:100%;">
-
                     <div class="sheet-row sheet-sub-header" style="display: table-row;text-align: center;">
-
                         <div style="display: table-cell; text-align: left;"><b>RK :</b></div>
-
                         <div style="display: table-cell;text-align: center;">9</div>
-
                         <div style="display: table-cell;text-align: center;">8</div>
-
                         <div style="display: table-cell;text-align: center;">7</div>
-
                         <div style="display: table-cell;text-align: center;">6</div>
-
                         <div style="display: table-cell;text-align: center;">5</div>
-
                         <div style="display: table-cell;text-align: center;">4</div>
-
                         <div style="display: table-cell;text-align: center;">3</div>
-
                         <div style="display: table-cell;text-align: center;">2</div>
-
                         <div style="display: table-cell;text-align: center;">1</div>
-
                         <div style="display: table-cell;text-align: center;">0</div>
-
                     </div>
-
                     <div style="display: table-row;text-align: center;">
-
                         <div style="display: table-cell; text-align: left;"><b>ETW0:</b></div>
-
                         <div style="display: table-cell;"><input type="number" name="attr_HitAC9" class="sheet-inSmallNum" value="0" readonly="readonly"/></div>
-
                         <div style="display: table-cell;"><input type="number" name="attr_HitAC8" class="sheet-inSmallNum" value="0" readonly="readonly"/></div>
-
                         <div style="display: table-cell;"><input type="number" name="attr_HitAC7" class="sheet-inSmallNum" value="0" readonly="readonly"/></div>
-
                         <div style="display: table-cell;"><input type="number" name="attr_HitAC6" class="sheet-inSmallNum" value="0" readonly="readonly"/></div>
-
                         <div style="display: table-cell;"><input type="number" name="attr_HitAC5" class="sheet-inSmallNum" value="0" readonly="readonly"/></div>
-
                         <div style="display: table-cell;"><input type="number" name="attr_HitAC4" class="sheet-inSmallNum" value="0" readonly="readonly"/></div>
-
                         <div style="display: table-cell;"><input type="number" name="attr_HitAC3" class="sheet-inSmallNum" value="0" readonly="readonly"/></div>
-
                         <div style="display: table-cell;"><input type="number" name="attr_HitAC2" class="sheet-inSmallNum" value="0" readonly="readonly"/></div>
-
                         <div style="display: table-cell;"><input type="number" name="attr_HitAC1" class="sheet-inSmallNum" value="0" readonly="readonly"/></div>
-
                         <div style="display: table-cell;"><input type="number" name="attr_HitAC0" class="sheet-inSmallNum" value="19" /></div>
-
                     </div>
-
                 </div>
             </div> 
 			</span><!-- END TABLE Target AC -->
 			
 		<input type="hidden" name="attr_toHitRoll" value="1d20cs20cf1" />
-		
 		<h4 class="sheet-center">Nahkampfwaffen / waffenloser Angriff </h4>
-			<div class="sheet-row sheet-sub-header">
+			<div class="sheet-row sheet-sub-header sheet-center">
 				<div class="sheet-col-1-8 sheet-center sheet-small-label sheet-vert-bottom">Waffe</div>
 				<div class="sheet-col-1-8 sheet-center sheet-small-label sheet-vert-bottom">Meisterschaft</div>
 				<div class="sheet-col-1-12 sheet-left sheet-small-label sheet-vert-bottom sheet-padr">Meister. TW+</div>
@@ -834,7 +826,7 @@
 				<div class="sheet-col-1-24 sheet-center sheet-small-label sheet-vert-bottom sheet-padl">Wurf</div>
 			</div>
 			<fieldset class="repeating_meleeattacks">
-				<div class="sheet-row">
+				<div class="sheet-row sheet-center">
 					<div class="sheet-col-1-8 sheet-padr" title="Nahkampfwaffe"><input type="text" name="attr_meleeweaponname"></div>
 					<div class="sheet-col-1-9 sheet-padl sheet-padr ">
 									<select name="attr_masterymeleerank" title="Meisterschaftsgrad">
@@ -851,33 +843,30 @@
 					<div class="sheet-col-1-12 sheet-padl sheet-padr" title="Trefferwurfbonus"><input type="number" name="attr_meleetohitmodifier" value="0" step="1"></div>
 					<div class="sheet-col-1-12 sheet-padl sheet-padr" title="Schadenswurfbonus"><input type="number" name="attr_meleetodamagemodifier" value="0" step="1"></div>
 					<div class="sheet-col-1-12 sheet-padl sheet-padr" title="Der mag. Bonus wird auf Treffer- und Schadenswurf angerechnet"><input type="number" name="attr_meleemagic" value="0" step="1"></div>
-					<div class="sheet-col-1-10 sheet-padl sheet-padr sheet-center" title="Waffenschaden"><input type="text" name="attr_meleedmg_die" value="d4"></div>
+					<div class="sheet-col-1-10 sheet-padl sheet-padr sheet-center" title="Waffenschaden"><input type="text" name="attr_meleedmg_die" value="1d4"></div>
 					<div class="sheet-col-1-24 sheet-right sheet-padl" title="Angriffswurf. Stärkebonus wird automatisch berücksichtigt.">
-						<button type="roll" class="sheet-roll" name="roll_MeleeAttack" value="&{template:5eDefault} {{weapon=1}} {{title=@{character_name} greift mit @{meleeweaponname} an}} {{attack=[[@{HitAC0}[THAC0] - (@{toHitRoll}[Dice Roll] + @{meleemasteryhit}+@{meleetohitmodifier}+@{meleemagic}+[[@{strength_mod}]]) ]]}} {{damage=[[@{meleedmg_die}+@{meleemasterydam}+@{meleetodamagemodifier}+@{meleemagic}+[[@{strength_mod}]] ]]}}"></button>
+						<button type="roll" class="sheet-roll" name="roll_MeleeAttack" value="&{template:5eDefault} {{weapon=1}} {{title=@{character_name} greift mit @{meleeweaponname} an}} {{attack=[[@{HitAC0}[THAC0] - (@{toHitRoll}[Dice Roll] + @{meleemasteryhit}+@{meleetohitmodifier}+@{meleemagic}+[[@{strength_mod}]]+[[@{ab}]]) ]]}} {{damage=[[@{meleedmg_die}+@{meleemasterydam}+@{meleetodamagemodifier}+@{meleemagic}+[[@{strength_mod}]] ]]}}"></button>
 					</div>
 				</div>
 			</fieldset>
 			<span class="sheet-spacer"></span>
 			<h4 class="sheet-center">Fernkampf-/geworfene Waffen </h4>
 			<div class="sheet-row sheet-sub-header sheet-center">
-				<div class="sheet-col-1-12 sheet-center sheet-padr sheet-small-label sheet-vert-bottom">Waffe</div>
-				<div class="sheet-col-1-10 sheet-center sheet-padl sheet-padr sheet-small-label sheet-vert-bottom">Meistsch.</div>
-				<div class="sheet-col-1-14 sheet-center sheet-padl sheet-padr sheet-small-label sheet-vert-bottom">Meistersch. TW +</div>
-                <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Meistersch. Schaden +</div>
-                <div class="sheet-col-1-16 sheet-center sheet-small-label sheet-vert-bottom">TW +/-</div>
-                <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Schaden +/-</div>
-				<div class="sheet-col-1-16 sheet-left sheet-small-label sheet-vert-bottom">Magie</div>
-                <div class="sheet-col-1-14 sheet-center sheet-small-label sheet-vert-bottom">Attack Bonus</div>
-                <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Ability Hit Modifier</div>
-                <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Damage Modifier</div>
+				<div class="sheet-col-1-8 sheet-center sheet-small-label sheet-vert-bottom">Waffe</div>
+				<div class="sheet-col-1-8 sheet-center sheet-small-label sheet-vert-bottom">Meisterschaft</div>
+				<div class="sheet-col-1-12 sheet-left sheet-small-label sheet-vert-bottom sheet-padr">Meister. TW+</div>
+                <div class="sheet-col-1-12 sheet-left sheet-small-label sheet-vert-bottom sheet-padr">Meister. Schaden+</div>
+                <div class="sheet-col-1-12 sheet-left sheet-small-label sheet-vert-bottom">TW +/-</div>
+                <div class="sheet-col-1-12 sheet-left sheet-small-label sheet-vert-bottom">Schaden +/-</div>
+				<div class="sheet-col-1-12 sheet-left sheet-small-label sheet-vert-bottom sheet-padr">mag. Bonus</div>
 				<div class="sheet-col-1-12 sheet-right sheet-padl sheet-padr sheet-small-label sheet-vert-bottom">Reichw.</div>
 				<div class="sheet-col-1-12 sheet-right sheet-padl sheet-padr sheet-small-label sheet-vert-bottom">Schadens- würfel</div>
 				<div class="sheet-col-1-24 sheet-center sheet-small-label sheet-vert-bottom">Wurf</div>
 			</div>
 			<fieldset class="repeating_rangedattacks">
 				<div class="sheet-row sheet-center">
-					<div class="sheet-col-1-10" title="Weapon's name"><input type="text" name="attr_rangeweaponname" ></div>
-					<div class="sheet-col-1-10 sheet-padl" title="Mastery rank if used">
+					<div class="sheet-col-1-8" title="Fernkampfwaffe"><input type="text" name="attr_rangeweaponname" ></div>
+					<div class="sheet-col-1-9 sheet-padl" title="Meisterschaftsgrad">
 									<select name="attr_masteryrangerank" >
 										<option value="1">Unausgebildet</option>
 										<option value="2">Basis</option>
@@ -887,25 +876,11 @@
 										<option value="6">Großmeister</option>
 									</select>
 					</div>
-					<div class="sheet-col-1-14 sheet-padl sheet-padr" title="Mastery to hit bonus"><input type="number" name="attr_rangemasteryhit" value="{ceil(@{masteryrangerank}/2)}" disabled=true></div>
-                    <div class="sheet-col-1-14 sheet-padl sheet-padr" title="Mastery Damage bonus"><input type="number" name="attr_rangemasterydam" value="{floor(@{masteryrangerank}/2)}" disabled=true></div>
-					<div class="sheet-col-1-14 sheet-padl sheet-padr" title="Generic to hit modifier"><input type="number" name="attr_rangetohitmodifier" value="0" step="1"></div>
-					<div class="sheet-col-1-14 sheet-padl sheet-padr" title="Generic damage modifier"><input type="number" name="attr_rangetodamagemodifier" value="0" step="1"></div>
-					<div class="sheet-col-1-14 sheet-padl sheet-padr" title="The magic bonus will be added as a modifier to BOTH the attack and damage rolls"><input type="number" name="attr_rangemagic" value="0" step="1"></div>
-                    <div class="sheet-col-1-14 sheet-padl sheet-padr" title="Attack Bonus"><input type="number" name="attr_rangeab" value="@{ab}" disabled=true></div>
-                    <div class="sheet-col-1-12 sheet-padl sheet-center" title="Attribut für den Angriff">
-            				<select name="attr_abilityrangehit" title="Wähle das anzuwendene Attribut, i.d.R. GES">
-								<option value="0">--</option>
-                                <option value="@{strength_mod}">Str</option>
-                                <option value="@{dexterity_mod}">Ges</option>
-							</select>
-                    </div>
-                    <div class="sheet-col-1-12 sheet-padl sheet-right" title="Ability modifer for damage if used.">
-									<select name="attr_rangeabilitymod">
-                                        <option value="0">--</option>
-										<option value="[[@{strength_mod}]]">Str</option>
-									</select>
-								</div>
+					<div class="sheet-col-1-12 sheet-padl sheet-padr" title="Meisterschaftsbonus Treffen"><input type="number" name="attr_rangemasteryhit" value="0"></div>
+                    <div class="sheet-col-1-12 sheet-padl sheet-padr" title="Meisterschaftsbonus Schaden"><input type="number" name="attr_rangemasterydam" value="0"></div>
+					<div class="sheet-col-1-12 sheet-padl sheet-padr" title="Trefferwurfbonus"><input type="number" name="attr_rangetohitmodifier" value="0" step="1"></div>
+					<div class="sheet-col-1-12 sheet-padl sheet-padr" title="Schadenswurfbonus"><input type="number" name="attr_rangetodamagemodifier" value="0" step="1"></div>
+					<div class="sheet-col-1-10 sheet-padl sheet-padr" title="Der mag. Bonus wird auf Treffer- und Schadenswurf angerechnet"><input type="number" name="attr_rangemagic" value="0" step="1"></div>
                     <div class="sheet-col-1-12 sheet-padl sheet-right" title="Reichweitenmodifikator">
         					<select name="attr_rangerange">
                                 <option value="0">Mittel</option>
@@ -913,9 +888,9 @@
                                 <option value="-2">Lang</option>
 							</select>
                     </div>
-					<div class="sheet-col-1-12 sheet-padl sheet-right" title="Weapon Damage"><input type="text" name="attr_rangedmg" value="0"></div>
-					<div class="sheet-col-1-24 sheet-right" title="Range Combat button">
-						<button type="roll" class="sheet-roll" name="roll_RangeAttack" value="&{template:5eDefault} {{weapon=1}} {{title=@{character_name} attacks with @{rangeweaponname}}} {{attack=[[1d20+@{rangemasteryhit}+@{rangetohitmodifier}+@{rangemagic}+@{ab}+[[@{abilityrangehit}]]+@{rangerange}}]]}} {{damage=[[@{rangedmg}+@{rangemasterydam}+@{rangetodamagemodifier}+@{rangemagic}+@{rangeabilitymod}]]}} "></button>
+					<div class="sheet-col-1-12 sheet-padl sheet-right" title="Waffenschaden"><input type="text" name="attr_rangedmg_die" value="1d4"></div>
+					<div class="sheet-col-1-24 sheet-right" title="Fernkampfangriff; auf Trefferwurf wird der GES-Bonus angewendet und auf Schadenswurf der STR-Bonus">
+						<button type="roll" class="sheet-roll" name="roll_RangeAttack" value="&{template:5eDefault} {{weapon=1}} {{title=@{character_name} greift mit @{rangeweaponname} an}} {{attack=[[@{HitAC0}[THAC0] - (@{toHitRoll}[Dice Roll] + @{rangemasteryhit}+ @{rangetohitmodifier}+@{rangemagic}+[[@{dexterity_mod}]]+@{rangerange}+[[@{ab}]]) ]]}} {{damage=[[@{rangedmg_die}+@{rangemasterydam}+@{rangetodamagemodifier}+@{rangemagic}+[[@{strength_mod}]] ]]}}"></button>
 					</div>
 				</div>
 			</fieldset>
@@ -926,7 +901,7 @@
 					<div class="sheet-row sheet-center">
 					    <div class="sheet-col-1-5 sheet-small-label sheet-center" title="Diese Liste zeigt alle verfügbaren Rüstungen an.">
 							<select name="attr_eqarmor">
-								<option value="9" selected="selected">Nein</option>
+								<option value="9" selected="selected">Keine</option>
                                 <option value="7">Lederrüstung</option>
 								<option value="6">Schuppenrüstung</option>
                                 <option value="5">Kettenpanzer</option>
@@ -1044,7 +1019,7 @@
 							<div class="sheet-col-1-12 sheet-center sheet-small-label">Information<br/><input type="checkbox" name="attr_spellshowinfoblock" value="{{spellshowinfoblock=1}}" /></div>
 							<div class="sheet-col-1-8 sheet-center sheet-small-label">Rettungswurf<br/><input type="checkbox" name="attr_spellshowsavethrow" value="{{spellshowsavethrow=1}} {{spellsavestat=@{savestat}}} {{spellsavesuccess=@{savesuccess}}}" /></div>
 							<div class="sheet-col-1-12 sheet-center sheet-small-label">Heilen<br/><input type="checkbox" name="attr_spellshowhealing" value="{{spellshowhealing=1}} {{spellhealing=[[@{spellhealamount} + @{healstatbonus}]]}}" /></div>
-							<div class="sheet-col-1-12 sheet-center sheet-small-label">Schaden<br/><input type="checkbox" name="attr_spellshowdamage" value="{{spellshowdamage=1}} {{spelldamage=[[@{damage} + @{damagestatbonus} + @{damagemiscbonus}]]}}" /></div>
+							<div class="sheet-col-1-12 sheet-center sheet-small-label">Schaden<br/><input type="checkbox" name="attr_spellshowdamage" value="{{spellshowdamage=1}} {{spelldamage=[[@{damage} + @{damagemiscbonus}]]}}" /></div>
 							<div class="sheet-col-1-12 sheet-center sheet-small-label">Effekt<br/><input type="checkbox" name="attr_spellshoweffects" value="{{spellshoweffects=1}} {{spelleffect=@{spelleffect}}" /></div>
 							<input type="hidden" name="attr_spellcastmacrooptions" value="@{spellshowinfoblock}  @{spellshowsavethrow} @{spellshowhealing} @{spellshowdamage} @{spellshoweffects}" />
 						</div>
@@ -1131,20 +1106,20 @@
 							<div class="sheet-col-1-6 sheet-vert-bottom sheet-center sheet-small-label">Wirkung</div>
 							<div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Reichw.</div>
 							<div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Dauer</div>
-							<div class="sheet-col-1-6 sheet-vert-bottom sheet-center sheet-small-label">Zauber Info</div>
+							<div class="sheet-col-1-6 sheet-vert-bottom sheet-center sheet-small-label">Zauber wirken</div>
 						</div>
 						<div class="sheet-row">
 							<div class="sheet-col-1-6 sheet-vert-middle sheet-padr"><input type="text" class="sheet-center" name="attr_spelltarget"></div>
     						<div class="sheet-col-1-8 sheet-vert-middle sheet-padr"><input type="text" class="sheet-center" name="attr_spellrange"></div>
 							<div class="sheet-col-1-8 sheet-vert-middle sheet-padr"><input type="text" class="sheet-center" name="attr_spellduration"></div>
-							<div class="sheet-col-1-6 sheet-vert-middle sheet-center sheet-padr"><button type="roll" class="sheet-roll" name="roll_SpellCast" value="&{template:5eDefault} {{spell=1}} {{title=@{spellname}}} {{subheader=@{character_name}}} {{subheader2=Stufe @{spellfriendlylevel}}} @{spellcastmacrooptions}} {{spellduration=@{spellduration}}} {{spelltarget=@{spelltarget}}} {{spellrange=@{spellrange}}}">Zauber Info</button></div>
+							<div class="sheet-col-1-6 sheet-vert-middle sheet-center sheet-padr"><button type="roll" class="sheet-roll" name="roll_SpellCast" value="&{template:5eDefault} {{spell=1}} {{title=@{spellname}}} {{subheader=@{character_name}}} {{subheader2=Stufe @{spellfriendlylevel}}} @{spellcastmacrooptions}} {{spellduration=@{spellduration}}} {{spelltarget=@{spelltarget}}} {{spellrange=@{spellrange}}}">Zaubern</button></div>
 						</div>
 						<div class="sheet-row sheet-padb sheet-spell-macro-output-options">
-							<div class="sheet-col-1-8 sheet-vert-middle sheet-small-label sheet-padl">Makro-Anzeigeoption für Zauberinfo</div>
+							<div class="sheet-col-1-8 sheet-vert-middle sheet-small-label sheet-padl">Anzeigeoptionen für -Zaubern-</div>
 							<div class="sheet-col-1-12 sheet-center sheet-small-label">Information<br/><input type="checkbox" name="attr_spellshowinfoblock" value="{{spellshowinfoblock=1}}" /></div>
 							<div class="sheet-col-1-8 sheet-center sheet-small-label">Rettungswurf<br/><input type="checkbox" name="attr_spellshowsavethrow" value="{{spellshowsavethrow=1}} {{spellsavestat=@{savestat}}} {{spellsavesuccess=@{savesuccess}}}" /></div>
 							<div class="sheet-col-1-12 sheet-center sheet-small-label">Heilen<br/><input type="checkbox" name="attr_spellshowhealing" value="{{spellshowhealing=1}} {{spellhealing=[[@{spellhealamount} + @{healstatbonus}]]}}" /></div>
-							<div class="sheet-col-1-12 sheet-center sheet-small-label">Schaden<br/><input type="checkbox" name="attr_spellshowdamage" value="{{spellshowdamage=1}} {{spelldamage=[[@{damage} + @{damagestatbonus} + @{damagemiscbonus}]]}}" /></div>
+							<div class="sheet-col-1-12 sheet-center sheet-small-label">Schaden<br/><input type="checkbox" name="attr_spellshowdamage" value="{{spellshowdamage=1}} {{spelldamage=[[@{damage} + @{damagemiscbonus}]]}}" /></div>
 							<div class="sheet-col-1-12 sheet-center sheet-small-label">Effekt<br/><input type="checkbox" name="attr_spellshoweffects" value="{{spellshoweffects=1}} {{spelleffect=@{spelleffect}}" /></div>
 							<input type="hidden" name="attr_spellcastmacrooptions" value="@{spellshowinfoblock}  @{spellshowsavethrow} @{spellshowhealing} @{spellshowdamage} @{spellshoweffects}" />
 						</div>
@@ -1164,13 +1139,13 @@
 							<div class="sheet-row">
 								<div class="sheet-col-1-6 sheet-padr">
 										<select name="attr_savestat">
-										<option value="Death Ray">Todesmagie</option>
-										<option value="Poison">Gift</option>
-										<option value="Magic Wands">Zauberstäbe</option>
-										<option value="Paralysis">Lähmung</option>
-										<option value="Turn to Stone">Zu-Stein-Erstarren</option>
-										<option value="Dragon's Breath">Drachenodem</option>
-										<option value="Spell">Zaubersprüche, -stecken u. -ruten</option>
+										<option value="Todesmagie">Todesmagie</option>
+										<option value="Gift">Gift</option>
+										<option value="Zauberstäbe">Zauberstäbe</option>
+										<option value="Lähmung">Lähmung</option>
+										<option value="Zu-Stein-Erstarren">Zu-Stein-Erstarren</option>
+										<option value="Drachenodem">Drachenodem</option>
+										<option value="Zaubersprüche, -stecken u. -ruten">Zaubersprüche, -stecken u. -ruten</option>
 									</select>
 								</div>
 								<div class="sheet-col-1-2 sheet-padl"><input type="text" class="sheet-center" name="attr_savesuccess" title="Was passiert wenn der RW erfolgreich ist?"></div>
@@ -1178,36 +1153,23 @@
 						</div>
 						<div class="sheet-spell-type-heal">
 							<div class="sheet-row">
-								<div class="sheet-col-1-6 sheet-padl sheet-padr sheet-vert-bottom sheet-right sheet-small-label">Heilwert</div>
-								<div class="sheet-col-1-6 sheet-padl sheet-vert-bottom sheet-right sheet-small-label">Stat Bonus</div>
+								<div class="sheet-col-1-6 sheet-padl sheet-padr sheet-vert-bottom sheet-right sheet-small-label">Würfel</div>
+								<div class="sheet-col-1-6 sheet-padl sheet-vert-bottom sheet-right sheet-small-label">evtl. Bonus</div>
 								<div class="sheet-col-1-6 sheet-vert-bottom sheet-center sheet-small-label">&nbsp;</div>
 							</div>
 							<div class="sheet-row">
-								<div class="sheet-col-1-6 sheet-padr sheet-small-label sheet-center"><input type="text" class="sheet-center" name="attr_spellhealamount" value="0"></div>
-								<div class="sheet-col-1-6 sheet-center">
-									<select name="attr_healstatbonus">
-										<option value="0">Nein</option>
-										<option value="[[@{wisdom_mod}]]">WEI Mod.</option>
-									</select>
-								</div>
+								<div class="sheet-col-1-6 sheet-padr sheet-small-label sheet-center"><input type="text" class="sheet-center" name="attr_spellhealamount" value="1d6"></div>
+								<div class="sheet-col-1-6 sheet-center"><input type="text" class="sheet-center" name="attr_healstatbonus" value="1d6"></div>
 							</div>
 						</div>
 						<div class="sheet-spell-type-damage">
 							<div class="sheet-row">
 								<div class="sheet-col-1-4 sheet-vert-bottom sheet-right sheet-small-label">Schadenswürfel</div>
-								<div class="sheet-col-1-6 sheet-vert-bottom sheet-right sheet-small-label">Anderer Bonus</div>
-								<div class="sheet-col-1-8 sheet-vert-bottom sheet-right sheet-small-label">Versch. Schaden</div>
+								<div class="sheet-col-1-8 sheet-vert-bottom sheet-right sheet-small-label">Schadensbonus</div>
 								<div class="sheet-col-1-6 sheet-vert-bottom sheet-center sheet-small-label">&nbsp;</div>
 							</div>
 							<div class="sheet-row">
-								<div class="sheet-col-1-10 sheet-padr sheet-small-label sheet-left"><input type="text" class="sheet-center" name="attr_damage" value="0"></div>
-								<div class="sheet-col-1-8 sheet-padl sheet-padr">
-									<select name="attr_damagestatbonus">
-										<option value="0">Nein</option>
-										<option value="[[@{intelligence_mod}]]">INT Mod.</option>
-										<option value="[[@{wisdom_mod}]]">WEI Mod.</option>
-									</select>
-								</div>
+								<div class="sheet-col-1-10 sheet-padr sheet-small-label sheet-left"><input type="text" class="sheet-center" name="attr_damage" value="1d6"></div>
 								<div class="sheet-col-1-8 sheet-padl sheet-padr sheet-small-label sheet-left"><input type="number" class="sheet-center" name="attr_damagemiscbonus" value="0" step="1"></div>
 								</div>
 						</div>
@@ -1244,20 +1206,20 @@
 							<div class="sheet-col-1-6 sheet-vert-bottom sheet-center sheet-small-label">Wirkung</div>
 							<div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Reichw.</div>
 							<div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Dauer</div>
-							<div class="sheet-col-1-6 sheet-vert-bottom sheet-center sheet-small-label">Zauber Info</div>
+							<div class="sheet-col-1-6 sheet-vert-bottom sheet-center sheet-small-label">Zauber wirken</div>
 						</div>
 						<div class="sheet-row">
 							<div class="sheet-col-1-6 sheet-vert-middle sheet-padr"><input type="text" class="sheet-center" name="attr_spelltarget"></div>
     						<div class="sheet-col-1-8 sheet-vert-middle sheet-padr"><input type="text" class="sheet-center" name="attr_spellrange"></div>
 							<div class="sheet-col-1-8 sheet-vert-middle sheet-padr"><input type="text" class="sheet-center" name="attr_spellduration"></div>
-							<div class="sheet-col-1-6 sheet-vert-middle sheet-center sheet-padr"><button type="roll" class="sheet-roll" name="roll_SpellCast" value="&{template:5eDefault} {{spell=1}} {{title=@{spellname}}} {{subheader=@{character_name}}} {{subheader2=Stufe @{spellfriendlylevel}}} @{spellcastmacrooptions}} {{spellduration=@{spellduration}}} {{spelltarget=@{spelltarget}}} {{spellrange=@{spellrange}}}">Zauber Info</button></div>
+							<div class="sheet-col-1-6 sheet-vert-middle sheet-center sheet-padr"><button type="roll" class="sheet-roll" name="roll_SpellCast" value="&{template:5eDefault} {{spell=1}} {{title=@{spellname}}} {{subheader=@{character_name}}} {{subheader2=Stufe @{spellfriendlylevel}}} @{spellcastmacrooptions}} {{spellduration=@{spellduration}}} {{spelltarget=@{spelltarget}}} {{spellrange=@{spellrange}}}">Zaubern</button></div>
 						</div>
 						<div class="sheet-row sheet-padb sheet-spell-macro-output-options">
-							<div class="sheet-col-1-8 sheet-vert-middle sheet-small-label sheet-padl">Makro-Anzeigeoption für Zauberinfo</div>
+							<div class="sheet-col-1-8 sheet-vert-middle sheet-small-label sheet-padl">Anzeigeoptionen für -Zaubern-</div>
 							<div class="sheet-col-1-12 sheet-center sheet-small-label">Information<br/><input type="checkbox" name="attr_spellshowinfoblock" value="{{spellshowinfoblock=1}}" /></div>
 							<div class="sheet-col-1-8 sheet-center sheet-small-label">Rettungswurf<br/><input type="checkbox" name="attr_spellshowsavethrow" value="{{spellshowsavethrow=1}} {{spellsavestat=@{savestat}}} {{spellsavesuccess=@{savesuccess}}}" /></div>
 							<div class="sheet-col-1-12 sheet-center sheet-small-label">Heilen<br/><input type="checkbox" name="attr_spellshowhealing" value="{{spellshowhealing=1}} {{spellhealing=[[@{spellhealamount} + @{healstatbonus}]]}}" /></div>
-							<div class="sheet-col-1-12 sheet-center sheet-small-label">Schaden<br/><input type="checkbox" name="attr_spellshowdamage" value="{{spellshowdamage=1}} {{spelldamage=[[@{damage} + @{damagestatbonus} + @{damagemiscbonus}]]}}" /></div>
+							<div class="sheet-col-1-12 sheet-center sheet-small-label">Schaden<br/><input type="checkbox" name="attr_spellshowdamage" value="{{spellshowdamage=1}} {{spelldamage=[[@{damage} + @{damagemiscbonus}]]}}" /></div>
 							<div class="sheet-col-1-12 sheet-center sheet-small-label">Effekt<br/><input type="checkbox" name="attr_spellshoweffects" value="{{spellshoweffects=1}} {{spelleffect=@{spelleffect}}" /></div>
 							<input type="hidden" name="attr_spellcastmacrooptions" value="@{spellshowinfoblock}  @{spellshowsavethrow} @{spellshowhealing} @{spellshowdamage} @{spellshoweffects}" />
 						</div>
@@ -1277,13 +1239,13 @@
 							<div class="sheet-row">
 								<div class="sheet-col-1-6 sheet-padr">
 										<select name="attr_savestat">
-										<option value="Death Ray">Todesmagie</option>
-										<option value="Poison">Gift</option>
-										<option value="Magic Wands">Zauberstäbe</option>
-										<option value="Paralysis">Lähmung</option>
-										<option value="Turn to Stone">Zu-Stein-Erstarren</option>
-										<option value="Dragon's Breath">Drachenodem</option>
-										<option value="Spell">Zaubersprüche, -stecken u. -ruten</option>
+										<option value="Todesmagie">Todesmagie</option>
+										<option value="Gift">Gift</option>
+										<option value="Zauberstäbe">Zauberstäbe</option>
+										<option value="Lähmung">Lähmung</option>
+										<option value="Zu-Stein-Erstarren">Zu-Stein-Erstarren</option>
+										<option value="Drachenodem">Drachenodem</option>
+										<option value="Zaubersprüche, -stecken u. -ruten">Zaubersprüche, -stecken u. -ruten</option>
 									</select>
 								</div>
 								<div class="sheet-col-1-2 sheet-padl"><input type="text" class="sheet-center" name="attr_savesuccess" title="Was passiert wenn der RW erfolgreich ist?"></div>
@@ -1291,36 +1253,23 @@
 						</div>
 						<div class="sheet-spell-type-heal">
 							<div class="sheet-row">
-								<div class="sheet-col-1-6 sheet-padl sheet-padr sheet-vert-bottom sheet-right sheet-small-label">Heilwert</div>
-								<div class="sheet-col-1-6 sheet-padl sheet-vert-bottom sheet-right sheet-small-label">Stat Bonus</div>
+								<div class="sheet-col-1-6 sheet-padl sheet-padr sheet-vert-bottom sheet-right sheet-small-label">Würfel</div>
+								<div class="sheet-col-1-6 sheet-padl sheet-vert-bottom sheet-right sheet-small-label">evtl. Bonus</div>
 								<div class="sheet-col-1-6 sheet-vert-bottom sheet-center sheet-small-label">&nbsp;</div>
 							</div>
 							<div class="sheet-row">
-								<div class="sheet-col-1-6 sheet-padr sheet-small-label sheet-center"><input type="text" class="sheet-center" name="attr_spellhealamount" value="0"></div>
-								<div class="sheet-col-1-6 sheet-center">
-									<select name="attr_healstatbonus">
-										<option value="0">Nein</option>
-										<option value="[[@{wisdom_mod}]]">WEI Mod.</option>
-									</select>
-								</div>
+								<div class="sheet-col-1-6 sheet-padr sheet-small-label sheet-center"><input type="text" class="sheet-center" name="attr_spellhealamount" value="1d6"></div>
+								<div class="sheet-col-1-6 sheet-center"><input type="text" class="sheet-center" name="attr_healstatbonus" value="1d6"></div>
 							</div>
 						</div>
 						<div class="sheet-spell-type-damage">
 							<div class="sheet-row">
 								<div class="sheet-col-1-4 sheet-vert-bottom sheet-right sheet-small-label">Schadenswürfel</div>
-								<div class="sheet-col-1-6 sheet-vert-bottom sheet-right sheet-small-label">Anderer Bonus</div>
-								<div class="sheet-col-1-8 sheet-vert-bottom sheet-right sheet-small-label">Versch. Schaden</div>
+								<div class="sheet-col-1-8 sheet-vert-bottom sheet-right sheet-small-label">Schadensbonus</div>
 								<div class="sheet-col-1-6 sheet-vert-bottom sheet-center sheet-small-label">&nbsp;</div>
 							</div>
 							<div class="sheet-row">
-								<div class="sheet-col-1-10 sheet-padr sheet-small-label sheet-left"><input type="text" class="sheet-center" name="attr_damage" value="0"></div>
-								<div class="sheet-col-1-8 sheet-padl sheet-padr">
-									<select name="attr_damagestatbonus">
-										<option value="0">Nein</option>
-										<option value="[[@{intelligence_mod}]]">INT Mod.</option>
-										<option value="[[@{wisdom_mod}]]">WEI Mod.</option>
-									</select>
-								</div>
+								<div class="sheet-col-1-10 sheet-padr sheet-small-label sheet-left"><input type="text" class="sheet-center" name="attr_damage" value="1d6"></div>
 								<div class="sheet-col-1-8 sheet-padl sheet-padr sheet-small-label sheet-left"><input type="number" class="sheet-center" name="attr_damagemiscbonus" value="0" step="1"></div>
 								</div>
 						</div>
@@ -1357,20 +1306,20 @@
 							<div class="sheet-col-1-6 sheet-vert-bottom sheet-center sheet-small-label">Wirkung</div>
 							<div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Reichw.</div>
 							<div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Dauer</div>
-							<div class="sheet-col-1-6 sheet-vert-bottom sheet-center sheet-small-label">Zauber Info</div>
+							<div class="sheet-col-1-6 sheet-vert-bottom sheet-center sheet-small-label">Zauber wirken</div>
 						</div>
 						<div class="sheet-row">
 							<div class="sheet-col-1-6 sheet-vert-middle sheet-padr"><input type="text" class="sheet-center" name="attr_spelltarget"></div>
     						<div class="sheet-col-1-8 sheet-vert-middle sheet-padr"><input type="text" class="sheet-center" name="attr_spellrange"></div>
 							<div class="sheet-col-1-8 sheet-vert-middle sheet-padr"><input type="text" class="sheet-center" name="attr_spellduration"></div>
-							<div class="sheet-col-1-6 sheet-vert-middle sheet-center sheet-padr"><button type="roll" class="sheet-roll" name="roll_SpellCast" value="&{template:5eDefault} {{spell=1}} {{title=@{spellname}}} {{subheader=@{character_name}}} {{subheader2=Stufe @{spellfriendlylevel}}} @{spellcastmacrooptions}} {{spellduration=@{spellduration}}} {{spelltarget=@{spelltarget}}} {{spellrange=@{spellrange}}}">Zauber Info</button></div>
+							<div class="sheet-col-1-6 sheet-vert-middle sheet-center sheet-padr"><button type="roll" class="sheet-roll" name="roll_SpellCast" value="&{template:5eDefault} {{spell=1}} {{title=@{spellname}}} {{subheader=@{character_name}}} {{subheader2=Stufe @{spellfriendlylevel}}} @{spellcastmacrooptions}} {{spellduration=@{spellduration}}} {{spelltarget=@{spelltarget}}} {{spellrange=@{spellrange}}}">Zaubern</button></div>
 						</div>
 						<div class="sheet-row sheet-padb sheet-spell-macro-output-options">
-							<div class="sheet-col-1-8 sheet-vert-middle sheet-small-label sheet-padl">Makro-Anzeigeoption für Zauberinfo</div>
+							<div class="sheet-col-1-8 sheet-vert-middle sheet-small-label sheet-padl">Anzeigeoptionen für -Zaubern-</div>
 							<div class="sheet-col-1-12 sheet-center sheet-small-label">Information<br/><input type="checkbox" name="attr_spellshowinfoblock" value="{{spellshowinfoblock=1}}" /></div>
 							<div class="sheet-col-1-8 sheet-center sheet-small-label">Rettungswurf<br/><input type="checkbox" name="attr_spellshowsavethrow" value="{{spellshowsavethrow=1}} {{spellsavestat=@{savestat}}} {{spellsavesuccess=@{savesuccess}}}" /></div>
 							<div class="sheet-col-1-12 sheet-center sheet-small-label">Heilen<br/><input type="checkbox" name="attr_spellshowhealing" value="{{spellshowhealing=1}} {{spellhealing=[[@{spellhealamount} + @{healstatbonus}]]}}" /></div>
-							<div class="sheet-col-1-12 sheet-center sheet-small-label">Schaden<br/><input type="checkbox" name="attr_spellshowdamage" value="{{spellshowdamage=1}} {{spelldamage=[[@{damage} + @{damagestatbonus} + @{damagemiscbonus}]]}}" /></div>
+							<div class="sheet-col-1-12 sheet-center sheet-small-label">Schaden<br/><input type="checkbox" name="attr_spellshowdamage" value="{{spellshowdamage=1}} {{spelldamage=[[@{damage} + @{damagemiscbonus}]]}}" /></div>
 							<div class="sheet-col-1-12 sheet-center sheet-small-label">Effekt<br/><input type="checkbox" name="attr_spellshoweffects" value="{{spellshoweffects=1}} {{spelleffect=@{spelleffect}}" /></div>
 							<input type="hidden" name="attr_spellcastmacrooptions" value="@{spellshowinfoblock}  @{spellshowsavethrow} @{spellshowhealing} @{spellshowdamage} @{spellshoweffects}" />
 						</div>
@@ -1390,13 +1339,13 @@
 							<div class="sheet-row">
 								<div class="sheet-col-1-6 sheet-padr">
 										<select name="attr_savestat">
-										<option value="Death Ray">Todesmagie</option>
-										<option value="Poison">Gift</option>
-										<option value="Magic Wands">Zauberstäbe</option>
-										<option value="Paralysis">Lähmung</option>
-										<option value="Turn to Stone">Zu-Stein-Erstarren</option>
-										<option value="Dragon's Breath">Drachenodem</option>
-										<option value="Spell">Zaubersprüche, -stecken u. -ruten</option>
+										<option value="Todesmagie">Todesmagie</option>
+										<option value="Gift">Gift</option>
+										<option value="Zauberstäbe">Zauberstäbe</option>
+										<option value="Lähmung">Lähmung</option>
+										<option value="Zu-Stein-Erstarren">Zu-Stein-Erstarren</option>
+										<option value="Drachenodem">Drachenodem</option>
+										<option value="Zaubersprüche, -stecken u. -ruten">Zaubersprüche, -stecken u. -ruten</option>
 									</select>
 								</div>
 								<div class="sheet-col-1-2 sheet-padl"><input type="text" class="sheet-center" name="attr_savesuccess" title="Was passiert wenn der RW erfolgreich ist?"></div>
@@ -1404,36 +1353,23 @@
 						</div>
 						<div class="sheet-spell-type-heal">
 							<div class="sheet-row">
-								<div class="sheet-col-1-6 sheet-padl sheet-padr sheet-vert-bottom sheet-right sheet-small-label">Heilwert</div>
-								<div class="sheet-col-1-6 sheet-padl sheet-vert-bottom sheet-right sheet-small-label">Stat Bonus</div>
+								<div class="sheet-col-1-6 sheet-padl sheet-padr sheet-vert-bottom sheet-right sheet-small-label">Würfel</div>
+								<div class="sheet-col-1-6 sheet-padl sheet-vert-bottom sheet-right sheet-small-label">evtl. Bonus</div>
 								<div class="sheet-col-1-6 sheet-vert-bottom sheet-center sheet-small-label">&nbsp;</div>
 							</div>
 							<div class="sheet-row">
-								<div class="sheet-col-1-6 sheet-padr sheet-small-label sheet-center"><input type="text" class="sheet-center" name="attr_spellhealamount" value="0"></div>
-								<div class="sheet-col-1-6 sheet-center">
-									<select name="attr_healstatbonus">
-										<option value="0">Nein</option>
-										<option value="[[@{wisdom_mod}]]">WEI Mod.</option>
-									</select>
-								</div>
+								<div class="sheet-col-1-6 sheet-padr sheet-small-label sheet-center"><input type="text" class="sheet-center" name="attr_spellhealamount" value="1d6"></div>
+								<div class="sheet-col-1-6 sheet-center"><input type="text" class="sheet-center" name="attr_healstatbonus" value="1d6"></div>
 							</div>
 						</div>
 						<div class="sheet-spell-type-damage">
 							<div class="sheet-row">
 								<div class="sheet-col-1-4 sheet-vert-bottom sheet-right sheet-small-label">Schadenswürfel</div>
-								<div class="sheet-col-1-6 sheet-vert-bottom sheet-right sheet-small-label">Anderer Bonus</div>
-								<div class="sheet-col-1-8 sheet-vert-bottom sheet-right sheet-small-label">Versch. Schaden</div>
+								<div class="sheet-col-1-8 sheet-vert-bottom sheet-right sheet-small-label">Schadensbonus</div>
 								<div class="sheet-col-1-6 sheet-vert-bottom sheet-center sheet-small-label">&nbsp;</div>
 							</div>
 							<div class="sheet-row">
-								<div class="sheet-col-1-10 sheet-padr sheet-small-label sheet-left"><input type="text" class="sheet-center" name="attr_damage" value="0"></div>
-								<div class="sheet-col-1-8 sheet-padl sheet-padr">
-									<select name="attr_damagestatbonus">
-										<option value="0">Nein</option>
-										<option value="[[@{intelligence_mod}]]">INT Mod.</option>
-										<option value="[[@{wisdom_mod}]]">WEI Mod.</option>
-									</select>
-								</div>
+								<div class="sheet-col-1-10 sheet-padr sheet-small-label sheet-left"><input type="text" class="sheet-center" name="attr_damage" value="1d6"></div>
 								<div class="sheet-col-1-8 sheet-padl sheet-padr sheet-small-label sheet-left"><input type="number" class="sheet-center" name="attr_damagemiscbonus" value="0" step="1"></div>
 								</div>
 						</div>
@@ -1470,20 +1406,20 @@
 							<div class="sheet-col-1-6 sheet-vert-bottom sheet-center sheet-small-label">Wirkung</div>
 							<div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Reichw.</div>
 							<div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Dauer</div>
-							<div class="sheet-col-1-6 sheet-vert-bottom sheet-center sheet-small-label">Zauber Info</div>
+							<div class="sheet-col-1-6 sheet-vert-bottom sheet-center sheet-small-label">Zauber wirken</div>
 						</div>
 						<div class="sheet-row">
 							<div class="sheet-col-1-6 sheet-vert-middle sheet-padr"><input type="text" class="sheet-center" name="attr_spelltarget"></div>
     						<div class="sheet-col-1-8 sheet-vert-middle sheet-padr"><input type="text" class="sheet-center" name="attr_spellrange"></div>
 							<div class="sheet-col-1-8 sheet-vert-middle sheet-padr"><input type="text" class="sheet-center" name="attr_spellduration"></div>
-							<div class="sheet-col-1-6 sheet-vert-middle sheet-center sheet-padr"><button type="roll" class="sheet-roll" name="roll_SpellCast" value="&{template:5eDefault} {{spell=1}} {{title=@{spellname}}} {{subheader=@{character_name}}} {{subheader2=Stufe @{spellfriendlylevel}}} @{spellcastmacrooptions}} {{spellduration=@{spellduration}}} {{spelltarget=@{spelltarget}}} {{spellrange=@{spellrange}}}">Zauber Info</button></div>
+							<div class="sheet-col-1-6 sheet-vert-middle sheet-center sheet-padr"><button type="roll" class="sheet-roll" name="roll_SpellCast" value="&{template:5eDefault} {{spell=1}} {{title=@{spellname}}} {{subheader=@{character_name}}} {{subheader2=Stufe @{spellfriendlylevel}}} @{spellcastmacrooptions}} {{spellduration=@{spellduration}}} {{spelltarget=@{spelltarget}}} {{spellrange=@{spellrange}}}">Zaubern</button></div>
 						</div>
 						<div class="sheet-row sheet-padb sheet-spell-macro-output-options">
-							<div class="sheet-col-1-8 sheet-vert-middle sheet-small-label sheet-padl">Makro-Anzeigeoption für Zauberinfo</div>
+							<div class="sheet-col-1-8 sheet-vert-middle sheet-small-label sheet-padl">Anzeigeoptionen für -Zaubern-</div>
 							<div class="sheet-col-1-12 sheet-center sheet-small-label">Information<br/><input type="checkbox" name="attr_spellshowinfoblock" value="{{spellshowinfoblock=1}}" /></div>
 							<div class="sheet-col-1-8 sheet-center sheet-small-label">Rettungswurf<br/><input type="checkbox" name="attr_spellshowsavethrow" value="{{spellshowsavethrow=1}} {{spellsavestat=@{savestat}}} {{spellsavesuccess=@{savesuccess}}}" /></div>
 							<div class="sheet-col-1-12 sheet-center sheet-small-label">Heilen<br/><input type="checkbox" name="attr_spellshowhealing" value="{{spellshowhealing=1}} {{spellhealing=[[@{spellhealamount} + @{healstatbonus}]]}}" /></div>
-							<div class="sheet-col-1-12 sheet-center sheet-small-label">Schaden<br/><input type="checkbox" name="attr_spellshowdamage" value="{{spellshowdamage=1}} {{spelldamage=[[@{damage} + @{damagestatbonus} + @{damagemiscbonus}]]}}" /></div>
+							<div class="sheet-col-1-12 sheet-center sheet-small-label">Schaden<br/><input type="checkbox" name="attr_spellshowdamage" value="{{spellshowdamage=1}} {{spelldamage=[[@{damage} + @{damagemiscbonus}]]}}" /></div>
 							<div class="sheet-col-1-12 sheet-center sheet-small-label">Effekt<br/><input type="checkbox" name="attr_spellshoweffects" value="{{spellshoweffects=1}} {{spelleffect=@{spelleffect}}" /></div>
 							<input type="hidden" name="attr_spellcastmacrooptions" value="@{spellshowinfoblock}  @{spellshowsavethrow} @{spellshowhealing} @{spellshowdamage} @{spellshoweffects}" />
 						</div>
@@ -1503,13 +1439,13 @@
 							<div class="sheet-row">
 								<div class="sheet-col-1-6 sheet-padr">
 										<select name="attr_savestat">
-										<option value="Death Ray">Todesmagie</option>
-										<option value="Poison">Gift</option>
-										<option value="Magic Wands">Zauberstäbe</option>
-										<option value="Paralysis">Lähmung</option>
-										<option value="Turn to Stone">Zu-Stein-Erstarren</option>
-										<option value="Dragon's Breath">Drachenodem</option>
-										<option value="Spell">Zaubersprüche, -stecken u. -ruten</option>
+										<option value="Todesmagie">Todesmagie</option>
+										<option value="Gift">Gift</option>
+										<option value="Zauberstäbe">Zauberstäbe</option>
+										<option value="Lähmung">Lähmung</option>
+										<option value="Zu-Stein-Erstarren">Zu-Stein-Erstarren</option>
+										<option value="Drachenodem">Drachenodem</option>
+										<option value="Zaubersprüche, -stecken u. -ruten">Zaubersprüche, -stecken u. -ruten</option>
 									</select>
 								</div>
 								<div class="sheet-col-1-2 sheet-padl"><input type="text" class="sheet-center" name="attr_savesuccess" title="Was passiert wenn der RW erfolgreich ist?"></div>
@@ -1517,36 +1453,23 @@
 						</div>
 						<div class="sheet-spell-type-heal">
 							<div class="sheet-row">
-								<div class="sheet-col-1-6 sheet-padl sheet-padr sheet-vert-bottom sheet-right sheet-small-label">Heilwert</div>
-								<div class="sheet-col-1-6 sheet-padl sheet-vert-bottom sheet-right sheet-small-label">Stat Bonus</div>
+								<div class="sheet-col-1-6 sheet-padl sheet-padr sheet-vert-bottom sheet-right sheet-small-label">Würfel</div>
+								<div class="sheet-col-1-6 sheet-padl sheet-vert-bottom sheet-right sheet-small-label">evtl. Bonus</div>
 								<div class="sheet-col-1-6 sheet-vert-bottom sheet-center sheet-small-label">&nbsp;</div>
 							</div>
 							<div class="sheet-row">
-								<div class="sheet-col-1-6 sheet-padr sheet-small-label sheet-center"><input type="text" class="sheet-center" name="attr_spellhealamount" value="0"></div>
-								<div class="sheet-col-1-6 sheet-center">
-									<select name="attr_healstatbonus">
-										<option value="0">Nein</option>
-										<option value="[[@{wisdom_mod}]]">WEI Mod.</option>
-									</select>
-								</div>
+								<div class="sheet-col-1-6 sheet-padr sheet-small-label sheet-center"><input type="text" class="sheet-center" name="attr_spellhealamount" value="1d6"></div>
+								<div class="sheet-col-1-6 sheet-center"><input type="text" class="sheet-center" name="attr_healstatbonus" value="1d6"></div>
 							</div>
 						</div>
 						<div class="sheet-spell-type-damage">
 							<div class="sheet-row">
 								<div class="sheet-col-1-4 sheet-vert-bottom sheet-right sheet-small-label">Schadenswürfel</div>
-								<div class="sheet-col-1-6 sheet-vert-bottom sheet-right sheet-small-label">Anderer Bonus</div>
-								<div class="sheet-col-1-8 sheet-vert-bottom sheet-right sheet-small-label">Versch. Schaden</div>
+								<div class="sheet-col-1-8 sheet-vert-bottom sheet-right sheet-small-label">Schadensbonus</div>
 								<div class="sheet-col-1-6 sheet-vert-bottom sheet-center sheet-small-label">&nbsp;</div>
 							</div>
 							<div class="sheet-row">
-								<div class="sheet-col-1-10 sheet-padr sheet-small-label sheet-left"><input type="text" class="sheet-center" name="attr_damage" value="0"></div>
-								<div class="sheet-col-1-8 sheet-padl sheet-padr">
-									<select name="attr_damagestatbonus">
-										<option value="0">Nein</option>
-										<option value="[[@{intelligence_mod}]]">INT Mod.</option>
-										<option value="[[@{wisdom_mod}]]">WEI Mod.</option>
-									</select>
-								</div>
+								<div class="sheet-col-1-10 sheet-padr sheet-small-label sheet-left"><input type="text" class="sheet-center" name="attr_damage" value="1d6"></div>
 								<div class="sheet-col-1-8 sheet-padl sheet-padr sheet-small-label sheet-left"><input type="number" class="sheet-center" name="attr_damagemiscbonus" value="0" step="1"></div>
 								</div>
 						</div>
@@ -1583,20 +1506,20 @@
 							<div class="sheet-col-1-6 sheet-vert-bottom sheet-center sheet-small-label">Wirkung</div>
 							<div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Reichw.</div>
 							<div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Dauer</div>
-							<div class="sheet-col-1-6 sheet-vert-bottom sheet-center sheet-small-label">Zauber Info</div>
+							<div class="sheet-col-1-6 sheet-vert-bottom sheet-center sheet-small-label">Zauber wirken</div>
 						</div>
 						<div class="sheet-row">
 							<div class="sheet-col-1-6 sheet-vert-middle sheet-padr"><input type="text" class="sheet-center" name="attr_spelltarget"></div>
     						<div class="sheet-col-1-8 sheet-vert-middle sheet-padr"><input type="text" class="sheet-center" name="attr_spellrange"></div>
 							<div class="sheet-col-1-8 sheet-vert-middle sheet-padr"><input type="text" class="sheet-center" name="attr_spellduration"></div>
-							<div class="sheet-col-1-6 sheet-vert-middle sheet-center sheet-padr"><button type="roll" class="sheet-roll" name="roll_SpellCast" value="&{template:5eDefault} {{spell=1}} {{title=@{spellname}}} {{subheader=@{character_name}}} {{subheader2=Stufe @{spellfriendlylevel}}} @{spellcastmacrooptions}} {{spellduration=@{spellduration}}} {{spelltarget=@{spelltarget}}} {{spellrange=@{spellrange}}}">Zauber Info</button></div>
+							<div class="sheet-col-1-6 sheet-vert-middle sheet-center sheet-padr"><button type="roll" class="sheet-roll" name="roll_SpellCast" value="&{template:5eDefault} {{spell=1}} {{title=@{spellname}}} {{subheader=@{character_name}}} {{subheader2=Stufe @{spellfriendlylevel}}} @{spellcastmacrooptions}} {{spellduration=@{spellduration}}} {{spelltarget=@{spelltarget}}} {{spellrange=@{spellrange}}}">Zaubern</button></div>
 						</div>
 						<div class="sheet-row sheet-padb sheet-spell-macro-output-options">
-							<div class="sheet-col-1-8 sheet-vert-middle sheet-small-label sheet-padl">Makro-Anzeigeoption für Zauberinfo</div>
+							<div class="sheet-col-1-8 sheet-vert-middle sheet-small-label sheet-padl">Anzeigeoptionen für -Zaubern-</div>
 							<div class="sheet-col-1-12 sheet-center sheet-small-label">Information<br/><input type="checkbox" name="attr_spellshowinfoblock" value="{{spellshowinfoblock=1}}" /></div>
 							<div class="sheet-col-1-8 sheet-center sheet-small-label">Rettungswurf<br/><input type="checkbox" name="attr_spellshowsavethrow" value="{{spellshowsavethrow=1}} {{spellsavestat=@{savestat}}} {{spellsavesuccess=@{savesuccess}}}" /></div>
 							<div class="sheet-col-1-12 sheet-center sheet-small-label">Heilen<br/><input type="checkbox" name="attr_spellshowhealing" value="{{spellshowhealing=1}} {{spellhealing=[[@{spellhealamount} + @{healstatbonus}]]}}" /></div>
-							<div class="sheet-col-1-12 sheet-center sheet-small-label">Schaden<br/><input type="checkbox" name="attr_spellshowdamage" value="{{spellshowdamage=1}} {{spelldamage=[[@{damage} + @{damagestatbonus} + @{damagemiscbonus}]]}}" /></div>
+							<div class="sheet-col-1-12 sheet-center sheet-small-label">Schaden<br/><input type="checkbox" name="attr_spellshowdamage" value="{{spellshowdamage=1}} {{spelldamage=[[@{damage} + @{damagemiscbonus}]]}}" /></div>
 							<div class="sheet-col-1-12 sheet-center sheet-small-label">Effekt<br/><input type="checkbox" name="attr_spellshoweffects" value="{{spellshoweffects=1}} {{spelleffect=@{spelleffect}}" /></div>
 							<input type="hidden" name="attr_spellcastmacrooptions" value="@{spellshowinfoblock}  @{spellshowsavethrow} @{spellshowhealing} @{spellshowdamage} @{spellshoweffects}" />
 						</div>
@@ -1616,13 +1539,13 @@
 							<div class="sheet-row">
 								<div class="sheet-col-1-6 sheet-padr">
 										<select name="attr_savestat">
-										<option value="Death Ray">Todesmagie</option>
-										<option value="Poison">Gift</option>
-										<option value="Magic Wands">Zauberstäbe</option>
-										<option value="Paralysis">Lähmung</option>
-										<option value="Turn to Stone">Zu-Stein-Erstarren</option>
-										<option value="Dragon's Breath">Drachenodem</option>
-										<option value="Spell">Zaubersprüche, -stecken u. -ruten</option>
+										<option value="Todesmagie">Todesmagie</option>
+										<option value="Gift">Gift</option>
+										<option value="Zauberstäbe">Zauberstäbe</option>
+										<option value="Lähmung">Lähmung</option>
+										<option value="Zu-Stein-Erstarren">Zu-Stein-Erstarren</option>
+										<option value="Drachenodem">Drachenodem</option>
+										<option value="Zaubersprüche, -stecken u. -ruten">Zaubersprüche, -stecken u. -ruten</option>
 									</select>
 								</div>
 								<div class="sheet-col-1-2 sheet-padl"><input type="text" class="sheet-center" name="attr_savesuccess" title="Was passiert wenn der RW erfolgreich ist?"></div>
@@ -1630,36 +1553,23 @@
 						</div>
 						<div class="sheet-spell-type-heal">
 							<div class="sheet-row">
-								<div class="sheet-col-1-6 sheet-padl sheet-padr sheet-vert-bottom sheet-right sheet-small-label">Heilwert</div>
-								<div class="sheet-col-1-6 sheet-padl sheet-vert-bottom sheet-right sheet-small-label">Stat Bonus</div>
+								<div class="sheet-col-1-6 sheet-padl sheet-padr sheet-vert-bottom sheet-right sheet-small-label">Würfel</div>
+								<div class="sheet-col-1-6 sheet-padl sheet-vert-bottom sheet-right sheet-small-label">evtl. Bonus</div>
 								<div class="sheet-col-1-6 sheet-vert-bottom sheet-center sheet-small-label">&nbsp;</div>
 							</div>
 							<div class="sheet-row">
-								<div class="sheet-col-1-6 sheet-padr sheet-small-label sheet-center"><input type="text" class="sheet-center" name="attr_spellhealamount" value="0"></div>
-								<div class="sheet-col-1-6 sheet-center">
-									<select name="attr_healstatbonus">
-										<option value="0">Nein</option>
-										<option value="[[@{wisdom_mod}]]">WEI Mod.</option>
-									</select>
-								</div>
+								<div class="sheet-col-1-6 sheet-padr sheet-small-label sheet-center"><input type="text" class="sheet-center" name="attr_spellhealamount" value="1d6"></div>
+								<div class="sheet-col-1-6 sheet-center"><input type="text" class="sheet-center" name="attr_healstatbonus" value="1d6"></div>
 							</div>
 						</div>
 						<div class="sheet-spell-type-damage">
 							<div class="sheet-row">
 								<div class="sheet-col-1-4 sheet-vert-bottom sheet-right sheet-small-label">Schadenswürfel</div>
-								<div class="sheet-col-1-6 sheet-vert-bottom sheet-right sheet-small-label">Anderer Bonus</div>
-								<div class="sheet-col-1-8 sheet-vert-bottom sheet-right sheet-small-label">Versch. Schaden</div>
+								<div class="sheet-col-1-8 sheet-vert-bottom sheet-right sheet-small-label">Schadensbonus</div>
 								<div class="sheet-col-1-6 sheet-vert-bottom sheet-center sheet-small-label">&nbsp;</div>
 							</div>
 							<div class="sheet-row">
-								<div class="sheet-col-1-10 sheet-padr sheet-small-label sheet-left"><input type="text" class="sheet-center" name="attr_damage" value="0"></div>
-								<div class="sheet-col-1-8 sheet-padl sheet-padr">
-									<select name="attr_damagestatbonus">
-										<option value="0">Nein</option>
-										<option value="[[@{intelligence_mod}]]">INT Mod.</option>
-										<option value="[[@{wisdom_mod}]]">WEI Mod.</option>
-									</select>
-								</div>
+								<div class="sheet-col-1-10 sheet-padr sheet-small-label sheet-left"><input type="text" class="sheet-center" name="attr_damage" value="1d6"></div>
 								<div class="sheet-col-1-8 sheet-padl sheet-padr sheet-small-label sheet-left"><input type="number" class="sheet-center" name="attr_damagemiscbonus" value="0" step="1"></div>
 								</div>
 						</div>
@@ -1696,20 +1606,20 @@
 							<div class="sheet-col-1-6 sheet-vert-bottom sheet-center sheet-small-label">Wirkung</div>
 							<div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Reichw.</div>
 							<div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Dauer</div>
-							<div class="sheet-col-1-6 sheet-vert-bottom sheet-center sheet-small-label">Zauber Info</div>
+							<div class="sheet-col-1-6 sheet-vert-bottom sheet-center sheet-small-label">Zauber wirken</div>
 						</div>
 						<div class="sheet-row">
 							<div class="sheet-col-1-6 sheet-vert-middle sheet-padr"><input type="text" class="sheet-center" name="attr_spelltarget"></div>
     						<div class="sheet-col-1-8 sheet-vert-middle sheet-padr"><input type="text" class="sheet-center" name="attr_spellrange"></div>
 							<div class="sheet-col-1-8 sheet-vert-middle sheet-padr"><input type="text" class="sheet-center" name="attr_spellduration"></div>
-							<div class="sheet-col-1-6 sheet-vert-middle sheet-center sheet-padr"><button type="roll" class="sheet-roll" name="roll_SpellCast" value="&{template:5eDefault} {{spell=1}} {{title=@{spellname}}} {{subheader=@{character_name}}} {{subheader2=Stufe @{spellfriendlylevel}}} @{spellcastmacrooptions}} {{spellduration=@{spellduration}}} {{spelltarget=@{spelltarget}}} {{spellrange=@{spellrange}}}">Zauber Info</button></div>
+							<div class="sheet-col-1-6 sheet-vert-middle sheet-center sheet-padr"><button type="roll" class="sheet-roll" name="roll_SpellCast" value="&{template:5eDefault} {{spell=1}} {{title=@{spellname}}} {{subheader=@{character_name}}} {{subheader2=Stufe @{spellfriendlylevel}}} @{spellcastmacrooptions}} {{spellduration=@{spellduration}}} {{spelltarget=@{spelltarget}}} {{spellrange=@{spellrange}}}">Zaubern</button></div>
 						</div>
 						<div class="sheet-row sheet-padb sheet-spell-macro-output-options">
-							<div class="sheet-col-1-8 sheet-vert-middle sheet-small-label sheet-padl">Makro-Anzeigeoption für Zauberinfo</div>
+							<div class="sheet-col-1-8 sheet-vert-middle sheet-small-label sheet-padl">Anzeigeoptionen für -Zaubern-</div>
 							<div class="sheet-col-1-12 sheet-center sheet-small-label">Information<br/><input type="checkbox" name="attr_spellshowinfoblock" value="{{spellshowinfoblock=1}}" /></div>
 							<div class="sheet-col-1-8 sheet-center sheet-small-label">Rettungswurf<br/><input type="checkbox" name="attr_spellshowsavethrow" value="{{spellshowsavethrow=1}} {{spellsavestat=@{savestat}}} {{spellsavesuccess=@{savesuccess}}}" /></div>
 							<div class="sheet-col-1-12 sheet-center sheet-small-label">Heilen<br/><input type="checkbox" name="attr_spellshowhealing" value="{{spellshowhealing=1}} {{spellhealing=[[@{spellhealamount} + @{healstatbonus}]]}}" /></div>
-							<div class="sheet-col-1-12 sheet-center sheet-small-label">Schaden<br/><input type="checkbox" name="attr_spellshowdamage" value="{{spellshowdamage=1}} {{spelldamage=[[@{damage} + @{damagestatbonus} + @{damagemiscbonus}]]}}" /></div>
+							<div class="sheet-col-1-12 sheet-center sheet-small-label">Schaden<br/><input type="checkbox" name="attr_spellshowdamage" value="{{spellshowdamage=1}} {{spelldamage=[[@{damage} + @{damagemiscbonus}]]}}" /></div>
 							<div class="sheet-col-1-12 sheet-center sheet-small-label">Effekt<br/><input type="checkbox" name="attr_spellshoweffects" value="{{spellshoweffects=1}} {{spelleffect=@{spelleffect}}" /></div>
 							<input type="hidden" name="attr_spellcastmacrooptions" value="@{spellshowinfoblock}  @{spellshowsavethrow} @{spellshowhealing} @{spellshowdamage} @{spellshoweffects}" />
 						</div>
@@ -1729,50 +1639,37 @@
 							<div class="sheet-row">
 								<div class="sheet-col-1-6 sheet-padr">
 										<select name="attr_savestat">
-										<option value="Death Ray">Todesmagie</option>
-										<option value="Poison">Gift</option>
-										<option value="Magic Wands">Zauberstäbe</option>
-										<option value="Paralysis">Lähmung</option>
-										<option value="Turn to Stone">Zu-Stein-Erstarren</option>
-										<option value="Dragon's Breath">Drachenodem</option>
-										<option value="Spell">Zaubersprüche, -stecken u. -ruten</option>
+										<option value="Todesmagie">Todesmagie</option>
+										<option value="Gift">Gift</option>
+										<option value="Zauberstäbe">Zauberstäbe</option>
+										<option value="Lähmung">Lähmung</option>
+										<option value="Zu-Stein-Erstarren">Zu-Stein-Erstarren</option>
+										<option value="Drachenodem">Drachenodem</option>
+										<option value="Zaubersprüche, -stecken u. -ruten">Zaubersprüche, -stecken u. -ruten</option>
 									</select>
 								</div>
-								<div class="sheet-col-1-2 sheet-padl"><input type="text" class="sheet-center" name="attr_savesuccess" title="Was passiert, wenn der Rettungswurf erfolgreich ist."></div>
+								<div class="sheet-col-1-2 sheet-padl"><input type="text" class="sheet-center" name="attr_savesuccess" title="Was passiert wenn der RW erfolgreich ist?"></div>
 							</div>
 						</div>
 						<div class="sheet-spell-type-heal">
 							<div class="sheet-row">
-								<div class="sheet-col-1-6 sheet-padl sheet-padr sheet-vert-bottom sheet-right sheet-small-label">Heilwert</div>
-								<div class="sheet-col-1-6 sheet-padl sheet-vert-bottom sheet-right sheet-small-label">Stat Bonus</div>
+								<div class="sheet-col-1-6 sheet-padl sheet-padr sheet-vert-bottom sheet-right sheet-small-label">Würfel</div>
+								<div class="sheet-col-1-6 sheet-padl sheet-vert-bottom sheet-right sheet-small-label">evtl. Bonus</div>
 								<div class="sheet-col-1-6 sheet-vert-bottom sheet-center sheet-small-label">&nbsp;</div>
 							</div>
 							<div class="sheet-row">
-								<div class="sheet-col-1-6 sheet-padr sheet-small-label sheet-center"><input type="text" class="sheet-center" name="attr_spellhealamount" value="0"></div>
-								<div class="sheet-col-1-6 sheet-center">
-									<select name="attr_healstatbonus">
-										<option value="0">Nein</option>
-										<option value="[[@{wisdom_mod}]]">WEI Mod.</option>
-									</select>
-								</div>
+								<div class="sheet-col-1-6 sheet-padr sheet-small-label sheet-center"><input type="text" class="sheet-center" name="attr_spellhealamount" value="1d6"></div>
+								<div class="sheet-col-1-6 sheet-center"><input type="text" class="sheet-center" name="attr_healstatbonus" value="1d6"></div>
 							</div>
 						</div>
 						<div class="sheet-spell-type-damage">
 							<div class="sheet-row">
 								<div class="sheet-col-1-4 sheet-vert-bottom sheet-right sheet-small-label">Schadenswürfel</div>
-								<div class="sheet-col-1-6 sheet-vert-bottom sheet-right sheet-small-label">Anderer Bonus</div>
-								<div class="sheet-col-1-8 sheet-vert-bottom sheet-right sheet-small-label">Versch. Schaden</div>
+								<div class="sheet-col-1-8 sheet-vert-bottom sheet-right sheet-small-label">Schadensbonus</div>
 								<div class="sheet-col-1-6 sheet-vert-bottom sheet-center sheet-small-label">&nbsp;</div>
 							</div>
 							<div class="sheet-row">
-								<div class="sheet-col-1-10 sheet-padr sheet-small-label sheet-left"><input type="text" class="sheet-center" name="attr_damage" value="0"></div>
-								<div class="sheet-col-1-8 sheet-padl sheet-padr">
-									<select name="attr_damagestatbonus">
-										<option value="0">Nein</option>
-										<option value="[[@{intelligence_mod}]]">INT Mod.</option>
-										<option value="[[@{wisdom_mod}]]">WEI Mod.</option>
-									</select>
-								</div>
+								<div class="sheet-col-1-10 sheet-padr sheet-small-label sheet-left"><input type="text" class="sheet-center" name="attr_damage" value="1d6"></div>
 								<div class="sheet-col-1-8 sheet-padl sheet-padr sheet-small-label sheet-left"><input type="number" class="sheet-center" name="attr_damagemiscbonus" value="0" step="1"></div>
 								</div>
 						</div>
@@ -1794,7 +1691,7 @@
 					<div class="sheet-row sheet-spell-header">
 						<div class="sheet-col-1 sheet-vert-bottom sheet-center sheet-small-label">8. Stufe</div>
 					</div>
-					<fieldset class="repeating_spellbookcantrip">
+					<fieldset class="repeating_spellbooklvl8">
 					<!-- BEGIN spell row -->
 					    <div class="sheet-margin-bottom sheet-padr sheet-padl">
     					<div class="sheet-row">
@@ -1802,27 +1699,27 @@
 							<div class="sheet-col-1-3 sheet-vert-bottom sheet-center sheet-small-label">Zaubername</div>
 						</div>
 						<div class="sheet-row">
-							<div class="sheet-col-1-12 sheet-vert-middle sheet-center sheet-padr">8. Stufe<input type="hidden" name="attr_spellfriendlylevel" value="0"></div>
+							<div class="sheet-col-1-12 sheet-vert-middle sheet-center sheet-padr">8. Stufe<input type="hidden" name="attr_spellfriendlylevel" value="8"></div>
 							<div class="sheet-col-1-3 sheet-vert-middle sheet-padr"><input type="text" class=" sheet-center" name="attr_spellname"></div>
 						</div>
 						<div class="sheet-row">
 							<div class="sheet-col-1-6 sheet-vert-bottom sheet-center sheet-small-label">Wirkung</div>
 							<div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Reichw.</div>
 							<div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Dauer</div>
-							<div class="sheet-col-1-6 sheet-vert-bottom sheet-center sheet-small-label">Zauber Info</div>
+							<div class="sheet-col-1-6 sheet-vert-bottom sheet-center sheet-small-label">Zauber wirken</div>
 						</div>
 						<div class="sheet-row">
 							<div class="sheet-col-1-6 sheet-vert-middle sheet-padr"><input type="text" class="sheet-center" name="attr_spelltarget"></div>
     						<div class="sheet-col-1-8 sheet-vert-middle sheet-padr"><input type="text" class="sheet-center" name="attr_spellrange"></div>
 							<div class="sheet-col-1-8 sheet-vert-middle sheet-padr"><input type="text" class="sheet-center" name="attr_spellduration"></div>
-							<div class="sheet-col-1-6 sheet-vert-middle sheet-center sheet-padr"><button type="roll" class="sheet-roll" name="roll_SpellCast" value="&{template:5eDefault} {{spell=1}} {{title=@{spellname}}} {{subheader=@{character_name}}} {{subheader2=Stufe @{spellfriendlylevel}}} @{spellcastmacrooptions}} {{spellduration=@{spellduration}}} {{spelltarget=@{spelltarget}}} {{spellrange=@{spellrange}}}">Zauber Info</button></div>
+							<div class="sheet-col-1-6 sheet-vert-middle sheet-center sheet-padr"><button type="roll" class="sheet-roll" name="roll_SpellCast" value="&{template:5eDefault} {{spell=1}} {{title=@{spellname}}} {{subheader=@{character_name}}} {{subheader2=Stufe @{spellfriendlylevel}}} @{spellcastmacrooptions}} {{spellduration=@{spellduration}}} {{spelltarget=@{spelltarget}}} {{spellrange=@{spellrange}}}">Zaubern</button></div>
 						</div>
 						<div class="sheet-row sheet-padb sheet-spell-macro-output-options">
-							<div class="sheet-col-1-8 sheet-vert-middle sheet-small-label sheet-padl">Makro-Anzeigeoption für Zauberinfo</div>
+							<div class="sheet-col-1-8 sheet-vert-middle sheet-small-label sheet-padl">Anzeigeoptionen für -Zaubern-</div>
 							<div class="sheet-col-1-12 sheet-center sheet-small-label">Information<br/><input type="checkbox" name="attr_spellshowinfoblock" value="{{spellshowinfoblock=1}}" /></div>
 							<div class="sheet-col-1-8 sheet-center sheet-small-label">Rettungswurf<br/><input type="checkbox" name="attr_spellshowsavethrow" value="{{spellshowsavethrow=1}} {{spellsavestat=@{savestat}}} {{spellsavesuccess=@{savesuccess}}}" /></div>
 							<div class="sheet-col-1-12 sheet-center sheet-small-label">Heilen<br/><input type="checkbox" name="attr_spellshowhealing" value="{{spellshowhealing=1}} {{spellhealing=[[@{spellhealamount} + @{healstatbonus}]]}}" /></div>
-							<div class="sheet-col-1-12 sheet-center sheet-small-label">Schaden<br/><input type="checkbox" name="attr_spellshowdamage" value="{{spellshowdamage=1}} {{spelldamage=[[@{damage} + @{damagestatbonus} + @{damagemiscbonus}]]}}" /></div>
+							<div class="sheet-col-1-12 sheet-center sheet-small-label">Schaden<br/><input type="checkbox" name="attr_spellshowdamage" value="{{spellshowdamage=1}} {{spelldamage=[[@{damage} + @{damagemiscbonus}]]}}" /></div>
 							<div class="sheet-col-1-12 sheet-center sheet-small-label">Effekt<br/><input type="checkbox" name="attr_spellshoweffects" value="{{spellshoweffects=1}} {{spelleffect=@{spelleffect}}" /></div>
 							<input type="hidden" name="attr_spellcastmacrooptions" value="@{spellshowinfoblock}  @{spellshowsavethrow} @{spellshowhealing} @{spellshowdamage} @{spellshoweffects}" />
 						</div>
@@ -1842,13 +1739,13 @@
 							<div class="sheet-row">
 								<div class="sheet-col-1-6 sheet-padr">
 										<select name="attr_savestat">
-										<option value="Death Ray">Todesmagie</option>
-										<option value="Poison">Gift</option>
-										<option value="Magic Wands">Zauberstäbe</option>
-										<option value="Paralysis">Lähmung</option>
-										<option value="Turn to Stone">Zu-Stein-Erstarren</option>
-										<option value="Dragon's Breath">Drachenodem</option>
-										<option value="Spell">Zaubersprüche, -stecken u. -ruten</option>
+										<option value="Todesmagie">Todesmagie</option>
+										<option value="Gift">Gift</option>
+										<option value="Zauberstäbe">Zauberstäbe</option>
+										<option value="Lähmung">Lähmung</option>
+										<option value="Zu-Stein-Erstarren">Zu-Stein-Erstarren</option>
+										<option value="Drachenodem">Drachenodem</option>
+										<option value="Zaubersprüche, -stecken u. -ruten">Zaubersprüche, -stecken u. -ruten</option>
 									</select>
 								</div>
 								<div class="sheet-col-1-2 sheet-padl"><input type="text" class="sheet-center" name="attr_savesuccess" title="Was passiert wenn der RW erfolgreich ist?"></div>
@@ -1856,36 +1753,23 @@
 						</div>
 						<div class="sheet-spell-type-heal">
 							<div class="sheet-row">
-								<div class="sheet-col-1-6 sheet-padl sheet-padr sheet-vert-bottom sheet-right sheet-small-label">Heilwert</div>
-								<div class="sheet-col-1-6 sheet-padl sheet-vert-bottom sheet-right sheet-small-label">Stat Bonus</div>
+								<div class="sheet-col-1-6 sheet-padl sheet-padr sheet-vert-bottom sheet-right sheet-small-label">Würfel</div>
+								<div class="sheet-col-1-6 sheet-padl sheet-vert-bottom sheet-right sheet-small-label">evtl. Bonus</div>
 								<div class="sheet-col-1-6 sheet-vert-bottom sheet-center sheet-small-label">&nbsp;</div>
 							</div>
 							<div class="sheet-row">
-								<div class="sheet-col-1-6 sheet-padr sheet-small-label sheet-center"><input type="text" class="sheet-center" name="attr_spellhealamount" value="0"></div>
-								<div class="sheet-col-1-6 sheet-center">
-									<select name="attr_healstatbonus">
-										<option value="0">Nein</option>
-										<option value="[[@{wisdom_mod}]]">WEI Mod.</option>
-									</select>
-								</div>
+								<div class="sheet-col-1-6 sheet-padr sheet-small-label sheet-center"><input type="text" class="sheet-center" name="attr_spellhealamount" value="1d6"></div>
+								<div class="sheet-col-1-6 sheet-center"><input type="text" class="sheet-center" name="attr_healstatbonus" value="1d6"></div>
 							</div>
 						</div>
 						<div class="sheet-spell-type-damage">
 							<div class="sheet-row">
 								<div class="sheet-col-1-4 sheet-vert-bottom sheet-right sheet-small-label">Schadenswürfel</div>
-								<div class="sheet-col-1-6 sheet-vert-bottom sheet-right sheet-small-label">Anderer Bonus</div>
-								<div class="sheet-col-1-8 sheet-vert-bottom sheet-right sheet-small-label">Versch. Schaden</div>
+								<div class="sheet-col-1-8 sheet-vert-bottom sheet-right sheet-small-label">Schadensbonus</div>
 								<div class="sheet-col-1-6 sheet-vert-bottom sheet-center sheet-small-label">&nbsp;</div>
 							</div>
 							<div class="sheet-row">
-								<div class="sheet-col-1-10 sheet-padr sheet-small-label sheet-left"><input type="text" class="sheet-center" name="attr_damage" value="0"></div>
-								<div class="sheet-col-1-8 sheet-padl sheet-padr">
-									<select name="attr_damagestatbonus">
-										<option value="0">Nein</option>
-										<option value="[[@{intelligence_mod}]]">INT Mod.</option>
-										<option value="[[@{wisdom_mod}]]">WEI Mod.</option>
-									</select>
-								</div>
+								<div class="sheet-col-1-10 sheet-padr sheet-small-label sheet-left"><input type="text" class="sheet-center" name="attr_damage" value="1d6"></div>
 								<div class="sheet-col-1-8 sheet-padl sheet-padr sheet-small-label sheet-left"><input type="number" class="sheet-center" name="attr_damagemiscbonus" value="0" step="1"></div>
 								</div>
 						</div>
@@ -1907,7 +1791,7 @@
 					<div class="sheet-row sheet-spell-header">
 						<div class="sheet-col-1 sheet-vert-bottom sheet-center sheet-small-label">9. Stufe</div>
 					</div>
-					<fieldset class="repeating_spellbookcantrip">
+					<fieldset class="repeating_spellbooklvl9">
 					<!-- BEGIN spell row -->
 					    <div class="sheet-margin-bottom sheet-padr sheet-padl">
     					<div class="sheet-row">
@@ -1915,27 +1799,27 @@
 							<div class="sheet-col-1-3 sheet-vert-bottom sheet-center sheet-small-label">Zaubername</div>
 						</div>
 						<div class="sheet-row">
-							<div class="sheet-col-1-12 sheet-vert-middle sheet-center sheet-padr">9. Stufe<input type="hidden" name="attr_spellfriendlylevel" value="0"></div>
+							<div class="sheet-col-1-12 sheet-vert-middle sheet-center sheet-padr">9. Stufe<input type="hidden" name="attr_spellfriendlylevel" value="9"></div>
 							<div class="sheet-col-1-3 sheet-vert-middle sheet-padr"><input type="text" class=" sheet-center" name="attr_spellname"></div>
 						</div>
 						<div class="sheet-row">
 							<div class="sheet-col-1-6 sheet-vert-bottom sheet-center sheet-small-label">Wirkung</div>
 							<div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Reichw.</div>
 							<div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Dauer</div>
-							<div class="sheet-col-1-6 sheet-vert-bottom sheet-center sheet-small-label">Zauber Info</div>
+							<div class="sheet-col-1-6 sheet-vert-bottom sheet-center sheet-small-label">Zauber wirken</div>
 						</div>
 						<div class="sheet-row">
 							<div class="sheet-col-1-6 sheet-vert-middle sheet-padr"><input type="text" class="sheet-center" name="attr_spelltarget"></div>
     						<div class="sheet-col-1-8 sheet-vert-middle sheet-padr"><input type="text" class="sheet-center" name="attr_spellrange"></div>
 							<div class="sheet-col-1-8 sheet-vert-middle sheet-padr"><input type="text" class="sheet-center" name="attr_spellduration"></div>
-							<div class="sheet-col-1-6 sheet-vert-middle sheet-center sheet-padr"><button type="roll" class="sheet-roll" name="roll_SpellCast" value="&{template:5eDefault} {{spell=1}} {{title=@{spellname}}} {{subheader=@{character_name}}} {{subheader2=Stufe @{spellfriendlylevel}}} @{spellcastmacrooptions}} {{spellduration=@{spellduration}}} {{spelltarget=@{spelltarget}}} {{spellrange=@{spellrange}}}">Zauber Info</button></div>
+							<div class="sheet-col-1-6 sheet-vert-middle sheet-center sheet-padr"><button type="roll" class="sheet-roll" name="roll_SpellCast" value="&{template:5eDefault} {{spell=1}} {{title=@{spellname}}} {{subheader=@{character_name}}} {{subheader2=Stufe @{spellfriendlylevel}}} @{spellcastmacrooptions}} {{spellduration=@{spellduration}}} {{spelltarget=@{spelltarget}}} {{spellrange=@{spellrange}}}">Zaubern</button></div>
 						</div>
 						<div class="sheet-row sheet-padb sheet-spell-macro-output-options">
-							<div class="sheet-col-1-8 sheet-vert-middle sheet-small-label sheet-padl">Makro-Anzeigeoption für Zauberinfo</div>
+							<div class="sheet-col-1-8 sheet-vert-middle sheet-small-label sheet-padl">Anzeigeoptionen für -Zaubern-</div>
 							<div class="sheet-col-1-12 sheet-center sheet-small-label">Information<br/><input type="checkbox" name="attr_spellshowinfoblock" value="{{spellshowinfoblock=1}}" /></div>
 							<div class="sheet-col-1-8 sheet-center sheet-small-label">Rettungswurf<br/><input type="checkbox" name="attr_spellshowsavethrow" value="{{spellshowsavethrow=1}} {{spellsavestat=@{savestat}}} {{spellsavesuccess=@{savesuccess}}}" /></div>
 							<div class="sheet-col-1-12 sheet-center sheet-small-label">Heilen<br/><input type="checkbox" name="attr_spellshowhealing" value="{{spellshowhealing=1}} {{spellhealing=[[@{spellhealamount} + @{healstatbonus}]]}}" /></div>
-							<div class="sheet-col-1-12 sheet-center sheet-small-label">Schaden<br/><input type="checkbox" name="attr_spellshowdamage" value="{{spellshowdamage=1}} {{spelldamage=[[@{damage} + @{damagestatbonus} + @{damagemiscbonus}]]}}" /></div>
+							<div class="sheet-col-1-12 sheet-center sheet-small-label">Schaden<br/><input type="checkbox" name="attr_spellshowdamage" value="{{spellshowdamage=1}} {{spelldamage=[[@{damage} + @{damagemiscbonus}]]}}" /></div>
 							<div class="sheet-col-1-12 sheet-center sheet-small-label">Effekt<br/><input type="checkbox" name="attr_spellshoweffects" value="{{spellshoweffects=1}} {{spelleffect=@{spelleffect}}" /></div>
 							<input type="hidden" name="attr_spellcastmacrooptions" value="@{spellshowinfoblock}  @{spellshowsavethrow} @{spellshowhealing} @{spellshowdamage} @{spellshoweffects}" />
 						</div>
@@ -1955,13 +1839,13 @@
 							<div class="sheet-row">
 								<div class="sheet-col-1-6 sheet-padr">
 										<select name="attr_savestat">
-										<option value="Death Ray">Todesmagie</option>
-										<option value="Poison">Gift</option>
-										<option value="Magic Wands">Zauberstäbe</option>
-										<option value="Paralysis">Lähmung</option>
-										<option value="Turn to Stone">Zu-Stein-Erstarren</option>
-										<option value="Dragon's Breath">Drachenodem</option>
-										<option value="Spell">Zaubersprüche, -stecken u. -ruten</option>
+										<option value="Todesmagie">Todesmagie</option>
+										<option value="Gift">Gift</option>
+										<option value="Zauberstäbe">Zauberstäbe</option>
+										<option value="Lähmung">Lähmung</option>
+										<option value="Zu-Stein-Erstarren">Zu-Stein-Erstarren</option>
+										<option value="Drachenodem">Drachenodem</option>
+										<option value="Zaubersprüche, -stecken u. -ruten">Zaubersprüche, -stecken u. -ruten</option>
 									</select>
 								</div>
 								<div class="sheet-col-1-2 sheet-padl"><input type="text" class="sheet-center" name="attr_savesuccess" title="Was passiert wenn der RW erfolgreich ist?"></div>
@@ -1969,36 +1853,23 @@
 						</div>
 						<div class="sheet-spell-type-heal">
 							<div class="sheet-row">
-								<div class="sheet-col-1-6 sheet-padl sheet-padr sheet-vert-bottom sheet-right sheet-small-label">Heilwert</div>
-								<div class="sheet-col-1-6 sheet-padl sheet-vert-bottom sheet-right sheet-small-label">Stat Bonus</div>
+								<div class="sheet-col-1-6 sheet-padl sheet-padr sheet-vert-bottom sheet-right sheet-small-label">Würfel</div>
+								<div class="sheet-col-1-6 sheet-padl sheet-vert-bottom sheet-right sheet-small-label">evtl. Bonus</div>
 								<div class="sheet-col-1-6 sheet-vert-bottom sheet-center sheet-small-label">&nbsp;</div>
 							</div>
 							<div class="sheet-row">
-								<div class="sheet-col-1-6 sheet-padr sheet-small-label sheet-center"><input type="text" class="sheet-center" name="attr_spellhealamount" value="0"></div>
-								<div class="sheet-col-1-6 sheet-center">
-									<select name="attr_healstatbonus">
-										<option value="0">Nein</option>
-										<option value="[[@{wisdom_mod}]]">WEI Mod.</option>
-									</select>
-								</div>
+								<div class="sheet-col-1-6 sheet-padr sheet-small-label sheet-center"><input type="text" class="sheet-center" name="attr_spellhealamount" value="1d6"></div>
+								<div class="sheet-col-1-6 sheet-center"><input type="text" class="sheet-center" name="attr_healstatbonus" value="1d6"></div>
 							</div>
 						</div>
 						<div class="sheet-spell-type-damage">
 							<div class="sheet-row">
 								<div class="sheet-col-1-4 sheet-vert-bottom sheet-right sheet-small-label">Schadenswürfel</div>
-								<div class="sheet-col-1-6 sheet-vert-bottom sheet-right sheet-small-label">Anderer Bonus</div>
-								<div class="sheet-col-1-8 sheet-vert-bottom sheet-right sheet-small-label">Versch. Schaden</div>
+								<div class="sheet-col-1-8 sheet-vert-bottom sheet-right sheet-small-label">Schadensbonus</div>
 								<div class="sheet-col-1-6 sheet-vert-bottom sheet-center sheet-small-label">&nbsp;</div>
 							</div>
 							<div class="sheet-row">
-								<div class="sheet-col-1-10 sheet-padr sheet-small-label sheet-left"><input type="text" class="sheet-center" name="attr_damage" value="0"></div>
-								<div class="sheet-col-1-8 sheet-padl sheet-padr">
-									<select name="attr_damagestatbonus">
-										<option value="0">Nein</option>
-										<option value="[[@{intelligence_mod}]]">INT Mod.</option>
-										<option value="[[@{wisdom_mod}]]">WEI Mod.</option>
-									</select>
-								</div>
+								<div class="sheet-col-1-10 sheet-padr sheet-small-label sheet-left"><input type="text" class="sheet-center" name="attr_damage" value="1d6"></div>
 								<div class="sheet-col-1-8 sheet-padl sheet-padr sheet-small-label sheet-left"><input type="number" class="sheet-center" name="attr_damagemiscbonus" value="0" step="1"></div>
 								</div>
 						</div>
@@ -2057,8 +1928,8 @@
 				</div>
 				<div class="sheet-row sheet-center">
 					<div class="sheet-col-1-4 sheet-left" title="Current Load"><input type="number" name="attr_total_weight" value="@{inventory_weight} + @{coin_weight} + @{other_weight}" disabled="disabled"></div>
-					<div class="sheet-col-1-4 sheet-right"  title="Light Load"><input type="number" name="attr_lightload" value="0" min="0" step="1"></div>
-					<div class="sheet-col-1-4 sheet-right" title="Heavy Load"><input type="number" name="attr_heavyload" value="0" min="0" step="1"></div>
+					<div class="sheet-col-1-4 sheet-right"  title="Light Load"><input type="text" name="attr_lightload" value="0" ></div>
+					<div class="sheet-col-1-4 sheet-right" title="Heavy Load"><input type="text" name="attr_heavyload" value="0" ></div>
 					</div>
 			</div>
 			<!-- Inventory tab -->
@@ -2068,18 +1939,18 @@
 			</div>
 		</div>
 		<h4 class="sheet-center">Inventar </h4>
-			<input type="radio" name="attr_inventorytab" class="sheet-inventorytab sheet-inventorytab1" value="1" title="Page 1" checked="checked" />
+			<input type="radio" name="attr_inventorytab" class="sheet-inventorytab sheet-inventorytab1" value="1" title="Seite 1" checked="checked" />
 			<span class="sheet-inventorytab sheet-inventorytab1">Am Mann</span>
-			<input type="radio" name="attr_inventorytab" class="sheet-inventorytab sheet-inventorytab3" value="3" title="Page 3" />
+			<input type="radio" name="attr_inventorytab" class="sheet-inventorytab sheet-inventorytab3" value="3" title="Seite 3" />
 			<span class="sheet-inventorytab sheet-inventorytab3">Pferd/Karren</span>
-			<input type="radio" name="attr_inventorytab" class="sheet-inventorytab sheet-inventorytab4" value="4" title="Page 4" />
+			<input type="radio" name="attr_inventorytab" class="sheet-inventorytab sheet-inventorytab4" value="4" title="Seite 4" />
 			<span class="sheet-inventorytab sheet-inventorytab4">Woanders</span>
-			<input type="radio" name="attr_inventorytab" class="sheet-inventorytab sheet-inventorytab99" value="99" title="Show All" />
+			<input type="radio" name="attr_inventorytab" class="sheet-inventorytab sheet-inventorytab99" value="99" title="Alles anzeigen" />
 			<span class="sheet-inventorytab sheet-inventorytab99">Zeige Alles</span>
 			<span class="sheet-spacer"></span>
 			<!-- Inventory Page 1-->
 			<div class="sheet-inventory-page1">
-				<input type="text" class="sheet-center sheet-sub-header" name="attr_tabinvtitle1" value="What is being worn or carried on person " disabled="disabled">
+				<input type="text" class="sheet-center sheet-sub-header" name="attr_tabinvtitle1" value="Was trägst du bei dir" disabled="disabled">
 				<div class="sheet-row sheet-sub-header">
 					<div class="sheet-col-1-4 sheet-center sheet-small-label sheet-padl">Name</div>
 					<div class="sheet-col-1-12 sheet-center sheet-small-label">Menge</div>
@@ -2097,7 +1968,7 @@
 			</div>
 			<!-- Inventory Page 3-->
 			<div class="sheet-inventory-page3">
-				<input type="text" class="sheet-center sheet-sub-header" name="attr_tabinvtitle3" value="What is carried by your horse or wagon" disabled="disabled">
+				<input type="text" class="sheet-center sheet-sub-header" name="attr_tabinvtitle3" value="Was wird beim Pferd oder auf dem Karren transportiert" disabled="disabled">
 				<div class="sheet-row sheet-sub-header">
 					<div class="sheet-col-1-4 sheet-center sheet-small-label sheet-padl">Name</div>
 					<div class="sheet-col-1-12 sheet-center sheet-small-label">Menge</div>
@@ -2115,7 +1986,7 @@
 			</div>
 			<!-- Inventory Page 4-->
 			<div class="sheet-inventory-page4">
-				<input type="text" class="sheet-center sheet-sub-header" name="attr_tabinvtitle4" value="What is stored elsewhere such as in a vault or stronghold" disabled="disabled">
+				<input type="text" class="sheet-center sheet-sub-header" name="attr_tabinvtitle4" value="Was an anderer Stelle aufbewahrt wird, z.B. in einem Gewölbe oder einer Festung" disabled="disabled">
 				<div class="sheet-row sheet-sub-header">
 					<div class="sheet-col-1-4 sheet-center sheet-small-label sheet-padl">Name</div>
 					<div class="sheet-col-1-12 sheet-center sheet-small-label">Menge</div>
@@ -2137,12 +2008,10 @@
 <!--Footer -->
 	<div class="sheet-row sheet-footer">
 		<div class="sheet-col-1 sheet-small-label sheet-center">
-			<img src="http://i.imgur.com/QQpi55r.png" width=300 >
+			<img src="https://i.imgur.com/QQpi55r.png" width=300 >
 		</div>
 	</div>
 </div>
-
-
 <!--inventory sheetworkers-->
 <script type="text/worker">
 /* ---- BEGIN: TheAaronSheet.js ---- */
@@ -2869,43 +2738,43 @@ on("change:class sheet:opened", function () {
     var rnotes = values.r_notes;
         switch (classes) {
             case "Cleric":
-                rnotes = "Kleriker <-_-> Primärattribut: WEI -_- Rüstung: jede -_- Waffe: nur stumpfe Waffen -_- Spezialfähigkeit: ab der 2. Stufe können Zauber gewirkt werden";
+                rnotes = "Kleriker <<~~:~~:~~>> Primärattribut: WEI <~~:~~:~~> Rüstung: jede <~~:~~:~~> Waffe: nur stumpfe Waffen <~~:~~:~~> Spezialfähigkeit: ab der 2. Stufe können Zauber gewirkt werden";
                 setAttrs({
                         r_notes : rnotes
                     });
                 break;
             case "Dwarf":
-                rnotes = "Zwerg <-_-> Primärattribut: KON min. 9 -_- Rüstung: jede -_- Waffe: jede, Schild -_- Spezialfähigkeit: .....";
+                rnotes = "Zwerg <<~~:~~:~~>> Primärattribut: KON min. 9 <~~:~~:~~> Rüstung: jede <~~:~~:~~> Waffe: jede, Schild <~~:~~:~~> Spezialfähigkeit: .....";
                 setAttrs({
                         r_notes : rnotes
                     });
                 break;
             case "Elf":
-                rnotes = "Elf <-_-> Primärattribut: .... -_- Rüstung: .... -_- Waffe: .... -_- Spezialfähigkeit: .....";
+                rnotes = "Elf <<~~:~~:~~>> Primärattribut: .... <~~:~~:~~> Rüstung: .... <~~:~~:~~> Waffe: .... <~~:~~:~~> Spezialfähigkeit: .....";
                 setAttrs({
                         r_notes : rnotes
                     });
                 break;
             case "Fighter":
-                rnotes = "Kämpfer <-_-> Primärattribut: .... -_- Rüstung: .... -_- Waffe: .... -_- Spezialfähigkeit: .....";
+                rnotes = "Kämpfer <<~~:~~:~~>> Primärattribut: .... <~~:~~:~~> Rüstung: .... <~~:~~:~~> Waffe: .... <~~:~~:~~> Spezialfähigkeit: .....";
                 setAttrs({
                         r_notes : rnotes
                     });
                 break;
             case "Halfling":
-                rnotes = "Halbling <-_-> Primärattribut: .... -_- Rüstung: .... -_- Waffe: .... -_- Spezialfähigkeit: .....";
+                rnotes = "Halbling <<~~:~~:~~>> Primärattribut: .... <~~:~~:~~> Rüstung: .... <~~:~~:~~> Waffe: .... <~~:~~:~~> Spezialfähigkeit: .....";
                 setAttrs({
                         r_notes : rnotes
                     });
                 break;
             case "MagicUser":
-                rnotes = "Zauberkundiger <-_-> Primärattribut: .... -_- Rüstung: .... -_- Waffe: .... -_- Spezialfähigkeit: .....";
+                rnotes = "Zauberkundiger <<~~:~~:~~>> Primärattribut: .... <~~:~~:~~> Rüstung: .... <~~:~~:~~> Waffe: .... <~~:~~:~~> Spezialfähigkeit: .....";
                 setAttrs({
                         r_notes : rnotes
                     });
                 break;
             case "Thief":
-                rnotes = "Dieb <-_-> Primärattribut: .... -_- Rüstung: .... -_- Waffe: .... -_- Spezialfähigkeit: .....";
+                rnotes = "Dieb <<~~:~~:~~>> Primärattribut: .... <~~:~~:~~> Rüstung: .... <~~:~~:~~> Waffe: .... <~~:~~:~~> Spezialfähigkeit: .....";
                 setAttrs({
                         r_notes : rnotes
                     });
@@ -2939,8 +2808,8 @@ on("change:class sheet:opened", function () {
 				<!--Weapon based attacks-->
 				{{#attack}}
 				<div class="sheet-row">
-					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Attack</div>
-					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">hits AC {{attack}}</div>
+					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Angriff</div>
+					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">Trifft RK {{attack}}</div>
 				</div>
 				{{/attack}}
 				{{#damage}}
@@ -2959,14 +2828,14 @@ on("change:class sheet:opened", function () {
 				{{#spellshowinfoblock}}
 				<div class="sheet-row sheet-padb">
 					<div class="sheet-col-1-2 sheet-padl sheet-padr sheet-center"><span class="sheet-rt-key">Dauer</span><br/><span class="sheet-rt-value">{{spellduration}}</span></div>
-					<div class="sheet-col-1-2 sheet-padl sheet-padr sheet-center"><span class="sheet-rt-key">Target/AoE</span><br/><span class="sheet-rt-value">{{spelltarget}}</span></div>
+					<div class="sheet-col-1-2 sheet-padl sheet-padr sheet-center"><span class="sheet-rt-key">Ziel/Bereich</span><br/><span class="sheet-rt-value">{{spelltarget}}</span></div>
 					<div class="sheet-col-1-2 sheet-padl sheet-padr sheet-center"><span class="sheet-rt-key">Reichw.</span></div>
 					<div class="sheet-col-1-2 sheet-left"><span class="sheet-rt-value">{{spellrange}}</span></div>
 				</div>
 				{{/spellshowinfoblock}}
 				{{#spellshowattack}}
 				<div class="sheet-row">
-					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Attack</div>
+					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Angriff</div>
 					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{spellattack}} AC Hit</div>
 				</div>
 				{{/spellshowattack}}
@@ -2979,7 +2848,7 @@ on("change:class sheet:opened", function () {
 				{{#spellshowhealing}}
 				<div class="sheet-row">
 					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Heilen</div>
-					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{spellhealing}} HP healed</div>
+					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{spellhealing}} TP geheilt</div>
 				</div>
 				{{/spellshowhealing}}
 				{{#spellshowdamage}}
@@ -2990,13 +2859,13 @@ on("change:class sheet:opened", function () {
 				{{/spellshowdamage}}
 				{{#spellshoweffects}}
 				<div class="sheet-row">
-					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Effect</div>
+					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Effekt</div>
 					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{spelleffect}}</div>
 				</div>
 				{{/spellshoweffects}}
 				{{#spellshowsavethrow}}
 				<div class="sheet-row">
-					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Save success</div>
+					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">RW erfolgreich</div>
 					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{spellsavesuccess}}</div>
 				</div>
 				{{/spellshowsavethrow}}
@@ -3013,12 +2882,12 @@ on("change:class sheet:opened", function () {
 					<div class="sheet-col-1-3 sheet-padl sheet-padr sheet-rt-value">{{npc_strength_mod}}</div>
 				</div>
 				<div class="sheet-row">
-					<div class="sheet-col-1-3 sheet-padl sheet-padr sheet-rt-value">DEX</div>
+					<div class="sheet-col-1-3 sheet-padl sheet-padr sheet-rt-value">GES</div>
 					<div class="sheet-col-1-3 sheet-padl sheet-padr sheet-rt-value">{{npc_dexterity}}</div>
 					<div class="sheet-col-1-3 sheet-padl sheet-padr sheet-rt-value">{{npc_dexterity_mod}}</div>
 				</div>
 				<div class="sheet-row">
-					<div class="sheet-col-1-3 sheet-padl sheet-padr sheet-rt-value">CON</div>
+					<div class="sheet-col-1-3 sheet-padl sheet-padr sheet-rt-value">KON</div>
 					<div class="sheet-col-1-3 sheet-padl sheet-padr sheet-rt-value">{{npc_constitution}}</div>
 					<div class="sheet-col-1-3 sheet-padl sheet-padr sheet-rt-value">{{npc_constitution_mod}}</div>
 				</div>
@@ -3028,7 +2897,7 @@ on("change:class sheet:opened", function () {
 					<div class="sheet-col-1-3 sheet-padl sheet-padr sheet-rt-value">{{npc_intelligence_mod}}</div>
 				</div>
 				<div class="sheet-row">
-					<div class="sheet-col-1-3 sheet-padl sheet-padr sheet-rt-value">WIS</div>
+					<div class="sheet-col-1-3 sheet-padl sheet-padr sheet-rt-value">WEI</div>
 					<div class="sheet-col-1-3 sheet-padl sheet-padr sheet-rt-value">{{npc_wisdom}}</div>
 					<div class="sheet-col-1-3 sheet-padl sheet-padr sheet-rt-value">{{npc_wisdom_mod}}</div>
 				</div>
