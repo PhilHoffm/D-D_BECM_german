@@ -273,7 +273,7 @@
  input.sheet-tab2:checked ~ div.sheet-section-class,
  input.sheet-tab3:checked ~ div.sheet-section-combat,
  input.sheet-tab4:checked ~ div.sheet-section-spellbook,
- input.sheet-tab5:checked ~ div.sheet-section-inventory, 
+ input.sheet-tab5:checked ~ div.sheet-section-inventory,
  input.sheet-tab6:checked ~ div.sheet-section-skills {
 	display: block;
 }
@@ -333,7 +333,9 @@
  input.sheet-spelltab4:checked ~ div.sheet-spell-page4,
  input.sheet-spelltab5:checked ~ div.sheet-spell-page5,
  input.sheet-spelltab6:checked ~ div.sheet-spell-page6,
- input.sheet-spelltab7:checked ~ div.sheet-spell-page7 {
+ input.sheet-spelltab7:checked ~ div.sheet-spell-page7,
+ input.sheet-spelltab8:checked ~ div.sheet-spell-page8,
+ input.sheet-spelltab9:checked ~ div.sheet-spell-page9 {
 	display: block;
 }
 
@@ -349,6 +351,8 @@
  input.sheet-spelltab5:checked ~ span.sheet-spelltab5,
  input.sheet-spelltab6:checked ~ span.sheet-spelltab6,
  input.sheet-spelltab7:checked ~ span.sheet-spelltab7,
+ input.sheet-spelltab8:checked ~ span.sheet-spelltab8,
+ input.sheet-spelltab9:checked ~ span.sheet-spelltab9,
  input.sheet-spelltab99:checked ~ span.sheet-spelltab99
  {
 	background: rgb(0,158,115);
@@ -751,6 +755,7 @@ div[class^="sheet-classaction-row"] {
 	width: calc(100% - 10px);
 	height: 150px;
 	resize:none;
+  overflow-y: scroll;
 }
 
  .sheet-fluid-textarea {
